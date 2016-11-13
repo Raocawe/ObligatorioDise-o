@@ -5,10 +5,12 @@
  */
 package Common;
 
+import Common.Utilidades.EnumeradosFabrica;
+
 /**
  *
  * @author cristian castro
  */
-public enum EnumeradosFabrica {
-    Cliente,Carton
+public interface IObjetoFabrica {  
+  
 }

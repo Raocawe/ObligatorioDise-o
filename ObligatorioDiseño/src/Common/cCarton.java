@@ -5,10 +5,21 @@
  */
 package Common;
 
+import Persistencia.pPersistencia;
+
 /**
  *
  * @author cristian castro
  */
-public class cCarton {
+public class cCarton implements IObjetoFabrica{
     
+    private static cCarton SingleCarton = null;
+    
+    public static IObjetoFabrica ObtenerInstancia ()
+    {
+        if (SingleCarton == null) {
+            SingleCarton = new cCarton();
+        }
+        return SingleCarton;
+    }    
 }

@@ -10,7 +10,7 @@ package Common;
  * @author cristian castro
  */
 public class Utilidades {
-    
+       
     public enum EnumeradosTipo {
     
     Admin,Usuario
@@ -19,7 +19,8 @@ public class Utilidades {
     
     public enum EnumeradosFabrica {
         
-    Cliente,Carton
+    Usuario,Carton
     
     }
+    
 }

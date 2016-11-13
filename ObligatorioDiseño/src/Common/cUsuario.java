@@ -9,6 +9,16 @@ package Common;
  *
  * @author cristian castro
  */
-public class cUsuario {
+public class cUsuario implements IObjetoFabrica {
+    
+    private static cUsuario SingleUsuario = null;
+    
+    public static IObjetoFabrica ObtenerInstancia ()
+    {
+        if (SingleUsuario == null) {
+            SingleUsuario = new cUsuario();
+        }
+        return SingleUsuario;
+    }
     
 }
