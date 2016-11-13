@@ -9,8 +9,6 @@ package Common;
  *
  * @author cristian castro
  */
-public enum Enumerados {
-    
-    Admin,Usuario
-    
+public enum EnumeradosFabrica {
+    Cliente,Carton
 }
