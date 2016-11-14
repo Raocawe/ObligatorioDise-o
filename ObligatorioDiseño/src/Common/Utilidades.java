@@ -19,7 +19,7 @@ public class Utilidades {
     
     public enum EnumeradosFabrica {
         
-    Usuario,Carton
+    Usuario,Juego
     
     }
     

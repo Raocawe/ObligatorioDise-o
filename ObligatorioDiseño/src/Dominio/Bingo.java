@@ -7,7 +7,7 @@ package Dominio;
 
 import Common.IObjetoFabrica;
 import Common.Utilidades.EnumeradosFabrica;
-import Common.cCarton;
+import Common.cJuego;
 import Common.cUsuario;
 
 /**
@@ -31,8 +31,8 @@ public class Bingo {
         switch (o) {
             case Usuario:
                 return cUsuario.ObtenerInstancia(); 
-            case Carton:
-                return cCarton.ObtenerInstancia();
+            case Juego:
+                return cJuego.ObtenerInstancia();
             default:
                 return null;
         }
