@@ -74,7 +74,7 @@ public class pJuego extends pPersistencia{
         }
     }
     
-    public cJuego buscar(Object o)throws cException{
+    public cJuego buscarTodos(Object o)throws cException{
         try{
              cJuego unJuego = (cJuego)o;
 

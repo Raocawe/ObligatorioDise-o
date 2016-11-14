@@ -74,7 +74,36 @@ public class pUsuario extends pPersistencia{
         }
     }
     
-    public cUsuario buscar(Object o)throws cException{
+    public cUsuario buscarUsuario(Object o)throws cException{
+        try{
+             cUsuario unCliente = (cUsuario)o;
+
+            super.abrirConexion();
+            Statement st= super.getDistribuidora().createStatement();
+            String selectSql="SELECT * FROM cliente ";
+            if (unCliente.getId() !=0){
+                selectSql=selectSql + " WHERE cId=" + unCliente.getId();
+            }
+            System.out.println(selectSql);
+            ResultSet rs=st.executeQuery(selectSql);
+            unCliente = null;
+            while(rs.next()){
+                unCliente = new cCliente();
+                int num;
+                num = rs.getInt("cId");
+                unCliente.setId(num);
+                unCliente.setNombre(rs.getString("cNombre"));
+            }
+            super.cerrarConexion();
+            if (unCliente != null){
+                return unCliente;
+            }else{
+                return null;
+            }
+        }catch(SQLException e){throw new cException("Error al buscar accion:" + e.getMessage());}
+    }
+    
+    public cUsuario buscarAdministrador(Object o)throws cException{
         try{
              cUsuario unCliente = (cUsuario)o;
 
