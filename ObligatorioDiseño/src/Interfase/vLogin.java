@@ -112,18 +112,24 @@ public class vLogin extends javax.swing.JFrame {
         pr = new Proxy();
         
         try {
-            if(pr.logear(usu) == Common.Utilidades.tipoRet.errorUsu)
+            if(pr.logear(usu) != Common.Utilidades.tipoRet.OK)
             {
-                JOptionPane.showMessageDialog(this, "ERROR USUARIO EQUIVOCADO", "Login", JOptionPane.INFORMATION_MESSAGE);
-                
-            }
-            else try {
-                if(pr.logear(usu) == Common.Utilidades.tipoRet.errorPass)
-                    JOptionPane.showMessageDialog(this, "ERROR CONTRASEÑA EQUIVOCADA", "Login", JOptionPane.INFORMATION_MESSAGE);
-                else
-                    this.hide();
-            } catch (cException ex) {
-                Logger.getLogger(vLogin.class.getName()).log(Level.SEVERE, null, ex);
+                try {
+                    if(pr.logear(usu) == Common.Utilidades.tipoRet.errorUsu)
+                    {
+                        JOptionPane.showMessageDialog(this, "ERROR USUARIO EQUIVOCADO", "Login", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    else try {
+                        if(pr.logear(usu) == Common.Utilidades.tipoRet.errorPass)
+                            JOptionPane.showMessageDialog(this, "ERROR CONTRASEÑA EQUIVOCADA", "Login", JOptionPane.INFORMATION_MESSAGE);
+                        else
+                            this.hide();
+                    } catch (cException ex) {
+                        Logger.getLogger(vLogin.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } catch (cException ex) {
+                    Logger.getLogger(vLogin.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         } catch (cException ex) {
             Logger.getLogger(vLogin.class.getName()).log(Level.SEVERE, null, ex);

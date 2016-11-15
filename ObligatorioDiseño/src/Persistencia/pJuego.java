@@ -26,11 +26,11 @@ public class pJuego extends pPersistencia{
     @Override
     public void modificar(Object o) throws cException {
         try{
-            cJuego pCliente =(cJuego) o;
+            cJuego pJuego =(cJuego) o;
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
                     String updateSql="UPDATE juego SET " +
-                    "cNombre='" + pJuego.getNombre() + "'" +
+                    "cNombre='" + pJuego.get() + "'" +
                     " WHERE IdUsuario=" +  pJuego.getId();
                     System.out.println(updateSql);
                     st.executeUpdate(updateSql);
