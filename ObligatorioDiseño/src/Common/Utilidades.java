@@ -23,4 +23,8 @@ public class Utilidades {
     
     }
     
+    public enum tipoRet{
+    errorUsu, errorPass, OK
+}
+    
 }
