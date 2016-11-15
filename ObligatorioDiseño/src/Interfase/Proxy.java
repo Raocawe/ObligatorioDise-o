@@ -17,7 +17,7 @@ public class Proxy {
     
     Bingo b;
     
-    
+    //dasfasdfasdfa
 
     public tipoRet logear(cUsuario us) throws cException{
         
