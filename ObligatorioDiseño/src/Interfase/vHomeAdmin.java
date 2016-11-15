@@ -101,6 +101,11 @@ public class vHomeAdmin extends javax.swing.JFrame {
         });
 
         btnGuardarCambios.setText("Guardar Cambios");
+        btnGuardarCambios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarCambiosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -190,6 +195,10 @@ public class vHomeAdmin extends javax.swing.JFrame {
     private void txtFilasCartonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFilasCartonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFilasCartonActionPerformed
+
+    private void btnGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCambiosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarCambiosActionPerformed
 
     /**
      * @param args the command line arguments
