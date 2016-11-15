@@ -57,13 +57,4 @@ public class pPersistencia {
     public void setDistribuidora(Connection val) {
         this.distribuidora = val;
     }
-
-    public void agregar(Object o) throws cException {
-    }
-
-    public void modificar(Object o) throws cException {
-    }
-
-    public void eliminar(Object o) throws cException {
-    }
 }
