@@ -23,14 +23,12 @@ public class pUsuario extends pPersistencia{
         super.getInstancia();
     }
     
-    @Override
-    public void agregar(Object o) throws cException {
+    public boolean agregar(cUsuario pCliente) throws cException {
         try{
-            cUsuario unCliente = (cUsuario)o;
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
                String insertSql="INSERT INTO cliente(cId,cNombre)" +
-               "VALUES(" + unCliente.getId() + " ,'" + unCliente.getNombre()  + "')";
+               "VALUES(" + pCliente.getId() + " ,'" + pCliente.getNombre()  + "')";
                System.out.println(insertSql);
                st.executeUpdate(insertSql);
                super.cerrarConexion();
@@ -39,15 +37,13 @@ public class pUsuario extends pPersistencia{
         }
     } 
     
-    @Override
-    public void modificar(Object o) throws cException {
+    public boolean modificar(Object o) throws cException {
         try{
-            cUsuario unCliente = (cUsuario)o;
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
                     String updateSql="UPDATE cliente SET " +
-                    "cNombre='" + unCliente.getNombre() + "'" +
-                    " WHERE cId=" +  unCliente.getId();
+                    "cNombre='" + pCliente.getNombre() + "'" +
+                    " WHERE cId=" +  pCliente.getId();
                     System.out.println(updateSql);
                     st.executeUpdate(updateSql);
                     super.cerrarConexion();
@@ -56,14 +52,12 @@ public class pUsuario extends pPersistencia{
         }
     }
     
-    @Override
-    public void eliminar(Object o) throws cException {
+    public boolean eliminar(cUsuario pCliente) throws cException {
         try{
-            cUsuario unCliente = (cUsuario)o;
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
             String deleteSql="DELETE FROM cliente " +
-                    " WHERE cId=" +  unCliente.getId();
+                    " WHERE cId=" +  pCliente.getId();
             System.out.println(deleteSql);
             st.executeUpdate(deleteSql);
             super.cerrarConexion();
@@ -74,29 +68,28 @@ public class pUsuario extends pPersistencia{
         }
     }
     
-    public cUsuario buscarUsuario(Object o)throws cException{
+    public cUsuario buscarUsuario(cUsuario pCliente)throws cException{
         try{
-             cUsuario unCliente = (cUsuario)o;
 
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
             String selectSql="SELECT * FROM cliente ";
-            if (unCliente.getId() !=0){
-                selectSql=selectSql + " WHERE cId=" + unCliente.getId();
+            if (pCliente.getId() !=0){
+                selectSql=selectSql + " WHERE cId=" + pCliente.getId();
             }
             System.out.println(selectSql);
             ResultSet rs=st.executeQuery(selectSql);
-            unCliente = null;
+            pCliente = null;
             while(rs.next()){
-                unCliente = new cCliente();
+                pCliente = new cUsuario();
                 int num;
                 num = rs.getInt("cId");
-                unCliente.setId(num);
-                unCliente.setNombre(rs.getString("cNombre"));
+                pCliente.setId(num);
+                pCliente.setNombre(rs.getString("cNombre"));
             }
             super.cerrarConexion();
-            if (unCliente != null){
-                return unCliente;
+            if (pCliente != null){
+                return pCliente;
             }else{
                 return null;
             }

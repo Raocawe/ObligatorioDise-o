@@ -22,32 +22,14 @@ public class pJuego extends pPersistencia{
     {
         super.getInstancia();
     }
-    
-    @Override
-    public void agregar(Object o) throws cException {
+       
+    public boolean modificar(cJuego pJuego) throws cException {
         try{
-            cJuego unCliente = (cJuego)o;
-            super.abrirConexion();
-            Statement st= super.getDistribuidora().createStatement();
-               String insertSql="INSERT INTO cliente(cId,cNombre)" +
-               "VALUES(" + unCliente.getId() + " ,'" + unCliente.getNombre()  + "')";
-               System.out.println(insertSql);
-               st.executeUpdate(insertSql);
-               super.cerrarConexion();
-        }catch(SQLException e){
-            throw new cException("ERROR AL INTENTAR INGRESAR CLIENTE:" + e.getMessage());
-        }
-    }
-    
-    @Override
-    public void modificar(Object o) throws cException {
-        try{
-            cJuego unJuego = (cJuego)o;
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
                     String updateSql="UPDATE juego SET " +
-                    "cNombre='" + unJuego.getNombre() + "'" +
-                    " WHERE cId=" +  unJuego.getId();
+                    "cNombre='" + pJuego.getNombre() + "'" +
+                    " WHERE cId=" +  pJuego.getId();
                     System.out.println(updateSql);
                     st.executeUpdate(updateSql);
                     super.cerrarConexion();
@@ -56,14 +38,12 @@ public class pJuego extends pPersistencia{
         }
     }
     
-    @Override
-    public void eliminar(Object o) throws cException {
+    public boolean eliminar(cJuego pJuego) throws cException {
         try{
-            cJuego unJuego = (cJuego)o;
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
             String deleteSql="DELETE FROM juego " +
-                    " WHERE cId=" +  unJuego.getId();
+                    " WHERE cId=" +  pJuego.getId();
             System.out.println(deleteSql);
             st.executeUpdate(deleteSql);
             super.cerrarConexion();
@@ -74,29 +54,27 @@ public class pJuego extends pPersistencia{
         }
     }
     
-    public cJuego buscarTodos(Object o)throws cException{
+    public cJuego buscarTodo()throws cException{
         try{
-             cJuego unJuego = (cJuego)o;
-
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
             String selectSql="SELECT * FROM juego ";
-            if (unJuego.getId() !=0){
-                selectSql=selectSql + " WHERE cId=" + unJuego.getId();
+            if (pJuego.getId() !=0){
+                selectSql=selectSql + " WHERE cId=" + pJuego.getId();
             }
             System.out.println(selectSql);
             ResultSet rs=st.executeQuery(selectSql);
-            unJuego = null;
+            pJuego = null;
             while(rs.next()){
-                unJuego = new cJuego();
+                pJuego = new cJuego();
                 int num;
                 num = rs.getInt("cId");
-                unJuego.setId(num);
-                unJuego.setNombre(rs.getString("cNombre"));
+                pJuego.setId(num);
+                pJuego.setNombre(rs.getString("cNombre"));
             }
             super.cerrarConexion();
-            if (unJuego != null){
-                return unJuego;
+            if (pJuego != null){
+                return pJuego;
             }else{
                 return null;
             }
