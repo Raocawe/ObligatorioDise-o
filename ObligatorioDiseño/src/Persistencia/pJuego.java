@@ -22,14 +22,16 @@ public class pJuego extends pPersistencia{
     {
         super.getInstancia();
     }
-       
-    public boolean modificar(cJuego pJuego) throws cException {
+    
+    @Override
+    public void modificar(Object o) throws cException {
         try{
+            cJuego pCliente =(cJuego) o;
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
                     String updateSql="UPDATE juego SET " +
                     "cNombre='" + pJuego.getNombre() + "'" +
-                    " WHERE cId=" +  pJuego.getId();
+                    " WHERE IdUsuario=" +  pJuego.getId();
                     System.out.println(updateSql);
                     st.executeUpdate(updateSql);
                     super.cerrarConexion();
@@ -38,8 +40,10 @@ public class pJuego extends pPersistencia{
         }
     }
     
-    public boolean eliminar(cJuego pJuego) throws cException {
+    @Override
+    public void eliminar(Object o) throws cException {
         try{
+            cJuego pCliente =(cJuego) o;
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
             String deleteSql="DELETE FROM juego " +

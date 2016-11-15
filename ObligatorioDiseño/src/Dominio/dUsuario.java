@@ -15,22 +15,22 @@ import Persistencia.pUsuario;
  */
 public class dUsuario {
     
-    public boolean Agregar(cUsuario pUsuario) throws cException
+    public void Agregar(cUsuario pUsuario) throws cException
     {
         pUsuario u = new pUsuario();
-        return u.agregar(pUsuario);
+        u.agregar(pUsuario);
     }
     
-    public boolean Modificar(cUsuario pUsuario) throws cException
+    public void Modificar(cUsuario pUsuario) throws cException
     {
         pUsuario u = new pUsuario();
-        return u.modificar(pUsuario);
+        u.modificar(pUsuario);
     }
     
-    public boolean Eliminar(cUsuario pUsuario) throws cException
+    public void Eliminar(cUsuario pUsuario) throws cException
     {
         pUsuario u = new pUsuario();
-        return u.eliminar(pUsuario);
+        u.eliminar(pUsuario);
     }
     
     public cUsuario buscarAdministrador(cUsuario pUsuario) throws cException

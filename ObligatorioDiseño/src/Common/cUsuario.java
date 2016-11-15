@@ -5,6 +5,8 @@
  */
 package Common;
 
+import Common.Utilidades.EnumeradosTipo;
+
 /**
  *
  * @author cristian castro
@@ -23,15 +25,31 @@ public class cUsuario implements IObjetoFabrica {
     }
     // </editor-fold>
 
+    private int IdUsuario;
     private String Nombre;
     private String Apellido;
     private String Contraseña;
     private String Usuario;
     private int Saldo;
+    private EnumeradosTipo Tipo;
     
     public cUsuario(){}
 
     // <editor-fold defaultstate="collapsed" desc=" GetSet ">
+        /**
+     * @return the IdUsuario
+     */
+    public int getIdUsuario() {
+        return IdUsuario;
+    }
+
+    /**
+     * @param IdUsuario the IdUsuario to set
+     */
+    public void setIdUsuario(int IdUsuario) {
+        this.IdUsuario = IdUsuario;
+    }
+    
     /**
      * @return the Nombre
      */
@@ -102,6 +120,19 @@ public class cUsuario implements IObjetoFabrica {
         this.Saldo = Saldo;
     }
     
+    /**
+     * @return the Tipo
+     */
+    public EnumeradosTipo getTipo() {
+        return Tipo;
+    }
+
+    /**
+     * @param Tipo the Tipo to set
+     */
+    public void setTipo(EnumeradosTipo Tipo) {
+        this.Tipo = Tipo;
+    }
     // </editor-fold>
-    
+
 }

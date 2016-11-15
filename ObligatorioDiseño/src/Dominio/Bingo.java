@@ -33,16 +33,16 @@ public class Bingo {
     }
     
     // <editor-fold defaultstate="collapsed" desc=" Juego ">  
-    public boolean ModificarConfiguracion(cJuego pJuego) throws cException
+    public void ModificarConfiguracion(cJuego pJuego) throws cException
     {
         dJuego u = new dJuego();
-        return u.Modificar(pJuego);
+        u.Modificar(pJuego);
     }
     
-    public boolean EliminarConfiguracion(cJuego pJuego) throws cException
+    public void EliminarConfiguracion(cJuego pJuego) throws cException
     {
         dJuego u = new dJuego();
-        return u.Eliminar(pJuego);
+        u.Eliminar(pJuego);
     }
     
     public cJuego buscarTodo() throws cException
@@ -51,23 +51,24 @@ public class Bingo {
         return u.buscarTodo();
     }
     //</editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc=" Usuario ">
-    public boolean AgregarUsuario(cUsuario pUsuario) throws cException
+    public void AgregarUsuario(cUsuario pUsuario) throws cException
     {
         dUsuario u = new dUsuario();
-        return u.Agregar(pUsuario);
+        u.Agregar(pUsuario);
     }
     
-    public boolean ModificarUsuario(cUsuario pUsuario) throws cException
+    public void ModificarUsuario(cUsuario pUsuario) throws cException
     {
         dUsuario u = new dUsuario();
-        return u.Modificar(pUsuario);
+        u.Modificar(pUsuario);
     }
     
-    public boolean Eliminar(cUsuario pUsuario) throws cException
+    public void Eliminar(cUsuario pUsuario) throws cException
     {
         dUsuario u = new dUsuario();
-        return u.Eliminar(pUsuario);
+        u.Eliminar(pUsuario);
     }
     
     public cUsuario buscarAdministrador(cUsuario pUsuario) throws cException

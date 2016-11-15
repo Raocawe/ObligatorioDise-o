@@ -23,8 +23,9 @@ public class pUsuario extends pPersistencia{
         super.getInstancia();
     }
     
-    public boolean agregar(cUsuario pCliente) throws cException {
+    public void agregar(Object o) throws cException {
         try{
+            cUsuario pCliente =(cUsuario) o;
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
                String insertSql="INSERT INTO cliente(cId,cNombre)" +
@@ -37,8 +38,9 @@ public class pUsuario extends pPersistencia{
         }
     } 
     
-    public boolean modificar(Object o) throws cException {
+    public void modificar(Object o) throws cException {
         try{
+            cUsuario pCliente =(cUsuario) o;
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
                     String updateSql="UPDATE cliente SET " +
@@ -52,8 +54,9 @@ public class pUsuario extends pPersistencia{
         }
     }
     
-    public boolean eliminar(cUsuario pCliente) throws cException {
+    public void eliminar(Object o) throws cException {
         try{
+            cUsuario pCliente =(cUsuario) o;
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
             String deleteSql="DELETE FROM cliente " +

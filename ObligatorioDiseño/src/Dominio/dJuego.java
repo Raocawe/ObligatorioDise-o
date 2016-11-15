@@ -15,16 +15,16 @@ import Persistencia.pJuego;
  */
 public class dJuego {
         
-    public boolean Modificar(cJuego pJuego) throws cException
+    public void Modificar(cJuego pJuego) throws cException
     {
         pJuego u = new pJuego();
-        return u.modificar(pJuego);
+        u.modificar(pJuego);
     }
     
-    public boolean Eliminar(cJuego pJuego) throws cException
+    public void Eliminar(cJuego pJuego) throws cException
     {
         pJuego u = new pJuego();
-        return u.eliminar(pJuego);
+        u.eliminar(pJuego);
     }
     
     public cJuego buscarTodo() throws cException
