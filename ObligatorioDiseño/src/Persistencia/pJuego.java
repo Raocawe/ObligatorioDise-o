@@ -30,8 +30,10 @@ public class pJuego extends pPersistencia{
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
                     String updateSql="UPDATE juego SET " +
-                    "cNombre='" + pJuego.get() + "'" +
-                    " WHERE IdUsuario=" +  pJuego.getId();
+                    "CantidadFilas=" + pJuego.getCantidadFilas()+ "" +
+                    "CantidadColumnas=" + pJuego.getCantidadColumnas()+ "" +
+                    "CantidadMaximaCartones=" + pJuego.getCantidadMaximaCartonesXJuegadores()+ "" +
+                    "ValorCarton=" + pJuego.getValorCarton();
                     System.out.println(updateSql);
                     st.executeUpdate(updateSql);
                     super.cerrarConexion();
@@ -39,46 +41,25 @@ public class pJuego extends pPersistencia{
             throw new cException("ERROR AL INTENTAR MODIFICAR CLIENTE:" + e.getMessage());
         }
     }
-    
-    @Override
-    public void eliminar(Object o) throws cException {
-        try{
-            cJuego pCliente =(cJuego) o;
-            super.abrirConexion();
-            Statement st= super.getDistribuidora().createStatement();
-            String deleteSql="DELETE FROM juego " +
-                    " WHERE cId=" +  pJuego.getId();
-            System.out.println(deleteSql);
-            st.executeUpdate(deleteSql);
-            super.cerrarConexion();
-        }
-        catch(SQLException e)
-        {
-            throw new cException("ERROR AL INTENTAR ELIMINAR CLIENTE:" + e.getMessage());
-        }
-    }
-    
+        
     public cJuego buscarTodo()throws cException{
         try{
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
             String selectSql="SELECT * FROM juego ";
-            if (pJuego.getId() !=0){
-                selectSql=selectSql + " WHERE cId=" + pJuego.getId();
-            }
             System.out.println(selectSql);
             ResultSet rs=st.executeQuery(selectSql);
-            pJuego = null;
+            cJuego p = null;
             while(rs.next()){
-                pJuego = new cJuego();
-                int num;
-                num = rs.getInt("cId");
-                pJuego.setId(num);
-                pJuego.setNombre(rs.getString("cNombre"));
+                p = new cJuego();
+                p.setCantidadColumnas(rs.getInt("CantidadColumnas"));
+                p.setCantidadFilas(rs.getInt("CantidadFilas"));
+                p.setCantidadMaximaCartonesXJuegadores(rs.getInt("CantidadMaximaCartones"));
+                p.setValorCarton(rs.getInt("ValorCarton"));
             }
             super.cerrarConexion();
-            if (pJuego != null){
-                return pJuego;
+            if (p != null){
+                return p;
             }else{
                 return null;
             }

@@ -38,13 +38,7 @@ public class Bingo {
         dJuego u = new dJuego();
         u.Modificar(pJuego);
     }
-    
-    public void EliminarConfiguracion(cJuego pJuego) throws cException
-    {
-        dJuego u = new dJuego();
-        u.Eliminar(pJuego);
-    }
-    
+        
     public cJuego buscarTodo() throws cException
     {
         dJuego u = new dJuego();
