@@ -3,6 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/Martin/Desktop/Obligatorio%20Diseño/ObligatorioDiseño/src/Interfase/vLogin.java</file>
+            <file>file:/C:/Users/Martin/Desktop/Obligatorio%20Diseño/ObligatorioDiseño/src/Interfase/Proxy.java</file>
+            <file>file:/C:/Users/Martin/Desktop/Obligatorio%20Diseño/ObligatorioDiseño/src/Interfase/vHomeAdmin.java</file>
+            <file>file:/C:/Users/Martin/Desktop/Obligatorio%20Diseño/ObligatorioDiseño/src/Interfase/vJuego.java</file>
+=======
             <file>file:/C:/Users/cristian%20castro/Desktop/ObligatorioMati/ObligatorioDiseño/src/Common/cJuego.java</file>
             <file>file:/C:/Users/cristian%20castro/Desktop/ObligatorioMati/ObligatorioDiseño/src/Dominio/Bingo.java</file>
             <file>file:/C:/Users/cristian%20castro/Desktop/ObligatorioMati/ObligatorioDiseño/src/Common/cUsuario.java</file>
@@ -12,6 +18,7 @@
             <file>file:/C:/Users/cristian%20castro/Desktop/ObligatorioMati/ObligatorioDiseño/src/Persistencia/pUsuario.java</file>
             <file>file:/C:/Users/cristian%20castro/Desktop/ObligatorioMati/ObligatorioDiseño/src/Persistencia/pPersistencia.java</file>
             <file>file:/C:/Users/cristian%20castro/Desktop/ObligatorioMati/ObligatorioDiseño/src/Common/Utilidades.java</file>
+>>>>>>> 1fcfb3e769d5dfcbe8acacfed7521e979b7a9bc3
         </group>
     </open-files>
 </project-private>

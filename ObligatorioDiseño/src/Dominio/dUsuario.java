@@ -9,10 +9,7 @@ import Common.cException;
 import Common.cUsuario;
 import Persistencia.pUsuario;
 
-/**
- *
- * @author cristian castro
- */
+
 public class dUsuario {
     
     public void Agregar(cUsuario pUsuario) throws cException
@@ -44,5 +41,5 @@ public class dUsuario {
         pUsuario u = new pUsuario();
         return u.buscarUsuario(pUsuario);
     }
-    
+
 }
