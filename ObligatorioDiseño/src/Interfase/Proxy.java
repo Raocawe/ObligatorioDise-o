@@ -6,26 +6,26 @@
 package Interfase;
 
 import Common.Utilidades.tipoRet;
+import Common.cException;
 import Common.cUsuario;
+import Dominio.Bingo;
 /**
  *
  * @author Martin
  */
 public class Proxy {
     
-    Bingo.
+    Bingo b;
     
     
-    
-    
-    
- 
-    public tipoRet logear(cUsuario us){
+
+    public tipoRet logear(cUsuario us) throws cException{
         
         vJuego Juego = new vJuego();
         vHomeAdmin Ha = new vHomeAdmin();
         
-        BuscarUsuEspe(us)
+        b.buscarUsuario(us);
+                
                 if(us != null)
                 {                       
                     //centra la ventana
@@ -40,8 +40,7 @@ public class Proxy {
                       return tipoRet.OK;
                   }
               }
-            
-        
+                  
 }
 
  

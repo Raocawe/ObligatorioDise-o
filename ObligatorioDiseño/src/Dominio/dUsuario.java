@@ -5,22 +5,11 @@
  */
 package Dominio;
 
-<<<<<<< HEAD
-/**
- *
- * @author Martin
- */
-public class dUsuario {
-    
-=======
 import Common.cException;
 import Common.cUsuario;
 import Persistencia.pUsuario;
 
-/**
- *
- * @author cristian castro
- */
+
 public class dUsuario {
     
     public boolean Agregar(cUsuario pUsuario) throws cException
@@ -52,6 +41,5 @@ public class dUsuario {
         pUsuario u = new pUsuario();
         return u.buscarUsuario(pUsuario);
     }
-    
->>>>>>> 1fcfb3e769d5dfcbe8acacfed7521e979b7a9bc3
+
 }

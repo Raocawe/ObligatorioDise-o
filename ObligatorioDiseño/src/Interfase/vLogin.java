@@ -6,8 +6,12 @@
 package Interfase;
 
 import Common.Utilidades;
+import Common.Utilidades.tipoRet;
+import Common.cException;
 import Common.cUsuario;
 import Dominio.Bingo;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,9 +25,9 @@ public class vLogin extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    public vLogin(Bingo b) {
+    public vLogin() {
         initComponents();
-        bin = b;
+
     }
 
     /**
@@ -104,16 +108,26 @@ public class vLogin extends javax.swing.JFrame {
         usu.setNombre(u);
         usu.setContraseña(c);
         Proxy pr;
-        pr = new Proxy(usu);
-        if(pr.logear()==Common.Utilidades.tipoRet.errorUsu)
-        {
-            JOptionPane.showMessageDialog(this, "ERROR USUARIO EQUIVOCADO", "LogIn", JOptionPane.INFORMATION_MESSAGE);
-     
+             
+        pr = new Proxy();
+        
+        try {
+            if(pr.logear(usu) == Common.Utilidades.tipoRet.errorUsu)
+            {
+                JOptionPane.showMessageDialog(this, "ERROR USUARIO EQUIVOCADO", "Login", JOptionPane.INFORMATION_MESSAGE);
+                
+            }
+            else try {
+                if(pr.logear(usu) == Common.Utilidades.tipoRet.errorPass)
+                    JOptionPane.showMessageDialog(this, "ERROR CONTRASEÑA EQUIVOCADA", "Login", JOptionPane.INFORMATION_MESSAGE);
+                else
+                    this.hide();
+            } catch (cException ex) {
+                Logger.getLogger(vLogin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (cException ex) {
+            Logger.getLogger(vLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        else if(pr.logear() == Common.Utilidades.tipoRet.errorPass)
-        JOptionPane.showMessageDialog(this, "ERROR CONTRASEÑA EQUIVOCADA", "LogIn", JOptionPane.INFORMATION_MESSAGE);
-        else 
-            this.hide();
         
     }//GEN-LAST:event_btnIngresarActionPerformed
 
