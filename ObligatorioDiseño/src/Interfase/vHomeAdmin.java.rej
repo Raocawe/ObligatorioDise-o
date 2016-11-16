@@ -1,0 +1,9 @@
+diff a/ObligatorioDiseño/src/Interfase/vHomeAdmin.java b/ObligatorioDiseño/src/Interfase/vHomeAdmin.java	(rejected hunks)
+@@ -152,6 +152,7 @@
+         // TODO add your handling code here:
+     }//GEN-LAST:event_txtFilasCartonActionPerformed
+ 
++<<<<<<< HEAD
+     private void txtColumnCartonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtColumnCartonActionPerformed
+         // TODO add your handling code here:
+     }//GEN-LAST:event_txtColumnCartonActionPerformed
