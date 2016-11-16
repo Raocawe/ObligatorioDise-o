@@ -118,7 +118,15 @@ public class vHomeAdmin extends javax.swing.JFrame {
 
         btnGuardarCambios.setFont(new java.awt.Font("Yu Mincho", 2, 18)); // NOI18N
         btnGuardarCambios.setText("Guardar Cambios");
+<<<<<<< HEAD
         jPanel2.add(btnGuardarCambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 190, 50));
+=======
+        btnGuardarCambios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarCambiosActionPerformed(evt);
+            }
+        });
+>>>>>>> 2d004af182b084b24b34b5cab2ee062b95811ee3
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.png"))); // NOI18N
         jLabel8.setText("jLabel8");
@@ -144,9 +152,15 @@ public class vHomeAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFilasCartonActionPerformed
 
+<<<<<<< HEAD
     private void txtColumnCartonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtColumnCartonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtColumnCartonActionPerformed
+=======
+    private void btnGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCambiosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarCambiosActionPerformed
+>>>>>>> 2d004af182b084b24b34b5cab2ee062b95811ee3
 
     /**
      * @param args the command line arguments

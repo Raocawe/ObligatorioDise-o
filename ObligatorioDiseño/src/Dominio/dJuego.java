@@ -21,12 +21,6 @@ public class dJuego {
         u.modificar(pJuego);
     }
     
-    public void Eliminar(cJuego pJuego) throws cException
-    {
-        pJuego u = new pJuego();
-        u.eliminar(pJuego);
-    }
-    
     public cJuego buscarTodo() throws cException
     {
         pJuego u = new pJuego();
