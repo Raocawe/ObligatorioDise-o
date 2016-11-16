@@ -5,9 +5,11 @@
         <group>
             <file>file:/C:/Users/MartinH/Documents/ObligatorioDise-o/ObligatorioDiseño/src/Interfase/Proxy.java</file>
             <file>file:/C:/Users/MartinH/Documents/ObligatorioDise-o/ObligatorioDiseño/src/Interfase/vJuego.java</file>
+            <file>file:/C:/Users/MartinH/Documents/ObligatorioDise-o/ObligatorioDiseño/src/Persistencia/pJuego.java</file>
             <file>file:/C:/Users/MartinH/Documents/ObligatorioDise-o/ObligatorioDiseño/src/Interfase/vLogin.java</file>
             <file>file:/C:/Users/MartinH/Documents/ObligatorioDise-o/ObligatorioDiseño/src/Interfase/vHomeAdmin.java</file>
-            <file>file:/C:/Users/MartinH/Documents/ObligatorioDise-o/ObligatorioDiseño/src/Interfase/vJugarJugador.java</file>
+            <file>file:/C:/Users/MartinH/Documents/ObligatorioDise-o/ObligatorioDiseño/src/Interfase/vJugador.java</file>
+            <file>file:/C:/Users/MartinH/Documents/ObligatorioDise-o/ObligatorioDiseño/src/Persistencia/pUsuario.java</file>
         </group>
     </open-files>
 </project-private>
