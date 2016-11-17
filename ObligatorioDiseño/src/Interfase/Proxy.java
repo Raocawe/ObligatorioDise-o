@@ -15,7 +15,7 @@ import Dominio.Bingo;
  */
 public class Proxy {
     
-    Bingo b;
+    Bingo b = new Bingo();
    
     public tipoRet logear(cUsuario us) throws cException{
         

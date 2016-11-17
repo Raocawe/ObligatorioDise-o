@@ -5,12 +5,18 @@
  */
 package Interfase;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author MartinH
  */
 public class vAdmin extends javax.swing.JFrame {
 
+    int CantCarMax;
+    int CantColumn;
+    int CantFilas;
+    int Precion;
     /**
      * Creates new form vAdmin
      */
@@ -98,6 +104,11 @@ public class vAdmin extends javax.swing.JFrame {
 
         btnGuardarConfig.setFont(new java.awt.Font("Yu Mincho", 2, 24)); // NOI18N
         btnGuardarConfig.setText("Guardar Configuraciones");
+        btnGuardarConfig.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarConfigActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnGuardarConfig, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
@@ -115,6 +126,20 @@ public class vAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnGuardarConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarConfigActionPerformed
+        CantCarMax = Integer.parseInt(this.txtCantCarJug.getText().toString());
+        CantColumn = Integer.parseInt(this.txtCantColumn.getText().toString());
+        Precion = Integer.parseInt(this.txtPrecio.getText().toString());
+        CantFilas = Integer.parseInt(this.txtCantFilas.getText().toString());
+        
+        
+    }//GEN-LAST:event_btnGuardarConfigActionPerformed
+    
+    public boolean Validar()
+    {
+        return true;
+    }
+    
     /**
      * @param args the command line arguments
      */

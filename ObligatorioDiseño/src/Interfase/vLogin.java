@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class vLogin extends javax.swing.JFrame {
 
-    Bingo bin;
+    Bingo bin = new Bingo();
     
     /**
      * Creates new form Login
@@ -97,8 +97,8 @@ public class vLogin extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
        
-        String u = txtUsuario.getText();
-        String c = txtContraseña.getText();
+        String u = txtUsuario.getText().toString();
+        String c = txtContraseña.getText().toString();
         cUsuario usu = (cUsuario)bin.CrearObjeto(Utilidades.EnumeradosFabrica.Usuario);
         usu.setNombre(u);
         usu.setContraseña(c);
