@@ -43,7 +43,7 @@ public class Proxy {
                 
                 else
                 {
-                   //hola
+                   return tipoRet.errorPass;
                 }
               }
                   
