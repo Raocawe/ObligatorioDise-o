@@ -105,7 +105,7 @@ public class pUsuario extends pPersistencia{
             Statement st= super.getDistribuidora().createStatement();
             String selectSql="SELECT * FROM usuario ";
             if (pCliente.getIdUsuario() !=0){
-                selectSql=selectSql + " WHERE IdUsuario=" + pCliente.getIdUsuario() + "and Tipo ='"+ EnumeradosTipo.Usuario.toString()+"'";
+                selectSql=selectSql + " WHERE Usuario='" + pCliente.getUsuario()+ "' and Contraseña ='"+ pCliente.getContraseña()+"'";
             }
             System.out.println(selectSql);
             ResultSet rs=st.executeQuery(selectSql);

@@ -5,27 +5,29 @@
  */
 package Interfase;
 
+import Common.Utilidades;
 import Common.Utilidades.tipoRet;
 import Common.cException;
 import Common.cUsuario;
 import Dominio.Bingo;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Martin
  */
 public class Proxy {
     
-    Bingo b;
+    Bingo b = new Bingo();
    
     public tipoRet logear(cUsuario us) throws cException{
         
         
         vJuego Juego = new vJuego();
-        vAdmin Ha = new vAdmin();
+        vAdmin A = new vAdmin();
         
         b.buscarUsuario(us);
                 
-                if(us != null)
+                if(us.getTipo() == Utilidades.EnumeradosTipo.Usuario )
                 {                       
                     //centra la ventana
                     Juego.setLocationRelativeTo(null);
@@ -33,11 +35,16 @@ public class Proxy {
                     Juego.setVisible(true);
                     return tipoRet.OK;
                 }
-                  else
+                else if (us.getTipo() == Utilidades.EnumeradosTipo.Usuario)
                 {
-                      Ha.setVisible(true);
+                      A.setVisible(true);
                       return tipoRet.OK;
                   }
+                
+                else
+                {
+                   //hola
+                }
               }
                   
 }
