@@ -137,6 +137,13 @@ public class vAdmin extends javax.swing.JFrame {
     
     public boolean Validar()
     {
+        if(CantCarMax<11&&CantCarMax>0)
+        {
+            if(CantColumn<11&&CantColumn>0)
+            {
+                if(CantFilas<11&&CantF)
+            }
+        }
         return true;
     }
     
