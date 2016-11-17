@@ -56,24 +56,6 @@ public class pJuego extends pPersistencia{
         }
     }
     
-    @Override
-    public void eliminar(Object o) throws cException {
-        try{
-            cJuego unJuego = (cJuego)o;
-            super.abrirConexion();
-            Statement st= super.getDistribuidora().createStatement();
-            String deleteSql="DELETE FROM juego " +
-                    " WHERE cId=" +  unJuego.getId();
-            System.out.println(deleteSql);
-            st.executeUpdate(deleteSql);
-            super.cerrarConexion();
-        }
-        catch(SQLException e)
-        {
-            throw new cException("ERROR AL INTENTAR ELIMINAR CLIENTE:" + e.getMessage());
-        }
-    }
-    
     public cJuego buscarTodos(Object o)throws cException{
         try{
              cJuego unJuego = (cJuego)o;

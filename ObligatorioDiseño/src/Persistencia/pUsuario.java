@@ -23,8 +23,7 @@ public class pUsuario extends pPersistencia{
         super.getInstancia();
     }
     
-    @Override
-    public void agregar(Object o) throws cException {
+    public boolean agregar(Object o) throws cException {
         try{
             cUsuario unCliente = (cUsuario)o;
             super.abrirConexion();
@@ -39,8 +38,7 @@ public class pUsuario extends pPersistencia{
         }
     } 
     
-    @Override
-    public void modificar(Object o) throws cException {
+    public boolean modificar(Object o) throws cException {
         try{
             cUsuario unCliente = (cUsuario)o;
             super.abrirConexion();
@@ -56,8 +54,7 @@ public class pUsuario extends pPersistencia{
         }
     }
     
-    @Override
-    public void eliminar(Object o) throws cException {
+    public boolean eliminar(Object o) throws cException {
         try{
             cUsuario unCliente = (cUsuario)o;
             super.abrirConexion();
