@@ -35,9 +35,9 @@ public class vAdmin extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        ComboxJ = new javax.swing.JComboBox();
+        btnAgregarJug = new javax.swing.JButton();
+        btnComenzarPartida = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -58,17 +58,22 @@ public class vAdmin extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jComboBox1.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 80, 50));
+        ComboxJ.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
+        ComboxJ.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        jPanel1.add(ComboxJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 80, 50));
 
-        jButton2.setFont(new java.awt.Font("Yu Mincho", 2, 24)); // NOI18N
-        jButton2.setText("Agregar Jugadores");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, -1, -1));
+        btnAgregarJug.setFont(new java.awt.Font("Yu Mincho", 2, 24)); // NOI18N
+        btnAgregarJug.setText("Agregar Jugadores");
+        btnAgregarJug.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarJugActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAgregarJug, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, -1, -1));
 
-        jButton3.setFont(new java.awt.Font("Yu Mincho", 2, 24)); // NOI18N
-        jButton3.setText("Comenzar Partida");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, -1));
+        btnComenzarPartida.setFont(new java.awt.Font("Yu Mincho", 2, 24)); // NOI18N
+        btnComenzarPartida.setText("Comenzar Partida");
+        jPanel1.add(btnComenzarPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.png"))); // NOI18N
         jLabel8.setText("jLabel8");
@@ -126,6 +131,24 @@ public class vAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
+    
+    
+    
+    private void btnAgregarJugActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarJugActionPerformed
+       
+        
+        String CantJ;
+        
+        CantJ = (String) ComboxJ.getSelectedItem();
+        for(int i=0; i<CantJ.length(); i++)
+        {
+           vLogin L = new vLogin();
+           L.setVisible(true);
+        }
+    }//GEN-LAST:event_btnAgregarJugActionPerformed
+
+=======
     private void btnGuardarConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarConfigActionPerformed
         CantCarMax = Integer.parseInt(this.txtCantCarJug.getText().toString());
         CantColumn = Integer.parseInt(this.txtCantColumn.getText().toString());
@@ -147,6 +170,7 @@ public class vAdmin extends javax.swing.JFrame {
         return true;
     }
     
+>>>>>>> c44e576b6cba1ffe6127a1ce3fd70f239206cca9
     /**
      * @param args the command line arguments
      */
@@ -183,10 +207,10 @@ public class vAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox ComboxJ;
+    private javax.swing.JButton btnAgregarJug;
+    private javax.swing.JButton btnComenzarPartida;
     private javax.swing.JButton btnGuardarConfig;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
