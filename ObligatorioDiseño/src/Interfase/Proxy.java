@@ -19,33 +19,28 @@ public class Proxy {
     
     Bingo b = new Bingo();
    
-    public tipoRet logear(cUsuario us) throws cException{
-        
-        
-        vJuego Juego = new vJuego();
-        vAdmin A = new vAdmin();
-        
+    public boolean logear(cUsuario us) throws cException
+    {       
         b.buscarUsuario(us);
-                
+            if(us != null){     
                 if(us.getTipo() == Utilidades.EnumeradosTipo.Usuario )
-                {                       
-                    //centra la ventana
-                    Juego.setLocationRelativeTo(null);
-                    //mostramos la ventana
-                    Juego.setVisible(true);
-                    return tipoRet.OK;
-                }
-                else if (us.getTipo() == Utilidades.EnumeradosTipo.Usuario)
                 {
-                      A.setVisible(true);
-                      return tipoRet.OK;
-                  }
-                
+                    vJuego Juego = new vJuego();
+                    Juego.setLocationRelativeTo(null);
+                    Juego.setVisible(true);
+                    return true;
+                }
                 else
                 {
-                   return tipoRet.errorPass;
+                    vAdmin A = new vAdmin();
+                    A.setLocationRelativeTo(null);
+                    A.setVisible(true);
+                    return true;
                 }
-              }
+            }
+            else 
+                return false;
+    }
                   
 }
 

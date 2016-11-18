@@ -30,9 +30,9 @@ public class pJuego extends pPersistencia{
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
                     String updateSql="UPDATE juego SET " +
-                    "CantidadFilas=" + pJuego.getCantidadFilas()+ "" +
-                    "CantidadColumnas=" + pJuego.getCantidadColumnas()+ "" +
-                    "CantidadMaximaCartones=" + pJuego.getCantidadMaximaCartonesXJuegadores()+ "" +
+                    "CantidadFilas=" + pJuego.getCantidadFilas()+ "," +
+                    "CantidadColumnas=" + pJuego.getCantidadColumnas()+ "," +
+                    "CantidadMaximaCartones=" + pJuego.getCantidadMaximaCartonesXJuegadores()+ "," +
                     "ValorCarton=" + pJuego.getValorCarton();
                     System.out.println(updateSql);
                     st.executeUpdate(updateSql);

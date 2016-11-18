@@ -5,6 +5,14 @@
  */
 package Interfase;
 
+import Common.Utilidades;
+import Common.Utilidades.tipoRet;
+import Common.cException;
+import Common.cJuego;
+import Dominio.Bingo;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -16,7 +24,7 @@ public class vAdmin extends javax.swing.JFrame {
     int CantCarMax;
     int CantColumn;
     int CantFilas;
-    int Precion;
+    int Precio = 0;
     /**
      * Creates new form vAdmin
      */
@@ -131,15 +139,12 @@ public class vAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
-    
+  
     
     
     private void btnAgregarJugActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarJugActionPerformed
-       
-        
-        String CantJ;
-        
+  
+        String CantJ;       
         CantJ = (String) ComboxJ.getSelectedItem();
         for(int i=0; i<CantJ.length(); i++)
         {
@@ -148,29 +153,71 @@ public class vAdmin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAgregarJugActionPerformed
 
-=======
+
     private void btnGuardarConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarConfigActionPerformed
+        
         CantCarMax = Integer.parseInt(this.txtCantCarJug.getText().toString());
         CantColumn = Integer.parseInt(this.txtCantColumn.getText().toString());
-        Precion = Integer.parseInt(this.txtPrecio.getText().toString());
+        Precio = Integer.parseInt(this.txtPrecio.getText().toString());
         CantFilas = Integer.parseInt(this.txtCantFilas.getText().toString());
-        
-        
+        if(Validar() == tipoRet.OK)
+        {
+            Bingo b = Bingo.getInstancia();
+            cJuego j = (cJuego)b.CrearObjeto(Utilidades.EnumeradosFabrica.Juego);
+            j.setCantidadColumnas(CantColumn);
+            j.setCantidadFilas(CantFilas);
+            j.setCantidadMaximaCartonesXJuegadores(CantCarMax);
+            j.setValorCarton(Precio);
+            
+            try {
+                b.ModificarConfiguracion(j);
+            } catch (cException ex) {
+                Logger.getLogger(vAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if(Validar() == tipoRet.CantColumE)
+        {
+            JOptionPane.showMessageDialog(this, "ERROR 'CantidadColumnas' No Cumple Con Las Reglas\n"
+                    + "Valor(1-10)", "Login", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(Validar() == tipoRet.CantFilaE)
+        {
+            JOptionPane.showMessageDialog(this, "ERROR 'CantidadFilas' No Cumple Con Las Reglas\n"
+                    + "Valor(1-10)", "Login", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(Validar() == tipoRet.CartonesE)
+        {
+            JOptionPane.showMessageDialog(this, "ERROR 'CantidadDeCartonesPorJugador' \nNo Cumple Con Las Reglas"
+                    + "Valor(1-10)", "Login", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(Validar() == tipoRet.Precio)
+        {
+            JOptionPane.showMessageDialog(this, "ERROR 'Precio' No Cumple Con Las Reglas\n"
+                    + "Valor Mayor A '0'", "Login", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_btnGuardarConfigActionPerformed
     
-    public boolean Validar()
+    public tipoRet Validar()
     {
         if(CantCarMax<11&&CantCarMax>0)
         {
             if(CantColumn<11&&CantColumn>0)
             {
-                if(CantFilas<11&&CantF)
+                if(CantFilas<11&&CantFilas>0)
+                {
+                    if(Precio > 0)
+                    {
+                        return tipoRet.OK;
+                    }
+                    return tipoRet.Precio;
+                }
+                return tipoRet.CantFilaE;
             }
+            return tipoRet.CantColumE;
         }
-        return true;
+        return tipoRet.CartonesE;
     }
     
->>>>>>> c44e576b6cba1ffe6127a1ce3fd70f239206cca9
     /**
      * @param args the command line arguments
      */

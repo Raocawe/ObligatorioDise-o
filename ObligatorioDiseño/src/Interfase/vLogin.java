@@ -105,26 +105,10 @@ public class vLogin extends javax.swing.JFrame {
         Proxy pr;
              
         pr = new Proxy();
-        
         try {
-            if(pr.logear(usu) != Common.Utilidades.tipoRet.OK)
+            if(!pr.logear(usu))
             {
-                try {
-                    if(pr.logear(usu) == Common.Utilidades.tipoRet.errorUsu)
-                    {
-                        JOptionPane.showMessageDialog(this, "ERROR USUARIO EQUIVOCADO", "Login", JOptionPane.INFORMATION_MESSAGE);
-                    }
-                    else try {
-                        if(pr.logear(usu) == Common.Utilidades.tipoRet.errorPass)
-                            JOptionPane.showMessageDialog(this, "ERROR CONTRASEÑA EQUIVOCADA", "Login", JOptionPane.INFORMATION_MESSAGE);
-                        else
-                            this.hide();
-                    } catch (cException ex) {
-                        Logger.getLogger(vLogin.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                } catch (cException ex) {
-                    Logger.getLogger(vLogin.class.getName()).log(Level.SEVERE, null, ex);
-                }
+               JOptionPane.showMessageDialog(this, "ERROR USUARIO NO ENCONTRADO", "Login", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (cException ex) {
             Logger.getLogger(vLogin.class.getName()).log(Level.SEVERE, null, ex);
