@@ -176,6 +176,7 @@ public class vAdmin extends javax.swing.JFrame {
             
             try {
                 b.ModificarConfiguracion(j);
+                JOptionPane.showMessageDialog(this, "Configuraciones Modificadas", "Login", JOptionPane.INFORMATION_MESSAGE);
             } catch (cException ex) {
                 Logger.getLogger(vAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -100,7 +100,7 @@ public class vLogin extends javax.swing.JFrame {
         String u = txtUsuario.getText().toString();
         String c = txtContraseña.getText().toString();
         cUsuario usu = (cUsuario)bin.CrearObjeto(Utilidades.EnumeradosFabrica.Usuario);
-        usu.setNombre(u);
+        usu.setUsuario(u);
         usu.setContraseña(c);
         Proxy pr;
              

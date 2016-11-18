@@ -18,13 +18,15 @@ import javax.swing.JOptionPane;
 public class Proxy {
     
     Bingo b = new Bingo();
+    vLogin vl = new vLogin();
    
     public boolean logear(cUsuario us) throws cException
     {       
-        b.buscarUsuario(us);
+        us = b.buscarUsuario(us);
             if(us != null){     
                 if(us.getTipo() == Utilidades.EnumeradosTipo.Usuario )
                 {
+                    vl.setVisible(false);
                     vJuego Juego = new vJuego();
                     Juego.setLocationRelativeTo(null);
                     Juego.setVisible(true);
@@ -32,6 +34,7 @@ public class Proxy {
                 }
                 else
                 {
+                    vl.setVisible(false);
                     vAdmin A = new vAdmin();
                     A.setLocationRelativeTo(null);
                     A.setVisible(true);

@@ -103,10 +103,7 @@ public class pUsuario extends pPersistencia{
 
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
-            String selectSql="SELECT * FROM usuario ";
-            if (pCliente.getIdUsuario() !=0){
-                selectSql=selectSql + " WHERE Usuario='" + pCliente.getUsuario()+ "' and Contraseña ='"+ pCliente.getContraseña()+"'";
-            }
+            String selectSql="SELECT * FROM usuario WHERE Usuario='" + pCliente.getUsuario()+ "' and Contraseña ='"+ pCliente.getContraseña()+"'";
             System.out.println(selectSql);
             ResultSet rs=st.executeQuery(selectSql);
             pCliente = null;
@@ -119,7 +116,15 @@ public class pUsuario extends pPersistencia{
                 pCliente.setApellido(rs.getString("Apellido"));
                 pCliente.setUsuario(rs.getString("Usuario"));
                 pCliente.setContraseña(rs.getString("Contraseña"));
-                pCliente.setTipo(EnumeradosTipo.Usuario);
+                if(rs.getString("Tipo") == "Usuario")
+                {
+                    pCliente.setTipo(EnumeradosTipo.Usuario);
+                }
+                else
+                {
+                    pCliente.setTipo(EnumeradosTipo.Admin);
+                }
+                    
                 pCliente.setSaldo(rs.getInt("Saldo"));
             }
             super.cerrarConexion();
