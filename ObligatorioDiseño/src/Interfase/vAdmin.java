@@ -68,6 +68,11 @@ public class vAdmin extends javax.swing.JFrame {
 
         ComboxJ.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
         ComboxJ.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        ComboxJ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboxJActionPerformed(evt);
+            }
+        });
         jPanel1.add(ComboxJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 80, 50));
 
         btnAgregarJug.setFont(new java.awt.Font("Yu Mincho", 2, 24)); // NOI18N
@@ -196,6 +201,10 @@ public class vAdmin extends javax.swing.JFrame {
                     + "Valor Mayor A '0'", "Login", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnGuardarConfigActionPerformed
+
+    private void ComboxJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboxJActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboxJActionPerformed
     
     public tipoRet Validar()
     {
