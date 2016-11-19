@@ -156,7 +156,6 @@ public class vAdmin extends javax.swing.JFrame {
         // <editor-fold defaultstate="collapsed" desc=" AberturaDePantallas ">     
         String CantJ = (String) ComboxJ.getSelectedItem();
         int cantidad = Integer.valueOf(CantJ);
-        vl.Pantallas = cantidad;
         for(int i=0; i<cantidad; i++)
         {
            vLogin p = pantallas[i];

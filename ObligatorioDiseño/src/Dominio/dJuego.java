@@ -14,7 +14,6 @@ import Persistencia.pJuego;
  * @author cristian castro
  */
 public class dJuego {
-    boolean Estado = false;
         
     public void Modificar(cJuego pJuego) throws cException
     {
@@ -30,6 +29,7 @@ public class dJuego {
     
     public void ComenzarPartida()
     {
+        int i = 0;
         //Metodo
         //trolololololol
     }

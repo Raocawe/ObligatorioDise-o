@@ -23,7 +23,7 @@ public class cHilo implements Runnable{
     @Override
     public void run() {
         
-        while(pantalla.Pantallas != pantalla.PantallasLogueadas)
+        while(pantalla.isEstado() == false)
         {
             //Esperado A Que Se Logee
         }

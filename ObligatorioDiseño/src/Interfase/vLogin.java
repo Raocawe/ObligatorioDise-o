@@ -21,8 +21,7 @@ import javax.swing.JOptionPane;
 public class vLogin extends javax.swing.JFrame {
 
     public Bingo bin = new Bingo();
-    public static int Pantallas = 0;
-    public static int PantallasLogueadas = 0;
+    private boolean Estado = false;
     
     /**
      * Creates new form Login
@@ -108,7 +107,7 @@ public class vLogin extends javax.swing.JFrame {
              
         pr = new Proxy();
         try {
-            if(!pr.logear(usu))
+            if(!pr.logear(usu,this))
             {
                JOptionPane.showMessageDialog(this, "ERROR USUARIO NO ENCONTRADO", "Login", JOptionPane.INFORMATION_MESSAGE);
             }
@@ -166,4 +165,18 @@ public class vLogin extends javax.swing.JFrame {
     private javax.swing.JTextField txtContraseña;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the Estado
+     */
+    public boolean isEstado() {
+        return Estado;
+    }
+
+    /**
+     * @param Estado the Estado to set
+     */
+    public void setEstado(boolean Estado) {
+        this.Estado = Estado;
+    }
 }
