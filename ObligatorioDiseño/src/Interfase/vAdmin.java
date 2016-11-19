@@ -10,6 +10,8 @@ import Common.Utilidades.tipoRet;
 import Common.cException;
 import Common.cJuego;
 import Dominio.Bingo;
+import Interfase.vLogin;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -21,6 +23,8 @@ import javax.swing.JTextField;
  */
 public class vAdmin extends javax.swing.JFrame {
 
+    vLogin[] pantallas = new vLogin[10]; 
+    
     int CantCarMax;
     int CantColumn;
     int CantFilas;
@@ -146,10 +150,13 @@ public class vAdmin extends javax.swing.JFrame {
   
         String CantJ;       
         CantJ = (String) ComboxJ.getSelectedItem();
-        for(int i=0; i<CantJ.length(); i++)
+        for(int i=0; i<Integer.valueOf(CantJ); i++)
         {
-           vLogin L = new vLogin();
-           L.setVisible(true);
+           vLogin p = pantallas[i];
+           p = new vLogin();
+           p.setVisible(true);
+           if(i!=0)
+           p.setLocationRelativeTo(pantallas[i-1]);///PREGUNTAR MATI
         }
     }//GEN-LAST:event_btnAgregarJugActionPerformed
 

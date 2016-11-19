@@ -27,7 +27,7 @@ public class Proxy {
                 if(us.getTipo() == Utilidades.EnumeradosTipo.Usuario )
                 {
                     vl.setVisible(false);
-                    vJuego Juego = new vJuego();
+                    vJugador Juego = new vJugador();
                     Juego.setLocationRelativeTo(null);
                     Juego.setVisible(true);
                     return true;
