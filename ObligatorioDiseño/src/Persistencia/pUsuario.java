@@ -116,13 +116,18 @@ public class pUsuario extends pPersistencia{
                 pCliente.setApellido(rs.getString("Apellido"));
                 pCliente.setUsuario(rs.getString("Usuario"));
                 pCliente.setContraseña(rs.getString("Contraseña"));
-                if(rs.getString("Tipo") == "Usuario")
+                String Tipo = rs.getString("Tipo");
+                if(Tipo.equals("Usuario"))
                 {
                     pCliente.setTipo(EnumeradosTipo.Usuario);
                 }
-                else
+                else if(Tipo.equals("Admin"))
                 {
                     pCliente.setTipo(EnumeradosTipo.Admin);
+                }
+                else
+                {
+                    return null;
                 }
                     
                 pCliente.setSaldo(rs.getInt("Saldo"));

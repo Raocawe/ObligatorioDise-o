@@ -5,11 +5,10 @@
         <group>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Persistencia/pPersistencia.java</file>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vAdmin.java</file>
+            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vLogin.java</file>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vJuego.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/obligatoriodiseño/Bingo.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vJugador.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Dominio/dUsuario.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Common/cUsuario.java</file>
+            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/Proxy.java</file>
+            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Persistencia/pUsuario.java</file>
         </group>
     </open-files>
 </project-private>

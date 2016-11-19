@@ -45,7 +45,6 @@ public class vAdmin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         ComboxJ = new javax.swing.JComboBox();
         btnAgregarJug = new javax.swing.JButton();
-        btnComenzarPartida = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -76,17 +75,13 @@ public class vAdmin extends javax.swing.JFrame {
         jPanel1.add(ComboxJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 80, 50));
 
         btnAgregarJug.setFont(new java.awt.Font("Yu Mincho", 2, 24)); // NOI18N
-        btnAgregarJug.setText("Agregar Jugadores");
+        btnAgregarJug.setText("Comenzar Partida");
         btnAgregarJug.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarJugActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAgregarJug, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, -1, -1));
-
-        btnComenzarPartida.setFont(new java.awt.Font("Yu Mincho", 2, 24)); // NOI18N
-        btnComenzarPartida.setText("Comenzar Partida");
-        jPanel1.add(btnComenzarPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, -1));
+        jPanel1.add(btnAgregarJug, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.png"))); // NOI18N
         jLabel8.setText("jLabel8");
@@ -266,7 +261,6 @@ public class vAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox ComboxJ;
     private javax.swing.JButton btnAgregarJug;
-    private javax.swing.JButton btnComenzarPartida;
     private javax.swing.JButton btnGuardarConfig;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
