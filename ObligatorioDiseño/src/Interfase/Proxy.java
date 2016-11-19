@@ -27,7 +27,6 @@ public class Proxy {
                 {
                     l.setVisible(false);
                     vJugador Juego = new vJugador();
-                    Juego.setLocationRelativeTo(null);
                     Juego.setVisible(true);
                     l.setEstado(true);
                     return true;

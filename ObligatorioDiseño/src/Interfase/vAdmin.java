@@ -175,6 +175,8 @@ public class vAdmin extends javax.swing.JFrame {
         // </editor-fold>
         
         
+        
+        this.setVisible(false);
     }//GEN-LAST:event_btnAgregarJugActionPerformed
 
 
