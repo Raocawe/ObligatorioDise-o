@@ -30,6 +30,7 @@ public class Proxy {
                     vJugador Juego = new vJugador();
                     Juego.setLocationRelativeTo(null);
                     Juego.setVisible(true);
+                    vl.PantallasLogueadas++;
                     return true;
                 }
                 else

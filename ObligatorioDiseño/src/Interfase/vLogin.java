@@ -20,7 +20,9 @@ import javax.swing.JOptionPane;
  */
 public class vLogin extends javax.swing.JFrame {
 
-    Bingo bin = new Bingo();
+    public Bingo bin = new Bingo();
+    public static int Pantallas = 0;
+    public static int PantallasLogueadas = 0;
     
     /**
      * Creates new form Login
@@ -113,6 +115,7 @@ public class vLogin extends javax.swing.JFrame {
         } catch (cException ex) {
             Logger.getLogger(vLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         
     }//GEN-LAST:event_btnIngresarActionPerformed
 

@@ -8,7 +8,9 @@ package Interfase;
 import Common.Utilidades;
 import Common.Utilidades.tipoRet;
 import Common.cException;
+import Common.cHilo;
 import Common.cJuego;
+import Common.cSupervisor;
 import Dominio.Bingo;
 import Interfase.vLogin;
 import java.util.ArrayList;
@@ -24,7 +26,9 @@ import javax.swing.JTextField;
 public class vAdmin extends javax.swing.JFrame {
 
     vLogin[] pantallas = new vLogin[10]; 
+    Thread[] Threads = new Thread[10]; 
     
+    long Espera = 1000*60*2;//2min
     int CantCarMax;
     int CantColumn;
     int CantFilas;
@@ -148,16 +152,30 @@ public class vAdmin extends javax.swing.JFrame {
     
     private void btnAgregarJugActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarJugActionPerformed
   
-        String CantJ;       
-        CantJ = (String) ComboxJ.getSelectedItem();
-        for(int i=0; i<Integer.valueOf(CantJ); i++)
+        vLogin vl = new vLogin();
+        // <editor-fold defaultstate="collapsed" desc=" AberturaDePantallas ">     
+        String CantJ = (String) ComboxJ.getSelectedItem();
+        int cantidad = Integer.valueOf(CantJ);
+        vl.Pantallas = cantidad;
+        for(int i=0; i<cantidad; i++)
         {
            vLogin p = pantallas[i];
            p = new vLogin();
            p.setVisible(true);
            if(i!=0)
            p.setLocationRelativeTo(pantallas[i-1]);///PREGUNTAR MATI
+           
+           
+           cHilo newhilo = new cHilo(p);
+           Thread th = new Thread(newhilo);
+           Threads[i] = th;
+           th.start();
         }
+        Thread ths = new Thread(new cSupervisor(Threads,Espera));
+        ths.start();
+        // </editor-fold>
+        
+        
     }//GEN-LAST:event_btnAgregarJugActionPerformed
 
 
