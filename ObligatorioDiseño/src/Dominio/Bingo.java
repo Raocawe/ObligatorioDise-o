@@ -44,6 +44,12 @@ public class Bingo {
         dJuego u = new dJuego();
         return u.buscarTodo();
     }
+    
+    public void ComenzarPartida()
+    {
+        dJuego u = new dJuego();
+        u.ComenzarPartida();
+    }
     //</editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc=" Usuario ">

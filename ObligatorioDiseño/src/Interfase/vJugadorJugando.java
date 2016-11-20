@@ -5,16 +5,21 @@
  */
 package Interfase;
 
+import java.util.Observable;
+import java.util.Observer;
+
 /**
  *
  * @author cristian castro
  */
-public class vJugadorJugando extends javax.swing.JPanel {
+public class vJugadorJugando extends javax.swing.JPanel implements Observer{
 
+    int CantidadCartones = 0;
     /**
      * Creates new form vJugadorJugando
      */
-    public vJugadorJugando() {
+    public vJugadorJugando(int pCant) {
+        CantidadCartones = pCant;
         initComponents();
     }
 
@@ -38,6 +43,11 @@ public class vJugadorJugando extends javax.swing.JPanel {
             .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    @Override
+    public void update(Observable o, Object arg) {
+        
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

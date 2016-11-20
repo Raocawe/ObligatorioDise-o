@@ -23,7 +23,7 @@ import javax.swing.JTextField;
  *
  * @author MartinH
  */
-public class vAdmin extends javax.swing.JFrame {
+public class vAdmin extends javax.swing.JFrame{
 
     vLogin[] pantallas = new vLogin[10]; 
     Thread[] Threads = new Thread[10]; 
@@ -151,19 +151,17 @@ public class vAdmin extends javax.swing.JFrame {
     
     
     private void btnAgregarJugActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarJugActionPerformed
-  
-        vLogin vl = new vLogin();
+        vLogin p;
         // <editor-fold defaultstate="collapsed" desc=" AberturaDePantallas ">     
         String CantJ = (String) ComboxJ.getSelectedItem();
         int cantidad = Integer.valueOf(CantJ);
         for(int i=0; i<cantidad; i++)
-        {
-           vLogin p = pantallas[i];
+        { 
            p = new vLogin();
            p.setVisible(true);
            if(i!=0)
            p.setLocationRelativeTo(pantallas[i-1]);///PREGUNTAR MATI
-           
+           pantallas[i] = p;
            
            cHilo newhilo = new cHilo(p);
            Thread th = new Thread(newhilo);

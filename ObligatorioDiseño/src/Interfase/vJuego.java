@@ -5,11 +5,14 @@
  */
 package Interfase;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
+
 /**
  *
  * @author Martin
  */
-public class vJuego extends javax.swing.JFrame {
+public class vJuego extends javax.swing.JFrame implements Observable{
 
     /**
      * Creates new form vJuego
@@ -142,4 +145,15 @@ public class vJuego extends javax.swing.JFrame {
     private javax.swing.JTextField txtNumSor;
     private javax.swing.JTextField txtPozo;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void addListener(InvalidationListener il) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void removeListener(InvalidationListener il) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

@@ -5,6 +5,7 @@
  */
 package Common;
 
+import Dominio.Bingo;
 import Dominio.dJuego;
 
 /**
@@ -50,16 +51,9 @@ public class cSupervisor implements Runnable{
                 //Esperado A Que Loguee
             }
         }
-        for(Thread x : hilosEnJuego)//Por Si Algun Jugador Se Retitor Se Verifica De Nuevo Sus Estados
-        {
-            while(x.isAlive())
-            {
-                
-            }
-        }
         
-        dJuego j = new dJuego();
-        j.ComenzarPartida();
+        Bingo b = new Bingo();
+        b.ComenzarPartida();
     }
     
 }
