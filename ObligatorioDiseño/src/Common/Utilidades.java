@@ -5,26 +5,38 @@
  */
 package Common;
 
+import java.text.SimpleDateFormat;
+
 /**
  *
  * @author cristian castro
  */
 public class Utilidades {
        
-    public enum EnumeradosTipo {
+    public static enum EnumeradosTipo {
     
     Admin,Usuario
     
     }
     
-    public enum EnumeradosFabrica {
+    public static enum EnumeradosFabrica {
         
     Usuario,Juego
     
     }
     
-    public enum tipoRet{
+    public static enum tipoRet{
     CantFilaE,CantColumE,Precio,CartonesE,OK
     }
     
+    public static SimpleDateFormat FormatoFecha = new SimpleDateFormat("yyyy-mm-dd");
+    
+    public static boolean isNumeric(String cadena) {
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
 }

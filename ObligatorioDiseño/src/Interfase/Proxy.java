@@ -10,7 +10,7 @@ import Common.Utilidades.tipoRet;
 import Common.cException;
 import Common.cUsuario;
 import Dominio.Bingo;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 /**
  *
  * @author Martin
@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 public class Proxy {
     
     Bingo b = new Bingo();
+    vAdmin vA = new vAdmin();
    
     public boolean logear(cUsuario us,vLogin l) throws cException
     {       
@@ -26,7 +27,7 @@ public class Proxy {
                 if(us.getTipo() == Utilidades.EnumeradosTipo.Usuario )
                 {
                     l.setVisible(false);
-                    vJugador Juego = new vJugador();
+                    vJugador Juego = new vJugador(vA.CantCarMax,us);
                     Juego.setVisible(true);
                     l.setEstado(true);
                     return true;

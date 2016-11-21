@@ -27,7 +27,6 @@ public class cHilo implements Runnable{
         {
             //Esperado A Que Se Logee
         }
-        int y = 0;
     }
     
 }

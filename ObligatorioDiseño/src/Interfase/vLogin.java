@@ -12,7 +12,7 @@ import Common.cUsuario;
 import Dominio.Bingo;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  *
@@ -28,7 +28,6 @@ public class vLogin extends javax.swing.JFrame {
      */
     public vLogin() {
         initComponents();
-//fdsadfasdf
     }
 
     /**
