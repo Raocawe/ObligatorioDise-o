@@ -50,9 +50,10 @@ public class dUsuario {
         Bingo b = getInstancia();
         cJuego cJ = b.buscarTodo();
         int Costo = pCartones*cJ.getValorCarton();
-       
-        if(pUsu.getSaldo()>= Costo)
+        int Saldo = pUsu.getSaldo();
+        if(Saldo >= Costo)
         {
+            pUsu.setSaldo(Saldo-Costo);
             return true;
         }
         return false;
