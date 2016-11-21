@@ -5,6 +5,12 @@
  */
 package obligatoriodiseño;
 
+import Common.Utilidades;
+import Common.cException;
+import Common.cJuego;
+import static Dominio.Bingo.getInstancia;
+import Interfase.vLogin;
+
 /**
  *
  * @author cristian castro
@@ -14,8 +20,9 @@ public class Bingo {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws cException {
+        vLogin Login = new vLogin();        
+        Login.setVisible(true);
     }
     
 }
