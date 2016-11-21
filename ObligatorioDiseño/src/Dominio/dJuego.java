@@ -4,14 +4,6 @@
  * and open the template in the editor.
  */
 package Dominio;
-
-<<<<<<< HEAD
-/**
- *
- * @author Kingdel
- */
-public class dJuego {
-=======
 import Common.cException;
 import Common.cJuego;
 import Persistencia.pJuego;
@@ -41,6 +33,5 @@ public class dJuego {
         //trolololololol
     }
     
->>>>>>> 47dc42d846762745c7e020b03000e9887d41aedc
     
 }

@@ -5,15 +5,6 @@
  */
 package Dominio;
 
-<<<<<<< HEAD
-/**
- *
- * @author Kingdel
- */
-public class dUsuario {
-    
-    public void a
-=======
 import Common.Utilidades;
 import Common.cException;
 import Common.cJuego;
@@ -67,5 +58,5 @@ public class dUsuario {
         }
         return false;
     }
->>>>>>> 47dc42d846762745c7e020b03000e9887d41aedc
+
 }
