@@ -82,6 +82,12 @@ public class Bingo {
         dUsuario u = new dUsuario();
         return u.buscarUsuario(pUsuario);
     }
+    
+    public boolean CompraDeCarton(int pCartones, cUsuario pUsu) throws cException
+    {
+        dUsuario u = new dUsuario();
+        return u.CompraDeCarton(pCartones,pUsu);
+    }
     // </editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc=" Fabrica ">

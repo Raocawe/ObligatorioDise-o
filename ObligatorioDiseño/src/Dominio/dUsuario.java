@@ -5,8 +5,11 @@
  */
 package Dominio;
 
+import Common.Utilidades;
 import Common.cException;
+import Common.cJuego;
 import Common.cUsuario;
+import static Dominio.Bingo.getInstancia;
 import Persistencia.pUsuario;
 
 
@@ -42,4 +45,16 @@ public class dUsuario {
         return u.buscarUsuario(pUsuario);
     }
 
+    public boolean CompraDeCarton(int pCartones, cUsuario pUsu) throws cException
+    {
+        Bingo b = getInstancia();
+        cJuego cJ = b.buscarTodo();
+        int Costo = pCartones*cJ.getValorCarton();
+       
+        if(pUsu.getSaldo()>= Costo)
+        {
+            return true;
+        }
+        return false;
+    }
 }

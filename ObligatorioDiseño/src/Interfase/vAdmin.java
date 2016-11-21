@@ -6,6 +6,7 @@
 package Interfase;
 
 import Common.Utilidades;
+import static Common.Utilidades.VentanasAbiertas;
 import Common.Utilidades.tipoRet;
 import Common.cException;
 import Common.cHilo;
@@ -154,8 +155,8 @@ public class vAdmin extends javax.swing.JFrame{
         vLogin p;
         // <editor-fold defaultstate="collapsed" desc=" AberturaDePantallas ">     
         String CantJ = (String) ComboxJ.getSelectedItem();
-        int cantidad = Integer.valueOf(CantJ);
-        for(int i=0; i<cantidad; i++)
+        VentanasAbiertas = Integer.valueOf(CantJ);
+        for(int i=0; i<VentanasAbiertas; i++)
         { 
            p = new vLogin();
            p.setVisible(true);

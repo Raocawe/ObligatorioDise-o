@@ -7,7 +7,10 @@ package Interfase;
 
 import static Common.Utilidades.*;
 import Common.cException;
+import Common.cJuego;
 import Common.cUsuario;
+import Dominio.Bingo;
+import static Dominio.Bingo.getInstancia;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.*;
@@ -17,29 +20,58 @@ import javax.swing.*;
  */
 public class vJugador extends javax.swing.JPanel implements Observer{
 
+    Bingo b = getInstancia();
     int CantidadCartones = 0;
     cUsuario usu = null;
+    cJuego j;
             
     /**
      * Creates new form vJugadorJugando
      */
-    public vJugador(int pCant, cUsuario pusu) {
+    public vJugador(int pCant, cUsuario pusu) throws cException {
         usu = pusu;
         CantidadCartones = pCant;
+        j = b.buscarTodo();
         initComponents();
         
         // <editor-fold defaultstate="collapsed" desc=" ConsultaCartones ">
         String Resultado = "Testeando";
-        while(!isNumeric(Resultado))
+        while(Validar(Resultado) != EnumeradosVentana.Ok)
         {
             Resultado = (JOptionPane.showInputDialog(this, "¿Con Cuantos Cartones Jugara?", "1 - 10"));
-            if(!isNumeric(Resultado))
+            if(Validar(Resultado) == EnumeradosVentana.Ok)
             {
+                break;
+            }
+                
+            if(Validar(Resultado) == EnumeradosVentana.NoNumero || Validar(Resultado) == EnumeradosVentana.NoValido){ 
                JOptionPane.showMessageDialog(this, "Ingrese Un Numero Entre"
-                    + "\n 1 - "+ String.valueOf(CantidadCartones)); 
+                    + "\n 1 - "+ Integer.toString(CantidadCartones)); 
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Su Saldo No Es Suficiente");
+                Resultado = "Testeando";
             }
         }
         // </editor-fold>
+    }
+    
+    public EnumeradosVentana Validar(String pResultado) throws cException
+    {
+        if(!isNumeric(pResultado))
+        {
+            return EnumeradosVentana.NoNumero;
+        }
+        if(Integer.parseInt(pResultado)>j.getCantidadMaximaCartonesXJuegadores()&&Integer.parseInt(pResultado)<1)
+        {
+            return EnumeradosVentana.NoValido;
+        }
+        if(!b.CompraDeCarton(CantidadCartones, usu))
+        {
+            return EnumeradosVentana.NoSaldo;
+        }
+        return EnumeradosVentana.Ok;
     }
     
     public vJugador()

@@ -5,6 +5,10 @@
  */
 package obligatoriodiseño;
 
+import Common.Utilidades;
+import Common.cException;
+import Common.cJuego;
+import static Dominio.Bingo.getInstancia;
 import Interfase.vLogin;
 
 /**
@@ -16,8 +20,8 @@ public class Bingo {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        vLogin Login = new vLogin();
+    public static void main(String[] args) throws cException {
+        vLogin Login = new vLogin();        
         Login.setVisible(true);
     }
     
