@@ -36,15 +36,15 @@ public class vJugador extends javax.swing.JPanel implements Observer{
         
         // <editor-fold defaultstate="collapsed" desc=" ConsultaCartones ">
         String Resultado = "Testeando";
-        while(Validar(Resultado) != EnumeradosVentana.Ok)
+        while(ValidarEntradaCartones(Resultado) != EnumeradosVentana.Ok)
         {
             Resultado = (JOptionPane.showInputDialog(this, "¿Con Cuantos Cartones Jugara?", "1 - 10"));
-            if(Validar(Resultado) == EnumeradosVentana.Ok)
+            if(ValidarEntradaCartones(Resultado) == EnumeradosVentana.Ok)
             {
                 break;
             }
                 
-            if(Validar(Resultado) == EnumeradosVentana.NoNumero || Validar(Resultado) == EnumeradosVentana.NoValido){ 
+            if(ValidarEntradaCartones(Resultado) == EnumeradosVentana.NoNumero || ValidarEntradaCartones(Resultado) == EnumeradosVentana.NoValido){ 
                JOptionPane.showMessageDialog(this, "Ingrese Un Numero Entre"
                     + "\n 1 - "+ Integer.toString(CantidadCartones)); 
             }
@@ -57,7 +57,7 @@ public class vJugador extends javax.swing.JPanel implements Observer{
         // </editor-fold>
     }
     
-    public EnumeradosVentana Validar(String pResultado) throws cException
+    public EnumeradosVentana ValidarEntradaCartones(String pResultado) throws cException
     {
         if(!isNumeric(pResultado))
         {
