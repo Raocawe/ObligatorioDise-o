@@ -38,7 +38,7 @@ public class vJugador extends javax.swing.JPanel implements Observer{
         String Resultado = "Testeando";
         while(ValidarEntradaCartones(Resultado) != EnumeradosVentana.Ok)
         {
-            Resultado = (JOptionPane.showInputDialog(this, "¿Con Cuantos Cartones Jugara?", "1 - 10"));
+            Resultado = (JOptionPane.showInputDialog(this, "¿Con Cuantos Cartones Jugara?", "1 - "+ Integer.toString(CantidadCartones)));
             if(ValidarEntradaCartones(Resultado) == EnumeradosVentana.Ok)
             {
                 break;
@@ -63,7 +63,7 @@ public class vJugador extends javax.swing.JPanel implements Observer{
         {
             return EnumeradosVentana.NoNumero;
         }
-        if(Integer.parseInt(pResultado)>j.getCantidadMaximaCartonesXJuegadores()&&Integer.parseInt(pResultado)<1)
+        if(Integer.parseInt(pResultado)>j.getCantidadMaximaCartonesXJuegadores()&&(Integer.parseInt(pResultado)<1||Integer.parseInt(pResultado)>10))
         {
             return EnumeradosVentana.NoValido;
         }
