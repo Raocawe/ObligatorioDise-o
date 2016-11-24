@@ -25,11 +25,7 @@ public class pUsuario extends pPersistencia{
         super.getInstancia();
     }
     
-<<<<<<< HEAD
-    public boolean agregar(Object o) throws cException {
-=======
     public void agregar(Object o) throws cException {
->>>>>>> 47dc42d846762745c7e020b03000e9887d41aedc
         try{
             cUsuario pCliente =(cUsuario) o;
             super.abrirConexion();
@@ -45,11 +41,7 @@ public class pUsuario extends pPersistencia{
         }
     } 
     
-<<<<<<< HEAD
-    public boolean modificar(Object o) throws cException {
-=======
     public void modificar(Object o) throws cException {
->>>>>>> 47dc42d846762745c7e020b03000e9887d41aedc
         try{
             cUsuario pCliente =(cUsuario) o;
             super.abrirConexion();
@@ -69,12 +61,8 @@ public class pUsuario extends pPersistencia{
             throw new cException("ERROR AL INTENTAR MODIFICAR CLIENTE:" + e.getMessage());
         }
     }
-    
-<<<<<<< HEAD
-    public boolean eliminar(Object o) throws cException {
-=======
+
     public void eliminar(Object o) throws cException {
->>>>>>> 47dc42d846762745c7e020b03000e9887d41aedc
         try{
             cUsuario pCliente =(cUsuario) o;
             super.abrirConexion();

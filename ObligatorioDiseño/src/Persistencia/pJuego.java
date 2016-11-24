@@ -41,13 +41,8 @@ public class pJuego extends pPersistencia{
             throw new cException("ERROR AL INTENTAR MODIFICAR CLIENTE:" + e.getMessage());
         }
     }
-<<<<<<< HEAD
-    
-    public cJuego buscarTodos(Object o)throws cException{
-=======
         
     public cJuego buscarTodo()throws cException{
->>>>>>> 47dc42d846762745c7e020b03000e9887d41aedc
         try{
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
