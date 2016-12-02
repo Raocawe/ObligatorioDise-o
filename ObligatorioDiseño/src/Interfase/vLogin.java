@@ -22,12 +22,18 @@ public class vLogin extends javax.swing.JFrame {
 
     public Bingo bin = new Bingo();
     private boolean Estado = false;
+    PatronObserver o;
     
     /**
      * Creates new form Login
      */
     public vLogin() {
         initComponents();
+    }
+    
+    public vLogin(PatronObserver p) {
+        initComponents();
+        o = p;
     }
 
     /**
@@ -106,7 +112,7 @@ public class vLogin extends javax.swing.JFrame {
              
         pr = new Proxy();
         try {
-            if(!pr.logear(usu,this))
+            if(!pr.logear(usu,this,o))
             {
                JOptionPane.showMessageDialog(this, "ERROR USUARIO NO ENCONTRADO", "Login", JOptionPane.INFORMATION_MESSAGE);
             }

@@ -24,14 +24,16 @@ public class vJugador extends javax.swing.JPanel implements Observer{
     int CantidadCartones = 0;
     cUsuario usu = null;
     cJuego j;
-            
+    PatronObserver observer;
+    
     /**
      * Creates new form vJugadorJugando
      */
-    public vJugador(int pCant, cUsuario pusu) throws cException {
+    public vJugador(int pCant, cUsuario pusu,PatronObserver o) throws cException {
         usu = pusu;
         CantidadCartones = pCant;
         j = b.buscarTodo();
+        observer = o;
         initComponents();
         
         // <editor-fold defaultstate="collapsed" desc=" ConsultaCartones ">

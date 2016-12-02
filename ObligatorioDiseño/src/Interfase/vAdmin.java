@@ -28,6 +28,7 @@ public class vAdmin extends javax.swing.JFrame{
 
     vLogin[] pantallas = new vLogin[10]; 
     Thread[] Threads = new Thread[10]; 
+    PatronObserver o = new PatronObserver();
     
     long Espera = 1000*60*2;//2min
     int CantCarMax;
@@ -153,12 +154,15 @@ public class vAdmin extends javax.swing.JFrame{
     
     private void btnAgregarJugActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarJugActionPerformed
         vLogin p;
+        vJuego j = new vJuego();
+        j.setVisible(false);
+        
         // <editor-fold defaultstate="collapsed" desc=" AberturaDePantallas ">     
         String CantJ = (String) ComboxJ.getSelectedItem();
         VentanasAbiertas = Integer.valueOf(CantJ);
         for(int i=0; i<VentanasAbiertas; i++)
         { 
-           p = new vLogin();
+           p = new vLogin(o);
            p.setVisible(true);
            if(i!=0)
            pantallas[i] = p;

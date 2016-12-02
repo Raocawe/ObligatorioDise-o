@@ -1,27 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Kingdel/Desktop/ObligatorioMati/ObligatorioDiseño/src/Persistencia/pPersistencia.java</file>
-            <file>file:/C:/Users/Kingdel/Desktop/ObligatorioMati/ObligatorioDiseño/src/Dominio/dUsuario.java</file>
-            <file>file:/C:/Users/Kingdel/Desktop/ObligatorioMati/ObligatorioDiseño/src/Dominio/dJuego.java</file>
-            <file>file:/C:/Users/Kingdel/Desktop/ObligatorioMati/ObligatorioDiseño/src/Persistencia/pUsuario.java</file>
-            <file>file:/C:/Users/Kingdel/Desktop/ObligatorioMati/ObligatorioDiseño/src/Persistencia/pJuego.java</file>
-=======
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Persistencia/pPersistencia.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vAdmin.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vLogin.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vJuego.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/Proxy.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Common/cSupervisor.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Dominio/dJuego.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Persistencia/pUsuario.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vJugador.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Common/cHilo.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Dominio/dUsuario.java</file>
->>>>>>> 47dc42d846762745c7e020b03000e9887d41aedc
-        </group>
-    </open-files>
 </project-private>

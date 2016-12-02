@@ -5,6 +5,9 @@
  */
 package Interfase;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Observer;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 
@@ -12,15 +15,27 @@ import javafx.beans.Observable;
  *
  * @author Martin
  */
-public class vJuego extends javax.swing.JFrame implements Observable{
+public class vJuego extends javax.swing.JFrame implements Observer{
 
+    PatronObserver observer;
+    
     /**
      * Creates new form vJuego
      */
     public vJuego() {
         initComponents();
     }
-
+    
+    public vJuego(PatronObserver o) {
+        initComponents();
+        observer = o;
+    }
+    
+    public void Juego()
+    {
+        /////////////sddsdsdsdsdsdsd
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,7 +48,6 @@ public class vJuego extends javax.swing.JFrame implements Observable{
         jLabel1 = new javax.swing.JLabel();
         txtNumSor = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        btnSortearNumero = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
@@ -53,15 +67,6 @@ public class vJuego extends javax.swing.JFrame implements Observable{
         jLabel2.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
         jLabel2.setText("Numero Sorteado");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
-
-        btnSortearNumero.setFont(new java.awt.Font("Yu Mincho", 2, 24)); // NOI18N
-        btnSortearNumero.setText("Empezar Juego");
-        btnSortearNumero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSortearNumeroActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnSortearNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, -1));
 
         jTable2.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -93,10 +98,6 @@ public class vJuego extends javax.swing.JFrame implements Observable{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSortearNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSortearNumeroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSortearNumeroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,7 +136,6 @@ public class vJuego extends javax.swing.JFrame implements Observable{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Pozo;
-    private javax.swing.JButton btnSortearNumero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -147,13 +147,7 @@ public class vJuego extends javax.swing.JFrame implements Observable{
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public void addListener(InvalidationListener il) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void update(java.util.Observable o, Object arg) {
+        
     }
-
-    @Override
-    public void removeListener(InvalidationListener il) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }

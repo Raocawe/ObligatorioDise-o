@@ -22,14 +22,14 @@ public class Proxy {
     Bingo b = new Bingo();
     vAdmin vA = new vAdmin();
    
-    public boolean logear(cUsuario us,vLogin l) throws cException
+    public boolean logear(cUsuario us,vLogin l,PatronObserver pO) throws cException
     {       
         us = b.buscarUsuario(us);
             if(us != null){     
                 if(us.getTipo() == Utilidades.EnumeradosTipo.Usuario )
                 {
                     l.setVisible(false);
-                    vJugador Juego = new vJugador(VentanasAbiertas,us);
+                    vJugador Juego = new vJugador(VentanasAbiertas,us,pO);
                     Juego.setVisible(true);
                     l.setEstado(true);
                     return true;
