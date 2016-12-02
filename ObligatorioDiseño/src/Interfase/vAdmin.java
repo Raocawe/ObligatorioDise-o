@@ -161,7 +161,6 @@ public class vAdmin extends javax.swing.JFrame{
            p = new vLogin();
            p.setVisible(true);
            if(i!=0)
-           p.setLocationRelativeTo(pantallas[i-1]);///PREGUNTAR MATI
            pantallas[i] = p;
            
            cHilo newhilo = new cHilo(p);
