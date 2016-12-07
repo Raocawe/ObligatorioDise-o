@@ -75,7 +75,7 @@ public class vAdmin extends javax.swing.JFrame{
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ComboxJ.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
-        ComboxJ.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        ComboxJ.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2", "3", "4" }));
         ComboxJ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboxJActionPerformed(evt);
