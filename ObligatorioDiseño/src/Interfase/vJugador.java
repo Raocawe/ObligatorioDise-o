@@ -18,18 +18,17 @@ import javax.swing.table.DefaultTableModel;
 
 public class vJugador extends javax.swing.JFrame implements Observer{
 
-    
-    Bingo b = getInstancia();
-    int CantidadCartones = 0;
-    cUsuario usu = null;
+    boolean Logueado;
+    Bingo b = getInstancia();;
+    cUsuario usu ;
     cJuego j;
             
     public vJugador(){}
             
-    public vJugador(int pCant, cUsuario pusu) throws cException {
+    public vJugador(cUsuario pusu) throws cException {
         usu = pusu;
-        CantidadCartones = pCant;
         j = b.buscarTodo();
+        Logueado = false;
         
         initComponents();
         
@@ -45,7 +44,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
                 
             if(Validar(Resultado) == EnumeradosVentana.NoNumero || Validar(Resultado) == EnumeradosVentana.NoValido){ 
                JOptionPane.showMessageDialog(this, "Ingrese Un Numero Entre"
-                    + "\n 1 - "+ Integer.toString(CantidadCartones)); 
+                    + "\n 1 - "+ Integer.toString(VentanasAbiertas)); 
             }
             else
             {
@@ -56,6 +55,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         // </editor-fold>
         
         ManejoTablas();
+        Logueado = true;
     }
     
     private EnumeradosVentana Validar(String pResultado) throws cException
@@ -68,7 +68,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         {
             return EnumeradosVentana.NoValido;
         }
-        if(!b.CompraDeCarton(CantidadCartones, usu))
+        if(!b.CompraDeCarton(VentanasAbiertas, usu))
         {
             return EnumeradosVentana.NoSaldo;
         }

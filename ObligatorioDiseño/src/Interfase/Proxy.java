@@ -27,21 +27,19 @@ public class Proxy {
         OPatron=pOPatron;
     }
    
-    public boolean logear(cUsuario us,vLogin l) throws cException
+    public boolean logear(cUsuario us) throws cException
     {       
         us = b.buscarUsuario(us);
             if(us != null){     
                 if(us.getTipo() == Utilidades.EnumeradosTipo.Usuario )
                 {
-                    l.setVisible(false);
-                    vJugador Juego = new vJugador(VentanasAbiertas,us);
+                    vJugador Juego = new vJugador(us);
+                    OPatron.addObserver(Juego);
                     Juego.setVisible(true);
-                    l.setEstado(true);
                     return true;
                 }
                 else
                 {
-                    l.setVisible(false);
                     vAdmin A = new vAdmin(this);
                     A.setLocationRelativeTo(null);
                     A.setVisible(true);

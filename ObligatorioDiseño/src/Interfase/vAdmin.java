@@ -26,7 +26,6 @@ import javax.swing.JTextField;
  */
 public class vAdmin extends javax.swing.JFrame{
 
-    vLogin[] pantallas; 
     Thread[] Threads; 
     
     long Espera = 1000*60*2;//2min
@@ -157,16 +156,12 @@ public class vAdmin extends javax.swing.JFrame{
         // <editor-fold defaultstate="collapsed" desc=" AberturaDePantallas ">     
         String CantJ = (String) ComboxJ.getSelectedItem();
         VentanasAbiertas = Integer.valueOf(CantJ);
-        
-        pantallas = new vLogin[VentanasAbiertas]; 
         Threads = new Thread[VentanasAbiertas];
         
         for(int i=0; i<VentanasAbiertas; i++)
         { 
-           p = new vLogin();
+           p = new vLogin(Prox);
            p.setVisible(true);
-           if(i!=0)
-           pantallas[i] = p;
            
            cHilo newhilo = new cHilo();
            Thread th = new Thread(newhilo);
@@ -189,7 +184,9 @@ public class vAdmin extends javax.swing.JFrame{
         CantColumn = Integer.parseInt(this.txtCantColumn.getText().toString());
         Precio = Integer.parseInt(this.txtPrecio.getText().toString());
         CantFilas = Integer.parseInt(this.txtCantFilas.getText().toString());
-        if(Validar() == tipoRet.OK)
+        
+        tipoRet resultado = Validar();
+        if(resultado == tipoRet.OK)
         {
             Bingo b = Bingo.getInstancia();
             cJuego j = (cJuego)b.CrearObjeto(Utilidades.EnumeradosFabrica.Juego);
@@ -205,25 +202,25 @@ public class vAdmin extends javax.swing.JFrame{
                 Logger.getLogger(vAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        else if(Validar() == tipoRet.CantColumE)
+        else if(resultado == tipoRet.CantColumE)
         {
             JOptionPane.showMessageDialog(this, "ERROR 'CantidadColumnas' No Cumple Con Las Reglas\n"
-                    + "Valor(1-10)", "Login", JOptionPane.INFORMATION_MESSAGE);
+                    + "Valor(1-5)", "Login", JOptionPane.INFORMATION_MESSAGE);
         }
-        else if(Validar() == tipoRet.CantFilaE)
+        else if(resultado == tipoRet.CantFilaE)
         {
             JOptionPane.showMessageDialog(this, "ERROR 'CantidadFilas' No Cumple Con Las Reglas\n"
-                    + "Valor(1-10)", "Login", JOptionPane.INFORMATION_MESSAGE);
+                    + "Valor(1-5)", "Login", JOptionPane.INFORMATION_MESSAGE);
         }
-        else if(Validar() == tipoRet.CartonesE)
+        else if(resultado == tipoRet.CartonesE)
         {
             JOptionPane.showMessageDialog(this, "ERROR 'CantidadDeCartonesPorJugador' \nNo Cumple Con Las Reglas"
-                    + "Valor(1-10)", "Login", JOptionPane.INFORMATION_MESSAGE);
+                    + "Valor(1-4)", "Login", JOptionPane.INFORMATION_MESSAGE);
         }
-        else if(Validar() == tipoRet.Precio)
+        else if(resultado == tipoRet.Precio)
         {
             JOptionPane.showMessageDialog(this, "ERROR 'Precio' No Cumple Con Las Reglas\n"
-                    + "Valor Mayor A '0'", "Login", JOptionPane.INFORMATION_MESSAGE);
+                    + "Ingrese un valor mayor a cero", "Login", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnGuardarConfigActionPerformed
 
@@ -233,11 +230,11 @@ public class vAdmin extends javax.swing.JFrame{
     
     public tipoRet Validar()
     {
-        if(CantCarMax<11&&CantCarMax>0)
+        if(CantCarMax<5&&CantCarMax>0)
         {
-            if(CantColumn<11&&CantColumn>0)
+            if(CantColumn<6&&CantColumn>0)
             {
-                if(CantFilas<11&&CantFilas>0)
+                if(CantFilas<6&&CantFilas>0)
                 {
                     if(Precio > 0)
                     {

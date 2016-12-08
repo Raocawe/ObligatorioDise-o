@@ -14,10 +14,12 @@ import Interfase.vLogin;
 public class cHilo implements Runnable{
 
     private vLogin pantalla;
-    private boolean Estado = true;
+    private boolean Estado;
     
     public cHilo()
-    {}
+    {
+        Estado = true;
+    }
     
     @Override
     public void run() {

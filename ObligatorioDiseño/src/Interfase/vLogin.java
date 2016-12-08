@@ -107,7 +107,7 @@ public class vLogin extends javax.swing.JFrame {
         usu.setContraseña(c);
              
         try {
-            if(!Prox.logear(usu,this))
+            if(!Prox.logear(usu))
             {
                JOptionPane.showMessageDialog(this, "ERROR USUARIO NO ENCONTRADO", "Login", JOptionPane.INFORMATION_MESSAGE);
             }
