@@ -15,6 +15,12 @@ public class Utilidades {
        
     public static int VentanasAbiertas = 0;
     public static int VentanasLogueadas = 0;
+    public static EnumeradoEstadoJuego EstadoJuego = EnumeradoEstadoJuego.Desactivado;
+            
+    public static enum EnumeradoEstadoJuego
+    {
+        Getion,Activado,Desactivado
+    }
     
     public static enum EnumeradosTipo {
     

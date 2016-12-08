@@ -109,11 +109,13 @@ public class vLogin extends javax.swing.JFrame {
         try {
             if(!Prox.logear(usu))
             {
-               JOptionPane.showMessageDialog(this, "ERROR USUARIO NO ENCONTRADO", "Login", JOptionPane.INFORMATION_MESSAGE);
+               JOptionPane.showMessageDialog(this, "ERROR USUARIO NO ENCONTRADO O El JUEGO NO A INICIADO", "Login", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (cException ex) {
             Logger.getLogger(vLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.
+        
         this.setVisible(false); 
     }//GEN-LAST:event_btnIngresarActionPerformed
 

@@ -6,6 +6,7 @@
 package Interfase;
 
 import Common.Utilidades;
+import Common.Utilidades.EnumeradoEstadoJuego;
 import static Common.Utilidades.VentanasAbiertas;
 import Common.Utilidades.tipoRet;
 import Common.cException;
@@ -33,13 +34,20 @@ public class Proxy {
             if(us != null){     
                 if(us.getTipo() == Utilidades.EnumeradosTipo.Usuario )
                 {
-                    vJugador Juego = new vJugador(us);
-                    OPatron.addObserver(Juego);
-                    Juego.setVisible(true);
-                    return true;
+                    if(Utilidades.EstadoJuego == EnumeradoEstadoJuego.Activado){
+                        vJugador Juego = new vJugador(us);
+                        OPatron.addObserver(Juego);
+                        Juego.setVisible(true);
+                        return true;
+                        }
+                    else
+                    {
+                        return false;
+                    }
                 }
                 else
                 {
+                    
                     vAdmin A = new vAdmin(this);
                     A.setLocationRelativeTo(null);
                     A.setVisible(true);

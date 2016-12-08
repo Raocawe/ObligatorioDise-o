@@ -6,6 +6,7 @@
 package Interfase;
 
 import Common.Utilidades;
+import Common.Utilidades.EnumeradoEstadoJuego;
 import static Common.Utilidades.VentanasAbiertas;
 import Common.Utilidades.tipoRet;
 import Common.cException;
@@ -36,6 +37,7 @@ public class vAdmin extends javax.swing.JFrame{
     public vAdmin(Proxy pProx) {
         Prox = pProx;
         initComponents();
+        Utilidades.EstadoJuego = EnumeradoEstadoJuego.Getion;
     }
     
     public vAdmin(){}
@@ -150,6 +152,7 @@ public class vAdmin extends javax.swing.JFrame{
     
     
     private void btnAgregarJugActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarJugActionPerformed
+        Utilidades.EstadoJuego = EnumeradoEstadoJuego.Activado;
         vLogin p;
         // <editor-fold defaultstate="collapsed" desc=" AberturaDePantallas ">     
         String CantJ = (String) ComboxJ.getSelectedItem();
