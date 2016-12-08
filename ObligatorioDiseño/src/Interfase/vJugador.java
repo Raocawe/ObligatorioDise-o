@@ -83,17 +83,14 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         tblCarton2.setVisible(false);
         tblCarton3.setVisible(false);
         tblCarton4.setVisible(false);
-        t
-     
+
         int CantFi = j.getCantidadFilas();
         int CantC = j.getCantidadColumnas();
         DefaultTableModel tb1 = (DefaultTableModel) this.tblCarton1.getModel();
         DefaultTableModel tb2 = (DefaultTableModel) this.tblCarton2.getModel();
         DefaultTableModel tb3 = (DefaultTableModel) this.tblCarton3.getModel();
         DefaultTableModel tb4 = (DefaultTableModel) this.tblCarton4.getModel();
-        
-        
-        
+
         tb1.addColumn(CantC);
         tb2.addColumn(CantC);
         tb3.addColumn(CantC);
