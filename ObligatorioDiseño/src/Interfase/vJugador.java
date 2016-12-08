@@ -21,6 +21,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     Bingo b = getInstancia();;
     cUsuario usu ;
     cJuego j;
+    int CantidadCartones;
             
     public vJugador(){}
             
@@ -50,6 +51,9 @@ public class vJugador extends javax.swing.JFrame implements Observer{
                 Resultado = "Testeando";
             }
         }
+        CantidadCartones = Integer.parseInt(Resultado);
+        
+        
         // </editor-fold>
         
         ManejoTablas();
@@ -83,23 +87,57 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         tblCarton2.setVisible(false);
         tblCarton3.setVisible(false);
         tblCarton4.setVisible(false);
-        t
+       
      
         int CantFi = j.getCantidadFilas();
         int CantC = j.getCantidadColumnas();
+        
         DefaultTableModel tb1 = (DefaultTableModel) this.tblCarton1.getModel();
         DefaultTableModel tb2 = (DefaultTableModel) this.tblCarton2.getModel();
         DefaultTableModel tb3 = (DefaultTableModel) this.tblCarton3.getModel();
         DefaultTableModel tb4 = (DefaultTableModel) this.tblCarton4.getModel();
-        
-        
         
         tb1.addColumn(CantC);
         tb2.addColumn(CantC);
         tb3.addColumn(CantC);
         tb4.addColumn(CantC);
         
+        int CantNumAleatorio = ((CantFi * CantC)* CantidadCartones);
+        
+        
+        
+         int[][] matrizNumAlea = new int[CantC][CantFi];
+            for (int x = 0 ; x < CantC ; x++ ){
+                for(int i = 0 ; i < CantFi ; i++){
+                    matrizNumAlea[x][i] = (int) (Math.random()*CantNumAleatorio + 1);
+                   
+                }
+            }
     }
+    
+        for (int x = 0 ; x < CantC ; x++ ){
+                for(int i = 0 ; i < CantFi ; i++){
+         tb1.setValueAt(matrizNumAlea[x][i], x, i);
+                }}
+          
+           
+            
+                
+             
+   
+        //unaLinea.setCantidad(parseInt(txtCantidad.getText().toString()));
+          //  unaLinea.setElProducto((cProducto)comboProductos.getItemAt(comboProductos.getSelectedIndex()).getValor());
+            //DefaultTableModel tb = (DefaultTableModel) this.tblLineasFactura.getModel();
+            //tb.addRow(new Object[]{new Integer(unaLinea.getId()), new Integer(unaLinea.getElProducto().getId()),new String(unaLinea.getElProducto().getNombre()), new Integer(unaLinea.getCantidad()) });
+
+    //@Override
+    //public void update(Observable o, Object arg) {
+     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+        
+        
+        
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -160,14 +198,10 @@ public class vJugador extends javax.swing.JFrame implements Observer{
 
         tblCarton1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+
             }
         ));
         jScrollPane3.setViewportView(tblCarton1);
@@ -216,7 +250,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPozoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPozoActionPerformed
-        // TODO add your handling code here:
+        //
     }//GEN-LAST:event_txtPozoActionPerformed
 
     private void txtMontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoActionPerformed
@@ -258,10 +292,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         });
     }
 
-    @Override
-    public void update(Observable o, Object arg) {
-        
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -276,4 +307,9 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     private javax.swing.JTextField txtMonto;
     private javax.swing.JTextField txtPozo;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable o, Object arg) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -5,11 +5,7 @@
         <group>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vAdmin.java</file>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vLogin.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Imagenes/Fondo.png</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Imagenes/TituloBingo.png</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/PatronObserver.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Common/Utilidades.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Imagenes/Bingo.png</file>
+            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vJuego.java</file>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vJugador.java</file>
         </group>
     </open-files>
