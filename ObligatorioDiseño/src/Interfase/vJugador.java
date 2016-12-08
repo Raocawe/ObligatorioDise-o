@@ -11,6 +11,7 @@ import Common.cJuego;
 import Common.cUsuario;
 import Dominio.Bingo;
 import static Dominio.Bingo.getInstancia;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.*;
@@ -22,6 +23,8 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     cUsuario usu ;
     cJuego j;
     int CantidadCartones;
+    int CantXCarton;
+    DefaultTableModel[] Tablas;
             
     public vJugador(){}
             
@@ -83,16 +86,6 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     
     public void ManejoTablas()
     {      
-        tblCarton1.setVisible(false);
-        tblCarton2.setVisible(false);
-        tblCarton3.setVisible(false);
-        tblCarton4.setVisible(false);
-<<<<<<< HEAD
-       
-     
-=======
-
->>>>>>> d3f2a14669f031ec67aa7a42a81b571b0ddf7a57
         int CantFi = j.getCantidadFilas();
         int CantC = j.getCantidadColumnas();
         
@@ -100,19 +93,50 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         DefaultTableModel tb2 = (DefaultTableModel) this.tblCarton2.getModel();
         DefaultTableModel tb3 = (DefaultTableModel) this.tblCarton3.getModel();
         DefaultTableModel tb4 = (DefaultTableModel) this.tblCarton4.getModel();
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> d3f2a14669f031ec67aa7a42a81b571b0ddf7a57
+        tblCarton1.setVisible(false);
+        tblCarton2.setVisible(false);
+        tblCarton3.setVisible(false);
+        tblCarton4.setVisible(false);
         tb1.addColumn(CantC);
         tb2.addColumn(CantC);
         tb3.addColumn(CantC);
         tb4.addColumn(CantC);
+        Tablas = new DefaultTableModel[CantidadCartones];
+        Tablas[0] = tb1;Tablas[1] = tb2;if(CantidadCartones>=3)Tablas[2] = tb3;if(CantidadCartones==4)Tablas[3] = tb4;
         
-        int CantNumAleatorio = ((CantFi * CantC)* CantidadCartones);
+        CantXCarton = CantFi * CantC;
+        int CantNumAleatorio = CantXCarton* CantidadCartones;
+        
+        ArrayList<Integer> ListaNumeros = new ArrayList<Integer>();
+        for(int i=0;i<CantNumAleatorio;i++)
+        {
+            ListaNumeros.add(i);
+        }
+    
+        int Tabla=0;
+        boolean aux = false;
+        
+        while(Tablas[Tabla]!=null){
+            for (int x = 0 ; x < CantC ; x++ ){
+                for(int i = 0 ; i <= CantFi ; i++){
+                    int entero = ListaNumeros.get((int) (Math.random()*CantNumAleatorio + 1));
+                    if(SeleccionarTabla(i,Tabla)!=null)
+                    {
+                        Tabla++;
+                        aux = true;
+                    }
+                    Tablas[Tabla].setValueAt(entero, x, i);
+                }
+                if(aux==true)
+                {aux = false;
+                break;}
+            }
+        }
         
         
+        
+        /*
+        tb1.setValueAt(entero,CantFi,CantC);
         
          int[][] matrizNumAlea = new int[CantC][CantFi];
             for (int x = 0 ; x < CantC ; x++ ){
@@ -121,12 +145,16 @@ public class vJugador extends javax.swing.JFrame implements Observer{
                    
                 }
             }
+        */
     }
-    
-        for (int x = 0 ; x < CantC ; x++ ){
-                for(int i = 0 ; i < CantFi ; i++){
-         tb1.setValueAt(matrizNumAlea[x][i], x, i);
-                }}
+        public DefaultTableModel SeleccionarTabla(int Cantidad,int pTabla)
+        {
+            if(Cantidad!=0&&CantXCarton%Cantidad==0)
+            {
+                return Tablas[pTabla];
+            }
+            return null;
+        }
           
            
             

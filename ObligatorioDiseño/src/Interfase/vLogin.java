@@ -114,7 +114,6 @@ public class vLogin extends javax.swing.JFrame {
         } catch (cException ex) {
             Logger.getLogger(vLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.
         
         this.setVisible(false); 
     }//GEN-LAST:event_btnIngresarActionPerformed

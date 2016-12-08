@@ -4,24 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vAdmin.java</file>
-<<<<<<< HEAD
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vLogin.java</file>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Common/Utilidades.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vLogin.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vJuego.java</file>
-=======
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vJuego.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/Proxy.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/PatronObserver.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Common/IObjetoFabrica.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/obligatoriodiseño/Bingo.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Dominio/dJuego.java</file>
->>>>>>> d3f2a14669f031ec67aa7a42a81b571b0ddf7a57
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vJugador.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Dominio/Bingo.java</file>
->>>>>>> 61d7f2af6ac80f812068a4f435c922d9d89a09a9
         </group>
     </open-files>
 </project-private>
