@@ -7,6 +7,8 @@ package Common;
 
 import Dominio.Bingo;
 import Dominio.dJuego;
+import Interfase.PatronObserver;
+import Interfase.vJuego;
 
 /**
  *
@@ -14,37 +16,20 @@ import Dominio.dJuego;
  */
 public class cSupervisor implements Runnable{
 
-    private Thread[] hilos = new Thread[10];
+    private Thread[] hilos;
     private long Espera;
-    private Thread[] hilosEnJuego;
+    private PatronObserver OPatron;
     
-    public cSupervisor(Thread[] philo, long pEspera)
+    public cSupervisor(Thread[] philo, long pEspera, PatronObserver pOPatron)
     {
+        OPatron = pOPatron;
         hilos = philo;
-        verHilosEnJuego();
     }
-    
-    public void verHilosEnJuego()
-    {
-        int count = 0;
-        for(Thread z : hilos)
-        {
-            if(z ==null)
-            {
-                count++;
-            }
-        }
-        hilosEnJuego = new Thread[10-count];
-        for(int i = 0; i<hilosEnJuego.length;i++)
-        {
-            hilosEnJuego[i] = hilos[i]; 
-        }
-    }
-    
+        
     @Override
     public void run() {
         
-        for(Thread x : hilosEnJuego)
+        for(Thread x : hilos)
         {
             while(x.isAlive())
             {
@@ -53,6 +38,7 @@ public class cSupervisor implements Runnable{
         }
         
         Bingo b = new Bingo();
+        vJuego juego = new vJuego(OPatron);
         b.ComenzarPartida();
     }
     

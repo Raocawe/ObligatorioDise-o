@@ -20,7 +20,12 @@ import javax.swing.*;
 public class Proxy {
     
     Bingo b = new Bingo();
-    vAdmin vA = new vAdmin();
+    PatronObserver OPatron;
+    
+    public Proxy(PatronObserver pOPatron)
+    {
+        OPatron=pOPatron;
+    }
    
     public boolean logear(cUsuario us,vLogin l) throws cException
     {       
@@ -37,7 +42,7 @@ public class Proxy {
                 else
                 {
                     l.setVisible(false);
-                    vAdmin A = new vAdmin();
+                    vAdmin A = new vAdmin(this);
                     A.setLocationRelativeTo(null);
                     A.setVisible(true);
                     return true;

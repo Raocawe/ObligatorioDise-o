@@ -26,21 +26,22 @@ import javax.swing.JTextField;
  */
 public class vAdmin extends javax.swing.JFrame{
 
-    vLogin[] pantallas = new vLogin[10]; 
-    Thread[] Threads = new Thread[10]; 
+    vLogin[] pantallas; 
+    Thread[] Threads; 
     
     long Espera = 1000*60*2;//2min
     int CantCarMax;
     int CantColumn;
     int CantFilas;
     int Precio = 0;
-    /**
-     * Creates new form vAdmin
-     */
-    public vAdmin() {
+    private Proxy Prox;
+    
+    public vAdmin(Proxy pProx) {
+        Prox = pProx;
         initComponents();
     }
-
+    
+    public vAdmin(){}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -156,6 +157,10 @@ public class vAdmin extends javax.swing.JFrame{
         // <editor-fold defaultstate="collapsed" desc=" AberturaDePantallas ">     
         String CantJ = (String) ComboxJ.getSelectedItem();
         VentanasAbiertas = Integer.valueOf(CantJ);
+        
+        pantallas = new vLogin[VentanasAbiertas]; 
+        Threads = new Thread[VentanasAbiertas];
+        
         for(int i=0; i<VentanasAbiertas; i++)
         { 
            p = new vLogin();
@@ -163,7 +168,7 @@ public class vAdmin extends javax.swing.JFrame{
            if(i!=0)
            pantallas[i] = p;
            
-           cHilo newhilo = new cHilo(p);
+           cHilo newhilo = new cHilo();
            Thread th = new Thread(newhilo);
            Threads[i] = th;
            th.start();

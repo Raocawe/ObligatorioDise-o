@@ -9,6 +9,8 @@ import Common.Utilidades;
 import Common.cException;
 import Common.cJuego;
 import static Dominio.Bingo.getInstancia;
+import Interfase.PatronObserver;
+import Interfase.Proxy;
 import Interfase.vLogin;
 
 /**
@@ -21,7 +23,9 @@ public class Bingo {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws cException {
-        vLogin Login = new vLogin();        
+        PatronObserver patronO = new PatronObserver();
+        Proxy proxy = new Proxy(patronO);
+        vLogin Login = new vLogin(proxy);        
         Login.setVisible(true);
     }
     

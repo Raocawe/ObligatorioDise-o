@@ -24,20 +24,20 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     cUsuario usu = null;
     cJuego j;
             
-    /**
-     * Creates new form vJugadorJugando
-     */
+    public vJugador(){}
+            
     public vJugador(int pCant, cUsuario pusu) throws cException {
         usu = pusu;
         CantidadCartones = pCant;
         j = b.buscarTodo();
+        
         initComponents();
         
-        // <editor-fold defaultstate="collapsed" desc=" ConsultaCartones ">
+        // <editor-fold defaultstate="collapsed" desc=" Compra De Cartones ">
         String Resultado = "Testeando";
         while(Validar(Resultado) != EnumeradosVentana.Ok)
         {
-            Resultado = (JOptionPane.showInputDialog(this, "¿Con Cuantos Cartones Jugara?", "1 - 10"));
+            Resultado = (JOptionPane.showInputDialog(this, "¿Con Cuantos Cartones Jugara?", "1 -"+j.getCantidadMaximaCartonesXJuegadores()));
             if(Validar(Resultado) == EnumeradosVentana.Ok)
             {
                 break;
@@ -54,9 +54,11 @@ public class vJugador extends javax.swing.JFrame implements Observer{
             }
         }
         // </editor-fold>
+        
+        ManejoTablas();
     }
     
-    public EnumeradosVentana Validar(String pResultado) throws cException
+    private EnumeradosVentana Validar(String pResultado) throws cException
     {
         if(!isNumeric(pResultado))
         {
@@ -73,10 +75,8 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         return EnumeradosVentana.Ok;
     }
     
-    public vJugador()
-    {
-        initComponents();
-        
+    public void ManejoTablas()
+    {  /*      
         tblCarton1.setVisible(false);
         tblCarton2.setVisible(false);
         tblCarton3.setVisible(false);
@@ -105,10 +105,8 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         tb5.addColumn(CantC);
         tb6.addColumn(CantC);
         tb7.addColumn(CantC);
-        tb8.addColumn(CantC);
-        
-        
-        
+        tb8.addColumn(CantC);    
+        */
     }
 
     /**

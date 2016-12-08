@@ -22,11 +22,14 @@ public class vLogin extends javax.swing.JFrame {
 
     public Bingo bin = new Bingo();
     private boolean Estado = false;
-    
+    Proxy Prox;
     /**
      * Creates new form Login
      */
-    public vLogin() {
+    public vLogin(){}
+    
+    public vLogin(Proxy pProx) {
+        Prox = pProx;
         initComponents();
     }
 
@@ -102,11 +105,9 @@ public class vLogin extends javax.swing.JFrame {
         cUsuario usu = (cUsuario)bin.CrearObjeto(Utilidades.EnumeradosFabrica.Usuario);
         usu.setUsuario(u);
         usu.setContraseña(c);
-        Proxy pr;
              
-        pr = new Proxy();
         try {
-            if(!pr.logear(usu,this))
+            if(!Prox.logear(usu,this))
             {
                JOptionPane.showMessageDialog(this, "ERROR USUARIO NO ENCONTRADO", "Login", JOptionPane.INFORMATION_MESSAGE);
             }

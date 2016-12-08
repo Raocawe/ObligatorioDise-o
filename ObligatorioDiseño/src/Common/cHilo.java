@@ -14,16 +14,15 @@ import Interfase.vLogin;
 public class cHilo implements Runnable{
 
     private vLogin pantalla;
+    private boolean Estado = true;
     
-    public cHilo(vLogin p)
-    {
-        pantalla = p;
-    }
+    public cHilo()
+    {}
     
     @Override
     public void run() {
         
-        while(pantalla.isEstado() == false)
+        while(Estado == true)
         {
             //Esperado A Que Se Logee
         }
