@@ -5,6 +5,7 @@
  */
 package Interfase;
 
+import java.util.Observer;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 
@@ -12,7 +13,7 @@ import javafx.beans.Observable;
  *
  * @author Martin
  */
-public class vJuego extends javax.swing.JFrame implements Observable{
+public class vJuego extends javax.swing.JFrame implements Observer{
 
     /**
      * Creates new form vJuego
@@ -20,6 +21,7 @@ public class vJuego extends javax.swing.JFrame implements Observable{
     public vJuego() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -147,13 +149,8 @@ public class vJuego extends javax.swing.JFrame implements Observable{
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public void addListener(InvalidationListener il) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void removeListener(InvalidationListener il) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void update(java.util.Observable o, Object arg) {
+       
     }
 
 }

@@ -38,7 +38,8 @@ public class cSupervisor implements Runnable{
         }
         
         Bingo b = new Bingo();
-        vJuego juego = new vJuego(OPatron);
+        vJuego juego = new vJuego();
+        OPatron.addObserver(juego);
         b.ComenzarPartida();
     }
     

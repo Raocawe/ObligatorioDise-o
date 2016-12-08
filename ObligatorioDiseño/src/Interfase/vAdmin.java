@@ -173,7 +173,7 @@ public class vAdmin extends javax.swing.JFrame{
            Threads[i] = th;
            th.start();
         }
-        Thread ths = new Thread(new cSupervisor(Threads,Espera));
+        Thread ths = new Thread(new cSupervisor(Threads,Espera,Prox.getOPatron()));
         ths.start();
         // </editor-fold>
         

@@ -20,7 +20,7 @@ import javax.swing.*;
 public class Proxy {
     
     Bingo b = new Bingo();
-    PatronObserver OPatron;
+    private PatronObserver OPatron;
     
     public Proxy(PatronObserver pOPatron)
     {
@@ -50,6 +50,10 @@ public class Proxy {
             }
             else 
                 return false;
+    }
+
+    public PatronObserver getOPatron() {
+        return OPatron;
     }
                   
 }
