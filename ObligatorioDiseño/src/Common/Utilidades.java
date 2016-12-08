@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 public class Utilidades {
        
     public static int VentanasAbiertas = 0;
+    public static int VentanasLogueadas = 0;
     
     public static enum EnumeradosTipo {
     

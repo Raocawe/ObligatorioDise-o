@@ -9,9 +9,7 @@ import Common.Utilidades;
 import static Common.Utilidades.VentanasAbiertas;
 import Common.Utilidades.tipoRet;
 import Common.cException;
-import Common.cHilo;
 import Common.cJuego;
-import Common.cSupervisor;
 import Dominio.Bingo;
 import Interfase.vLogin;
 import java.util.ArrayList;
@@ -162,14 +160,7 @@ public class vAdmin extends javax.swing.JFrame{
         { 
            p = new vLogin(Prox);
            p.setVisible(true);
-           
-           cHilo newhilo = new cHilo();
-           Thread th = new Thread(newhilo);
-           Threads[i] = th;
-           th.start();
         }
-        Thread ths = new Thread(new cSupervisor(Threads,Espera,Prox.getOPatron()));
-        ths.start();
         // </editor-fold>
         
         

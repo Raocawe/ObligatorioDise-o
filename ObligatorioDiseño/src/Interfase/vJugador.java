@@ -18,7 +18,6 @@ import javax.swing.table.DefaultTableModel;
 
 public class vJugador extends javax.swing.JFrame implements Observer{
 
-    boolean Logueado;
     Bingo b = getInstancia();;
     cUsuario usu ;
     cJuego j;
@@ -28,7 +27,6 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     public vJugador(cUsuario pusu) throws cException {
         usu = pusu;
         j = b.buscarTodo();
-        Logueado = false;
         
         initComponents();
         
@@ -55,7 +53,11 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         // </editor-fold>
         
         ManejoTablas();
-        Logueado = true;
+        VentanasLogueadas++;
+        if(VentanasAbiertas==VentanasLogueadas)
+        {
+            b.ComenzarPartida();
+        }
     }
     
     private EnumeradosVentana Validar(String pResultado) throws cException
