@@ -76,15 +76,12 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     }
     
     public void ManejoTablas()
-    {  /*      
+    {      
         tblCarton1.setVisible(false);
         tblCarton2.setVisible(false);
         tblCarton3.setVisible(false);
         tblCarton4.setVisible(false);
-        tblCarton5.setVisible(false);
-        tblCarton6.setVisible(false);
-        tblCarton7.setVisible(false);
-        tblCarton8.setVisible(false);
+        t
      
         int CantFi = j.getCantidadFilas();
         int CantC = j.getCantidadColumnas();
@@ -92,21 +89,14 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         DefaultTableModel tb2 = (DefaultTableModel) this.tblCarton2.getModel();
         DefaultTableModel tb3 = (DefaultTableModel) this.tblCarton3.getModel();
         DefaultTableModel tb4 = (DefaultTableModel) this.tblCarton4.getModel();
-        DefaultTableModel tb5 = (DefaultTableModel) this.tblCarton1.getModel();
-        DefaultTableModel tb6 = (DefaultTableModel) this.tblCarton1.getModel();
-        DefaultTableModel tb7 = (DefaultTableModel) this.tblCarton1.getModel();
-        DefaultTableModel tb8 = (DefaultTableModel) this.tblCarton1.getModel();
+        
         
         
         tb1.addColumn(CantC);
         tb2.addColumn(CantC);
         tb3.addColumn(CantC);
         tb4.addColumn(CantC);
-        tb5.addColumn(CantC);
-        tb6.addColumn(CantC);
-        tb7.addColumn(CantC);
-        tb8.addColumn(CantC);    
-        */
+        
     }
 
     /**
@@ -118,21 +108,118 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblCarton3 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblCarton4 = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblCarton1 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblCarton2 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        txtPozo = new javax.swing.JTextField();
+        txtMonto = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 744, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 588, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblCarton3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+            }
+        ));
+        jScrollPane1.setViewportView(tblCarton3);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 307, 114));
+
+        tblCarton4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+            }
+        ));
+        jScrollPane2.setViewportView(tblCarton4);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 307, 114));
+
+        tblCarton1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+            }
+        ));
+        jScrollPane3.setViewportView(tblCarton1);
+
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 21, 307, 114));
+
+        tblCarton2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+            }
+        ));
+        jScrollPane4.setViewportView(tblCarton2);
+
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 307, 114));
+
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
+        jLabel1.setText("Pozo");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, -1, -1));
+
+        txtPozo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPozoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtPozo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 70, 30));
+
+        txtMonto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMontoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, 70, 30));
+
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
+        jLabel2.setText("Monto");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtPozoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPozoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPozoActionPerformed
+
+    private void txtMontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMontoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,5 +261,17 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable tblCarton1;
+    private javax.swing.JTable tblCarton2;
+    private javax.swing.JTable tblCarton3;
+    private javax.swing.JTable tblCarton4;
+    private javax.swing.JTextField txtMonto;
+    private javax.swing.JTextField txtPozo;
     // End of variables declaration//GEN-END:variables
 }
