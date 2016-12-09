@@ -24,7 +24,8 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     cJuego j;
     int CantidadCartones;
     int CantXCarton;
-    JTable[] Tablas;
+    DefaultTableModel[] Tablas;
+    JTable[] Tablass;
             
     public vJugador(){}
             
@@ -60,6 +61,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         // </editor-fold>
         
         ManejoTablas();
+        
         VentanasLogueadas++;
         if(VentanasAbiertas==VentanasLogueadas)
         {
@@ -84,120 +86,82 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         return EnumeradosVentana.Ok;
     }
     
-    public void ManejoTablas()
+    private void ManejoTablas()
     {      
         int CantFi = j.getCantidadFilas();
         int CantC = j.getCantidadColumnas();
-        Integer[] filas = new Integer[CantFi];
-        Integer[] columnas = new Integer[CantC];
         tblCarton2.setVisible(false);
         tblCarton3.setVisible(false);
         tblCarton4.setVisible(false);
-        Tablas = new JTable[CantidadCartones];
-        //<editor-fold defaultstate="collapsed"  desc="CargaDeTablas">
+        Tablas = new DefaultTableModel[CantidadCartones];
+        Tablass = new JTable[CantidadCartones];
+        
+        //<editor-fold defaultstate="collapsed"  desc="CargaVariablesTablas">
         tblCarton1.setVisible(true);
         DefaultTableModel tb1 = (DefaultTableModel) this.tblCarton1.getModel();
-        tb1.addColumn(columnas);
-        tb1.addRow(filas);
-        tblCarton1.setModel(tb1);
-        Tablas[0] = tblCarton1;                                                //FinTabla1
+        Tablas[0] = tb1;
+        Tablass[0] = tblCarton1;                                    //FinTabla1
         
         DefaultTableModel tb2 = (DefaultTableModel) this.tblCarton2.getModel();
          if(CantidadCartones>=2){
-             tb2.addColumn(columnas);
-             tb2.addRow(filas);
-             tblCarton2.setModel(tb2);
-             Tablas[1] = tblCarton2;
+             tblCarton2.setVisible(true);
+             Tablas[1] = tb2;
+             Tablass[1] = tblCarton2;
          }                                                          //FinTabla2
          
         DefaultTableModel tb3 = (DefaultTableModel) this.tblCarton3.getModel();
         if(CantidadCartones>=3){
-            tb3.addColumn(columnas);
-            tb3.addRow(filas);
-            tblCarton3.setModel(tb3);
-            Tablas[2] = tblCarton3;
+            tblCarton3.setVisible(true);
+            Tablas[2] = tb3;
+            Tablass[2] = tblCarton3;
         }                                                           //FinTabla3
         
         DefaultTableModel tb4 = (DefaultTableModel) this.tblCarton4.getModel();
         if(CantidadCartones==4){
-            tb4.addColumn(columnas);
-            tb4.addRow(filas);
-            tblCarton4.setModel(tb4);
-            Tablas[3] = tblCarton4;
+            tblCarton4.setVisible(true);
+            Tablas[3] = tb4;
+            Tablass[3] = tblCarton4;
         }                                                           //FinTabla4
         //</editor-fold>
+        
         CantXCarton = CantFi * CantC;
         int CantNumAleatorio = CantXCarton* CantidadCartones;
-        //<editor-fold defaultstate="collapsed"  desc="CargandoArray">
+        
+        //<editor-fold defaultstate="collapsed"  desc="CargandoArrayNumeros">
         ArrayList<Integer> ListaNumeros = new ArrayList<Integer>();
         for(int i=0;i<CantNumAleatorio;i++)
         {
             ListaNumeros.add(i);
         }
         //</editor-fold>
-        int Tabla=0;
-        boolean aux = false;
         
-        while(Tablas[Tabla]!=null){
-            for (int x = 0 ; x < CantC ; x++ ){
-                for(int i = 0 ; i < CantFi ; i++){
-                    int entero = ListaNumeros.get((int) (Math.random()*CantNumAleatorio + 1));
-                    if(SeleccionarTabla(i,Tabla))
-                    {
-                        Tabla++;
-                        aux = true;
-                        break;
-                    }
-                    Tablas[Tabla].setValueAt(entero, i, x);
-                }
-                if(aux==true)
-                {aux = false;
-                break;}
-            }
-        }
-        
-        
-        
-        /*
-        tb1.setValueAt(entero,CantFi,CantC);
-        
-         int[][] matrizNumAlea = new int[CantC][CantFi];
-            for (int x = 0 ; x < CantC ; x++ ){
-                for(int i = 0 ; i < CantFi ; i++){
-                    matrizNumAlea[x][i] = (int) (Math.random()*CantNumAleatorio + 1);
-                   
-                }
-            }
-        */
-    }
-        public boolean SeleccionarTabla(int Cantidad,int pTabla)
-        {
-            if(CantXCarton==Cantidad)
-            {
-                return true;
-            }
-            return false;
-        }
-          
-           
+        String[] colum = new String[CantC];
+        for(int tab=0; tab<Tablas.length;tab++){//recorre las tablas a listar
             
-                
-             
-   
-        //unaLinea.setCantidad(parseInt(txtCantidad.getText().toString()));
-          //  unaLinea.setElProducto((cProducto)comboProductos.getItemAt(comboProductos.getSelectedIndex()).getValor());
-            //DefaultTableModel tb = (DefaultTableModel) this.tblLineasFactura.getModel();
-            //tb.addRow(new Object[]{new Integer(unaLinea.getId()), new Integer(unaLinea.getElProducto().getId()),new String(unaLinea.getElProducto().getNombre()), new Integer(unaLinea.getCantidad()) });
+            for (int x = 0 ; x < CantFi ; x++ ){//recorre las filas de la tabla
+                if(x==0){
+                    for(int t = 0; t<colum.length;t++){//carga los valores de la fila
+                    int entero = (int) (Math.random()*ListaNumeros.size());  
+                    Tablas[tab].addColumn(ListaNumeros.get(entero));
+                    ListaNumeros.remove(entero);
+                    }
+                }
+                else
+                {  
+                    for(int t = 0; t<colum.length;t++){//carga los valores de la fila
+                        int entero = (int) (Math.random()*ListaNumeros.size());
+                        colum[t] = String.valueOf(ListaNumeros.get(entero));     
+                        ListaNumeros.remove(entero);
+                    }
 
-    //@Override
-    //public void update(Observable o, Object arg) {
-     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    
-        
-        
-        
-    
+                    Tablas[tab].addRow(colum);    
+                } 
+            }  
+            Tablass[tab].setModel(Tablas[tab]); 
+        }
 
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -225,14 +189,10 @@ public class vJugador extends javax.swing.JFrame implements Observer{
 
         tblCarton3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+
             }
         ));
         jScrollPane1.setViewportView(tblCarton3);
@@ -241,14 +201,10 @@ public class vJugador extends javax.swing.JFrame implements Observer{
 
         tblCarton4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+
             }
         ));
         jScrollPane2.setViewportView(tblCarton4);
@@ -269,14 +225,10 @@ public class vJugador extends javax.swing.JFrame implements Observer{
 
         tblCarton2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+
             }
         ));
         jScrollPane4.setViewportView(tblCarton2);

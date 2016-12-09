@@ -27,7 +27,6 @@ public class vAdmin extends javax.swing.JFrame{
 
     Thread[] Threads; 
     
-    long Espera = 1000*60*2;//2min
     int CantCarMax;
     int CantColumn;
     int CantFilas;
@@ -165,9 +164,7 @@ public class vAdmin extends javax.swing.JFrame{
            p.setVisible(true);
         }
         // </editor-fold>
-        
-        
-        
+
         this.setVisible(false);
     }//GEN-LAST:event_btnAgregarJugActionPerformed
 

@@ -47,7 +47,6 @@ public class Proxy {
                 }
                 else
                 {
-                    
                     vAdmin A = new vAdmin(this);
                     A.setLocationRelativeTo(null);
                     A.setVisible(true);
