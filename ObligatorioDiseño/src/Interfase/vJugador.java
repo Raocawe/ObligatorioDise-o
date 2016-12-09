@@ -24,7 +24,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     cJuego j;
     int CantidadCartones;
     int CantXCarton;
-    DefaultTableModel[] Tablas;
+    JTable[] Tablas;
             
     public vJugador(){}
             
@@ -88,44 +88,67 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     {      
         int CantFi = j.getCantidadFilas();
         int CantC = j.getCantidadColumnas();
-        
-        DefaultTableModel tb1 = (DefaultTableModel) this.tblCarton1.getModel();
-        DefaultTableModel tb2 = (DefaultTableModel) this.tblCarton2.getModel();
-        DefaultTableModel tb3 = (DefaultTableModel) this.tblCarton3.getModel();
-        DefaultTableModel tb4 = (DefaultTableModel) this.tblCarton4.getModel();
-        tblCarton1.setVisible(false);
+        Integer[] filas = new Integer[CantFi];
+        Integer[] columnas = new Integer[CantC];
         tblCarton2.setVisible(false);
         tblCarton3.setVisible(false);
         tblCarton4.setVisible(false);
-        tb1.addColumn(CantC);
-        tb2.addColumn(CantC);
-        tb3.addColumn(CantC);
-        tb4.addColumn(CantC);
-        Tablas = new DefaultTableModel[CantidadCartones];
-        Tablas[0] = tb1;Tablas[1] = tb2;if(CantidadCartones>=3)Tablas[2] = tb3;if(CantidadCartones==4)Tablas[3] = tb4;
+        Tablas = new JTable[CantidadCartones];
+        //<editor-fold defaultstate="collapsed"  desc="CargaDeTablas">
+        tblCarton1.setVisible(true);
+        DefaultTableModel tb1 = (DefaultTableModel) this.tblCarton1.getModel();
+        tb1.addColumn(columnas);
+        tb1.addRow(filas);
+        tblCarton1.setModel(tb1);
+        Tablas[0] = tblCarton1;                                                //FinTabla1
         
+        DefaultTableModel tb2 = (DefaultTableModel) this.tblCarton2.getModel();
+         if(CantidadCartones>=2){
+             tb2.addColumn(columnas);
+             tb2.addRow(filas);
+             tblCarton2.setModel(tb2);
+             Tablas[1] = tblCarton2;
+         }                                                          //FinTabla2
+         
+        DefaultTableModel tb3 = (DefaultTableModel) this.tblCarton3.getModel();
+        if(CantidadCartones>=3){
+            tb3.addColumn(columnas);
+            tb3.addRow(filas);
+            tblCarton3.setModel(tb3);
+            Tablas[2] = tblCarton3;
+        }                                                           //FinTabla3
+        
+        DefaultTableModel tb4 = (DefaultTableModel) this.tblCarton4.getModel();
+        if(CantidadCartones==4){
+            tb4.addColumn(columnas);
+            tb4.addRow(filas);
+            tblCarton4.setModel(tb4);
+            Tablas[3] = tblCarton4;
+        }                                                           //FinTabla4
+        //</editor-fold>
         CantXCarton = CantFi * CantC;
         int CantNumAleatorio = CantXCarton* CantidadCartones;
-        
+        //<editor-fold defaultstate="collapsed"  desc="CargandoArray">
         ArrayList<Integer> ListaNumeros = new ArrayList<Integer>();
         for(int i=0;i<CantNumAleatorio;i++)
         {
             ListaNumeros.add(i);
         }
-    
+        //</editor-fold>
         int Tabla=0;
         boolean aux = false;
         
         while(Tablas[Tabla]!=null){
             for (int x = 0 ; x < CantC ; x++ ){
-                for(int i = 0 ; i <= CantFi ; i++){
+                for(int i = 0 ; i < CantFi ; i++){
                     int entero = ListaNumeros.get((int) (Math.random()*CantNumAleatorio + 1));
-                    if(SeleccionarTabla(i,Tabla)!=null)
+                    if(SeleccionarTabla(i,Tabla))
                     {
                         Tabla++;
                         aux = true;
+                        break;
                     }
-                    Tablas[Tabla].setValueAt(entero, x, i);
+                    Tablas[Tabla].setValueAt(entero, i, x);
                 }
                 if(aux==true)
                 {aux = false;
@@ -147,13 +170,13 @@ public class vJugador extends javax.swing.JFrame implements Observer{
             }
         */
     }
-        public DefaultTableModel SeleccionarTabla(int Cantidad,int pTabla)
+        public boolean SeleccionarTabla(int Cantidad,int pTabla)
         {
-            if(Cantidad!=0&&CantXCarton%Cantidad==0)
+            if(CantXCarton==Cantidad)
             {
-                return Tablas[pTabla];
+                return true;
             }
-            return null;
+            return false;
         }
           
            
