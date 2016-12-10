@@ -31,6 +31,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     DefaultTableModel[] Tablas;
     JTable[] Tablass;
     PatronObserver PObserver;
+    int Pozo;
             
     public vJugador(){}
             
@@ -62,6 +63,8 @@ public class vJugador extends javax.swing.JFrame implements Observer{
             }
         }
         CantidadCartones = Integer.parseInt(Resultado);
+        
+        Pozo = ((CantidadCartones * j.getValorCarton())+(CantidadCartonesJuego * j.getValorCarton()));
         
         
         // </editor-fold>
