@@ -30,6 +30,8 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     int CantXCarton;
     DefaultTableModel[] Tablas;
     JTable[] Tablass;
+    ArrayList[] ControlDeBusqueda;
+    ArrayList<Integer> numerosTabla;
     PatronObserver PObserver;
             
     public vJugador(){}
@@ -78,6 +80,8 @@ public class vJugador extends javax.swing.JFrame implements Observer{
             
 
         }
+        PObserver.setVentanasJugando(this);
+        Tablass = null;
     }
     
     private EnumeradosVentana Validar(String pResultado) throws cException
@@ -151,28 +155,35 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
         tcr.setHorizontalAlignment(SwingConstants.CENTER);
         
+        ControlDeBusqueda = new ArrayList[CantidadCartones];
+        
         String[] colum = new String[CantC];
         for(int tab=0; tab<Tablas.length;tab++){//recorre las tablas a listar
-            
+            numerosTabla = new ArrayList<Integer>();
             for (int x = 0 ; x < CantFi ; x++ ){//recorre las filas de la tabla
                 if(x==0){
+                    
                     for(int t = 0; t<colum.length;t++){//carga los valores de la fila
                     int entero = (int) (Math.random()*ListaNumeros.size());  
                     Tablas[tab].addColumn(ListaNumeros.get(entero));
+                    numerosTabla.add(ListaNumeros.get(entero));
+                    
                     ListaNumeros.remove(entero);
+                    
                     }
                 }
                 else
                 {  
                     for(int t = 0; t<colum.length;t++){//carga los valores de la fila
                         int entero = (int) (Math.random()*ListaNumeros.size());
-                        colum[t] = String.valueOf(ListaNumeros.get(entero));     
+                        colum[t] = String.valueOf(ListaNumeros.get(entero)); 
+                        numerosTabla.add(ListaNumeros.get(entero));
                         ListaNumeros.remove(entero);
                     }
                     Tablas[tab].addRow(colum);    
                 } 
-            }  
-            
+            }
+            ControlDeBusqueda[tab] = numerosTabla;
             Tablass[tab].setModel(Tablas[tab]); 
             Tablass[tab].getTableHeader().setBackground(Color.white);
             for(int t = 0; t<colum.length;t++){//Alinea las celdas al centro
@@ -355,14 +366,36 @@ public class vJugador extends javax.swing.JFrame implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {
-        if(!PObserver.isTermino())
+        if(PObserver.getGanador()==null)
         {
-            
+            if(PObserver.getVentanasJugando().size()>1)
+            {
+            BuscarNumero(PObserver.getBolillaSorteada());
+            }
+            else
+            {
+               JOptionPane.showMessageDialog(this, "El Juego A Finalizado\nEl Usuario " +PObserver.getVentanasJugando().get(0).usu.getNombre()+ "A Ganado");
+            }
         }
         else
         {
-            
             JOptionPane.showMessageDialog(this, "El Juego A Finalizado\nEl Usuario " +PObserver.getGanador().getNombre()+ "A Ganado");
+        }
+    }
+    
+    public void BuscarNumero(int pNumero)
+    {
+        for(int i =0;i<Tablass.length;i++)//recorren las tablas en busca del numero
+        {
+            ColorearCeldas c = new ColorearCeldas(ControlDeBusqueda[i],pNumero);
+            Tablass[i].setDefaultRenderer(Object.class, c);
+            ControlDeBusqueda[i] = c.getList();
+            
+            if(ControlDeBusqueda[i].isEmpty())// Comprobamos si gano
+            {
+                PObserver.setGanador(usu);
+            }
+            
         }
     }
 }

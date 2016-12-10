@@ -6,8 +6,10 @@
 package Interfase;
 
 import Common.cUsuario;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.JFrame;
 
 /**
  *
@@ -19,8 +21,7 @@ public class PatronObserver extends Observable{
     private int BolillaSorteada;
     private int Pozo;
     private int CartonesEnJuego;
-    private int VentanasJugando;
-    private boolean Termino = false;
+    private ArrayList<vJugador> VentanasJugando;
 
     public int getBolillaSorteada() {
         return BolillaSorteada;
@@ -42,16 +43,6 @@ public class PatronObserver extends Observable{
         notifyObservers();
     }
 
-    public boolean isTermino() {
-        return Termino;
-    }
-
-    public void setTermino(boolean Termino) {
-        this.Termino = Termino;
-        setChanged();
-        notifyObservers();
-    }
-
     public int getCartonesEnJuego() {
         return CartonesEnJuego;
     }
@@ -60,12 +51,12 @@ public class PatronObserver extends Observable{
         this.CartonesEnJuego += CartonesEnJuego;
     }
 
-    public int getVentanasJugando() {
+    public ArrayList<vJugador> getVentanasJugando() {
         return VentanasJugando;
     }
 
-    public void setVentanasJugando(int VentanasJugando) {
-        this.VentanasJugando = VentanasJugando;
+    public void setVentanasJugando(vJugador VentanasJugando) {
+        this.VentanasJugando.add(VentanasJugando);
         setChanged();
         notifyObservers();
     }
@@ -76,6 +67,8 @@ public class PatronObserver extends Observable{
 
     public void setGanador(cUsuario Ganador) {
         this.Ganador = Ganador;
+        setChanged();
+        notifyObservers();
     }
    
     

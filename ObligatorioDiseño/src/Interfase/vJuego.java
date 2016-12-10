@@ -8,6 +8,7 @@ package Interfase;
 import java.util.Observer;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -154,7 +155,14 @@ public class vJuego extends javax.swing.JFrame implements Observer{
 
     @Override
     public void update(java.util.Observable o, Object arg) {
-       
+       if(PObserver.getGanador()==null)
+        {
+            PObserver.getBolillaSorteada();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "El Juego A Finalizado");
+        }
     }
 
 }
