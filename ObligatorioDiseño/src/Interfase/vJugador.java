@@ -11,11 +11,16 @@ import Common.cJuego;
 import Common.cUsuario;
 import Dominio.Bingo;
 import static Dominio.Bingo.getInstancia;
+import java.awt.Color;
+import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 public class vJugador extends javax.swing.JFrame implements Observer{
 
@@ -135,6 +140,10 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         }
         //</editor-fold>
         
+        //<editor-fold defaultstate="collapsed"  desc="CargarTabla">
+        
+        DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
+        tcr.setHorizontalAlignment(SwingConstants.CENTER);       
         String[] colum = new String[CantC];
         for(int tab=0; tab<Tablas.length;tab++){//recorre las tablas a listar
             
@@ -153,13 +162,19 @@ public class vJugador extends javax.swing.JFrame implements Observer{
                         colum[t] = String.valueOf(ListaNumeros.get(entero));     
                         ListaNumeros.remove(entero);
                     }
-
                     Tablas[tab].addRow(colum);    
                 } 
             }  
+            
             Tablass[tab].setModel(Tablas[tab]); 
+            Tablass[tab].getTableHeader().setBackground(Color.white);
+            Tablass[tab].setBorder(new EmptyBorder(0,0,0,0));
+            for(int t = 0; t<colum.length;t++){//Alinea las celdas al centro
+                   Tablass[tab].getColumnModel().getColumn(t).setCellRenderer(tcr);
+            }
+            
         }
-
+                //</editor-fold>
     }
     
     /**
@@ -197,7 +212,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         ));
         jScrollPane1.setViewportView(tblCarton3);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 307, 114));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 280, 130));
 
         tblCarton4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -209,7 +224,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         ));
         jScrollPane2.setViewportView(tblCarton4);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 307, 114));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 280, 120));
 
         tblCarton1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -219,9 +234,10 @@ public class vJugador extends javax.swing.JFrame implements Observer{
 
             }
         ));
+        tblCarton1.setSurrendersFocusOnKeystroke(true);
         jScrollPane3.setViewportView(tblCarton1);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 21, 307, 114));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 21, 300, 130));
 
         tblCarton2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -233,7 +249,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         ));
         jScrollPane4.setViewportView(tblCarton2);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 307, 114));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 300, 120));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
         jLabel1.setText("Pozo");
