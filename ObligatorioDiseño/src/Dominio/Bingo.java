@@ -10,6 +10,7 @@ import Common.Utilidades.EnumeradosFabrica;
 import Common.cException;
 import Common.cJuego;
 import Common.cUsuario;
+import Interfase.PatronObserver;
 import Persistencia.pUsuario;
 
 /**
@@ -45,10 +46,10 @@ public class Bingo {
         return u.buscarTodo();
     }
     
-    public void ComenzarPartida()
+    public void ComenzarPartida(PatronObserver PObserver)
     {
         dJuego u = new dJuego();
-        u.ComenzarPartida();
+        u.ComenzarPartida(PObserver);
     }
     //</editor-fold>
     

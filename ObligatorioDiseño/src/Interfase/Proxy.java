@@ -35,7 +35,7 @@ public class Proxy {
                 if(us.getTipo() == Utilidades.EnumeradosTipo.Usuario )
                 {
                     if(Utilidades.EstadoJuego == EnumeradoEstadoJuego.Activado){
-                        vJugador Juego = new vJugador(us);
+                        vJugador Juego = new vJugador(us,OPatron);
                         OPatron.addObserver(Juego);
                         Juego.setVisible(true);
                         return true;

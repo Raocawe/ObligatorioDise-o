@@ -15,10 +15,14 @@ import javafx.beans.Observable;
  */
 public class vJuego extends javax.swing.JFrame implements Observer{
 
-    /**
-     * Creates new form vJuego
-     */
+    PatronObserver PObserver;
+    
     public vJuego() {
+        initComponents();
+    }
+    
+    public vJuego(PatronObserver pPObserver) {
+        PObserver = pPObserver;
         initComponents();
     }
     

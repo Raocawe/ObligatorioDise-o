@@ -7,6 +7,8 @@ package Dominio;
 
 import Common.cException;
 import Common.cJuego;
+import Interfase.PatronObserver;
+import Interfase.vJuego;
 import Persistencia.pJuego;
 
 /**
@@ -14,7 +16,9 @@ import Persistencia.pJuego;
  * @author cristian castro
  */
 public class dJuego {
-        
+    
+    PatronObserver PObserver;
+    
     public void Modificar(cJuego pJuego) throws cException
     {
         pJuego u = new pJuego();
@@ -27,10 +31,15 @@ public class dJuego {
         return u.buscarTodo();
     }
     
-    public void ComenzarPartida()
+    public void ComenzarPartida(PatronObserver pPObserver)
+    {
+        PObserver = pPObserver;
+        vJuego Vistaj = new vJuego(PObserver);
+    }
+    
+    private void TerminarJuego()
     {
         
     }
-    
     
 }

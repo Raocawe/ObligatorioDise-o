@@ -39,7 +39,7 @@ public class Utilidades {
     Usuario,Juego
     
     }
-    
+        
     public static enum tipoRet{
     CantFilaE,CantColumE,Precio,CartonesE,OK
     }

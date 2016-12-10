@@ -103,14 +103,22 @@ public class vLogin extends javax.swing.JFrame {
             if(!Prox.logear(usu))
             {
                JOptionPane.showMessageDialog(this, "ERROR USUARIO NO ENCONTRADO O El JUEGO NO A INICIADO", "Login", JOptionPane.INFORMATION_MESSAGE);
+               this.setVisible(true);
             }
+            else
+               this.setVisible(false); 
         } catch (cException ex) {
+            
             Logger.getLogger(vLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        this.setVisible(false); 
+        
     }//GEN-LAST:event_btnIngresarActionPerformed
 
+    private void LimpiarCampos()
+    {
+        
+    }
     /**
      * @param args the command line arguments
      */

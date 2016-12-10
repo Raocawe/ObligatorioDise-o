@@ -16,6 +16,8 @@ public class PatronObserver extends Observable{
     
     private int BolillaSorteada;
     private int Pozo;
+    private int CartonesEnJuego;
+    private boolean Termino = false;
 
     public int getBolillaSorteada() {
         return BolillaSorteada;
@@ -33,6 +35,26 @@ public class PatronObserver extends Observable{
 
     public void setPozo(int Pozo) {
         this.Pozo = Pozo;
+        setChanged();
+        notifyObservers();
+    }
+
+    public boolean isTermino() {
+        return Termino;
+    }
+
+    public void setTermino(boolean Termino) {
+        this.Termino = Termino;
+        setChanged();
+        notifyObservers();
+    }
+
+    public int getCartonesEnJuego() {
+        return CartonesEnJuego;
+    }
+
+    public void setCartonesEnJuego(int CartonesEnJuego) {
+        this.CartonesEnJuego = CartonesEnJuego;
         setChanged();
         notifyObservers();
     }

@@ -30,12 +30,14 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     int CantXCarton;
     DefaultTableModel[] Tablas;
     JTable[] Tablass;
+    PatronObserver PObserver;
             
     public vJugador(){}
             
-    public vJugador(cUsuario pusu) throws cException {
+    public vJugador(cUsuario pusu,PatronObserver pPObserver) throws cException {
         usu = pusu;
         j = b.buscarTodo();
+        PObserver = pPObserver;
         
         initComponents();
         
@@ -69,7 +71,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         VentanasLogueadas++;
         if(VentanasAbiertas==VentanasLogueadas)
         {
-            b.ComenzarPartida();
+            b.ComenzarPartida(PObserver);
         }
     }
     
