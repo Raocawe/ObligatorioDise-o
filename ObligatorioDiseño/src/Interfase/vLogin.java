@@ -40,9 +40,9 @@ public class vLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JTextField();
         btnIngresar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        txtContraseña = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -69,7 +69,6 @@ public class vLogin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Century Gothic", 2, 24)); // NOI18N
         jLabel2.setText("Contraseña");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, -1, -1));
-        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 180, 27));
 
         btnIngresar.setFont(new java.awt.Font("Yu Mincho", 2, 18)); // NOI18N
         btnIngresar.setText("Ingresar");
@@ -83,6 +82,7 @@ public class vLogin extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Bingo.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 440, 253));
+        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 190, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.png"))); // NOI18N
         jLabel5.setText("jLabel5");
@@ -103,7 +103,7 @@ public class vLogin extends javax.swing.JFrame {
             if(!Prox.logear(usu))
             {
                JOptionPane.showMessageDialog(this, "ERROR USUARIO NO ENCONTRADO O El JUEGO NO A INICIADO", "Login", JOptionPane.INFORMATION_MESSAGE);
-               this.setVisible(true);
+               LimpiarCampos();
             }
             else
                this.setVisible(false); 
@@ -117,7 +117,7 @@ public class vLogin extends javax.swing.JFrame {
 
     private void LimpiarCampos()
     {
-        
+        this.txtContraseña.setText("");
     }
     /**
      * @param args the command line arguments
@@ -163,7 +163,7 @@ public class vLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 
