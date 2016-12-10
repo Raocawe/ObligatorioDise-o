@@ -29,9 +29,6 @@ public class Bingo {
         return bin;
     }
    //</editor-fold>
-
-    public Bingo() {
-    }
     
     // <editor-fold defaultstate="collapsed" desc=" Juego ">  
     public void ModificarConfiguracion(cJuego pJuego) throws cException
@@ -46,10 +43,10 @@ public class Bingo {
         return u.buscarTodo();
     }
     
-    public void ComenzarPartida(PatronObserver PObserver)
+    public void ComenzarPartida(PatronObserver PObserver,Bingo pB)
     {
         dJuego u = new dJuego();
-        u.ComenzarPartida(PObserver);
+        u.ComenzarPartida(PObserver,pB);
     }
     //</editor-fold>
     

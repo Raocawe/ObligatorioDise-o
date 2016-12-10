@@ -18,6 +18,7 @@ import Persistencia.pJuego;
 public class dJuego {
     
     PatronObserver PObserver;
+    Bingo b;
     
     public void Modificar(cJuego pJuego) throws cException
     {
@@ -35,8 +36,9 @@ public class dJuego {
     {
     }
     
-    public void ComenzarPartida(PatronObserver pPObserver)
+    public void ComenzarPartida(PatronObserver pPObserver,Bingo pB)
     {
+        b = pB;
         PObserver = pPObserver;
         vJuego Vistaj = new vJuego(PObserver);
         PObserver.addObserver(Vistaj);

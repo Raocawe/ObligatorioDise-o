@@ -72,7 +72,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         
         if(VentanasAbiertas==VentanasLogueadas)
         {
-            b.ComenzarPartida(PObserver);
+            b.ComenzarPartida(PObserver,b);
             int Pozo = PObserver.getCartonesEnJuego() * j.getValorCarton();
             PObserver.setPozo(Pozo);
             
