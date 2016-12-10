@@ -29,9 +29,7 @@ public class dJuego {
     
     public void ComenzarPartida()
     {
-        int i = 0;
-        //Metodo
-        //trolololololol
+        
     }
     
     

@@ -5,9 +5,12 @@
         <group>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vLogin.java</file>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vJuego.java</file>
+            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/Proxy.java</file>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/PatronObserver.java</file>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Dominio/dJuego.java</file>
+            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Persistencia/pUsuario.java</file>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vJugador.java</file>
+            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Dominio/dUsuario.java</file>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Dominio/Bingo.java</file>
         </group>
     </open-files>
