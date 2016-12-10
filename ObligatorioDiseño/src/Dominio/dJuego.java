@@ -31,10 +31,15 @@ public class dJuego {
         return u.buscarTodo();
     }
     
+    public void ComenzarPartida()
+    {
+    }
+    
     public void ComenzarPartida(PatronObserver pPObserver)
     {
         PObserver = pPObserver;
         vJuego Vistaj = new vJuego(PObserver);
+        PObserver.addObserver(Vistaj);
     }
     
     private void TerminarJuego()

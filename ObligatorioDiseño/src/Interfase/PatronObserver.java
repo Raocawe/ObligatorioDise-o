@@ -17,6 +17,7 @@ public class PatronObserver extends Observable{
     private int BolillaSorteada;
     private int Pozo;
     private int CartonesEnJuego;
+    private int VentanasJugando;
     private boolean Termino = false;
 
     public int getBolillaSorteada() {
@@ -55,6 +56,16 @@ public class PatronObserver extends Observable{
 
     public void setCartonesEnJuego(int CartonesEnJuego) {
         this.CartonesEnJuego = CartonesEnJuego;
+        setChanged();
+        notifyObservers();
+    }
+
+    public int getVentanasJugando() {
+        return VentanasJugando;
+    }
+
+    public void setVentanasJugando(int VentanasJugando) {
+        this.VentanasJugando = VentanasJugando;
         setChanged();
         notifyObservers();
     }
