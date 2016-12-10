@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -168,7 +167,6 @@ public class vJugador extends javax.swing.JFrame implements Observer{
             
             Tablass[tab].setModel(Tablas[tab]); 
             Tablass[tab].getTableHeader().setBackground(Color.white);
-            Tablass[tab].setBorder(new EmptyBorder(0,0,0,0));
             for(int t = 0; t<colum.length;t++){//Alinea las celdas al centro
                    Tablass[tab].getColumnModel().getColumn(t).setCellRenderer(tcr);
             }
