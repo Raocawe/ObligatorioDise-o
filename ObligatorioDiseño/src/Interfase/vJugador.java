@@ -142,7 +142,8 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         //<editor-fold defaultstate="collapsed"  desc="CargarTabla">
         
         DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
-        tcr.setHorizontalAlignment(SwingConstants.CENTER);       
+        tcr.setHorizontalAlignment(SwingConstants.CENTER);
+        
         String[] colum = new String[CantC];
         for(int tab=0; tab<Tablas.length;tab++){//recorre las tablas a listar
             
