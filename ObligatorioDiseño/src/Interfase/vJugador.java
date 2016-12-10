@@ -197,6 +197,8 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         txtPozo = new javax.swing.JTextField();
         txtMonto = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -211,7 +213,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         ));
         jScrollPane1.setViewportView(tblCarton3);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 280, 130));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 300, 130));
 
         tblCarton4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -223,8 +225,9 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         ));
         jScrollPane2.setViewportView(tblCarton4);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 280, 120));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 300, 120));
 
+        tblCarton1.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         tblCarton1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -236,7 +239,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         tblCarton1.setSurrendersFocusOnKeystroke(true);
         jScrollPane3.setViewportView(tblCarton1);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 21, 300, 130));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 300, 130));
 
         tblCarton2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -248,29 +251,36 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         ));
         jScrollPane4.setViewportView(tblCarton2);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 300, 120));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 300, 120));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
         jLabel1.setText("Pozo");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, -1, -1));
 
         txtPozo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPozoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtPozo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 70, 30));
+        getContentPane().add(txtPozo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 70, 30));
 
         txtMonto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMontoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, 70, 30));
+        getContentPane().add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 390, 70, 30));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
         jLabel2.setText("Monto");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, -1, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Rectangulo.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -322,6 +332,8 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
