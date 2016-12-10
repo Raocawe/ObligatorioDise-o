@@ -17,11 +17,11 @@ import javax.swing.JFrame;
  */
 public class PatronObserver extends Observable{
     
-    private cUsuario Ganador;
+    private cUsuario Ganador = null;
     private int BolillaSorteada;
-    private int Pozo;
-    private int CartonesEnJuego;
-    private ArrayList<vJugador> VentanasJugando;
+    private int Pozo = 0;
+    private int CartonesEnJuego = 0;
+    private ArrayList<vJugador> VentanasJugando = new ArrayList<vJugador>();
 
     public int getBolillaSorteada() {
         return BolillaSorteada;
@@ -39,8 +39,6 @@ public class PatronObserver extends Observable{
 
     public void setPozo(int Pozo) {
         this.Pozo = Pozo;
-        setChanged();
-        notifyObservers();
     }
 
     public int getCartonesEnJuego() {
@@ -57,8 +55,6 @@ public class PatronObserver extends Observable{
 
     public void setVentanasJugando(vJugador VentanasJugando) {
         this.VentanasJugando.add(VentanasJugando);
-        setChanged();
-        notifyObservers();
     }
 
     public cUsuario getGanador() {

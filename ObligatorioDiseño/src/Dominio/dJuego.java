@@ -36,18 +36,25 @@ public class dJuego {
     {
     }
     
-    public void ComenzarPartida(PatronObserver pPObserver,Bingo pB)
+    public void ComenzarPartida(PatronObserver pPObserver,Bingo pB) throws InterruptedException
     {
         b = pB;
         PObserver = pPObserver;
         vJuego Vistaj = new vJuego(PObserver);
         PObserver.addObserver(Vistaj);
         
+        int Bolillas = PObserver.getCartonesEnJuego() + PObserver.getVentanasJugando().size();
+        while(PObserver.getGanador()==null)
+        {
+            PObserver.setBolillaSorteada((int)Math.random()*Bolillas);
+            Thread.sleep(1000);
+        }
+        TerminarJuego();
     }
     
     private void TerminarJuego()
     {
-        
+        PObserver.getGanador().setSaldo(PObserver.getPozo());
     }
     
 }

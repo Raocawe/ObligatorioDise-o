@@ -245,7 +245,6 @@ public class vJugador extends javax.swing.JFrame implements Observer{
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 300, 120));
 
-        tblCarton1.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         tblCarton1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -366,15 +365,16 @@ public class vJugador extends javax.swing.JFrame implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {
-        if(PObserver.getGanador()==null)
+        if(PObserver.getGanador()==null)// Pregunta si existe un ganador
         {
-            if(PObserver.getVentanasJugando().size()>1)
+            if(PObserver.getVentanasJugando().size()>1) // se fija si alguien esta jugando solo
             {
-            BuscarNumero(PObserver.getBolillaSorteada());
+            BuscarNumero(PObserver.getBolillaSorteada()); // si todo sigue normal, se busca si saco esa bolilla
             }
             else
             {
-               JOptionPane.showMessageDialog(this, "El Juego A Finalizado\nEl Usuario " +PObserver.getVentanasJugando().get(0).usu.getNombre()+ "A Ganado");
+               PObserver.setGanador(PObserver.getVentanasJugando().get(0).usu);
+               JOptionPane.showMessageDialog(this, "El Juego A Finalizado\nEl Usuario " +PObserver.getGanador().getNombre()+ "A Ganado");
             }
         }
         else
