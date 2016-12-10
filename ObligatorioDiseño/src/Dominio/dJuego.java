@@ -40,6 +40,7 @@ public class dJuego {
         PObserver = pPObserver;
         vJuego Vistaj = new vJuego(PObserver);
         PObserver.addObserver(Vistaj);
+        
     }
     
     private void TerminarJuego()

@@ -31,7 +31,6 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     DefaultTableModel[] Tablas;
     JTable[] Tablass;
     PatronObserver PObserver;
-    int Pozo;
             
     public vJugador(){}
             
@@ -62,19 +61,22 @@ public class vJugador extends javax.swing.JFrame implements Observer{
                 Resultado = "Testeando";
             }
         }
-        CantidadCartones = Integer.parseInt(Resultado);
-        
-        Pozo = ((CantidadCartones * j.getValorCarton())+(CantidadCartonesJuego * j.getValorCarton()));
-        
+        CantidadCartones = Integer.parseInt(Resultado);      
         
         // </editor-fold>
         
         ManejoTablas();
         
         VentanasLogueadas++;
+        PObserver.setCartonesEnJuego(CantidadCartones);
+        
         if(VentanasAbiertas==VentanasLogueadas)
         {
             b.ComenzarPartida(PObserver);
+            int Pozo = PObserver.getCartonesEnJuego() * j.getValorCarton();
+            PObserver.setPozo(Pozo);
+            
+
         }
     }
     
@@ -353,6 +355,14 @@ public class vJugador extends javax.swing.JFrame implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(!PObserver.isTermino())
+        {
+            
+        }
+        else
+        {
+            
+            JOptionPane.showMessageDialog(this, "El Juego A Finalizado\nEl Usuario " +PObserver.getGanador().getNombre()+ "A Ganado");
+        }
     }
 }

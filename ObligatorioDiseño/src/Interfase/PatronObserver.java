@@ -5,6 +5,7 @@
  */
 package Interfase;
 
+import Common.cUsuario;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -14,6 +15,7 @@ import java.util.Observer;
  */
 public class PatronObserver extends Observable{
     
+    private cUsuario Ganador;
     private int BolillaSorteada;
     private int Pozo;
     private int CartonesEnJuego;
@@ -55,9 +57,7 @@ public class PatronObserver extends Observable{
     }
 
     public void setCartonesEnJuego(int CartonesEnJuego) {
-        this.CartonesEnJuego = CartonesEnJuego;
-        setChanged();
-        notifyObservers();
+        this.CartonesEnJuego += CartonesEnJuego;
     }
 
     public int getVentanasJugando() {
@@ -68,6 +68,14 @@ public class PatronObserver extends Observable{
         this.VentanasJugando = VentanasJugando;
         setChanged();
         notifyObservers();
+    }
+
+    public cUsuario getGanador() {
+        return Ganador;
+    }
+
+    public void setGanador(cUsuario Ganador) {
+        this.Ganador = Ganador;
     }
    
     
