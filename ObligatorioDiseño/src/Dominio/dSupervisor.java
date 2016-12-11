@@ -48,6 +48,13 @@ public class dSupervisor implements Runnable{
         int Pozo = ((OPatron.getCantidadCartones() * j.getValorCarton()) +(OPatron.getCartonesEnJuego() * j.getValorCarton()));
         OPatron.setPozo(Pozo);
         
+        
+        
+        
+        
+        
+        
+        
         try {
             b.ComenzarPartida(OPatron,b);
         } catch (InterruptedException ex) {

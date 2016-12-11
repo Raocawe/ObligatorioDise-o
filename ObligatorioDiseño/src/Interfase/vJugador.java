@@ -73,8 +73,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         PObserver.setCartonesEnJuego(CantidadCartones);
         PObserver.setCantidadCartones(CantidadCartones);
         PObserver.setVentanasJugando(this);
-        lblMonto.setText(String.valueOf(usu.getSaldo()));
-        
+        lblMonto.setText(String.valueOf(usu.getSaldo()));        
     }
     
     private EnumeradosVentana Validar(String pResultado) throws cException
@@ -350,11 +349,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         {
             if(PObserver.getVentanasJugando().size()>1) // se fija si alguien esta jugando solo
             {
-<<<<<<< HEAD
-                if(PObserver.getPozo() != Integer.parseInt(this.txtPozo.getText()))
-=======
-                if(PObserver.getPozo() != (Integer.parseInt(lblPozo.getText().toString())))
->>>>>>> a2a204dc00a2e420d33ed934aeb1f2ab2e5b6fcc
+                if(lblPozo.getText().toString().equals(".")||PObserver.getPozo()!=(Integer.parseInt(lblPozo.getText().toString())))
                 {
                     lblPozo.setText(String.valueOf(PObserver.getPozo()));
                     BuscarNumero(PObserver.getBolillaSorteada()); // si todo sigue normal, se busca si saco esa bolilla
@@ -398,10 +393,10 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         {
             for(int t=0;t<tabla.getColumnCount();t++)
             {
-               int integ = (int)tabla.getValueAt(i, t);
-               if(integ == pNumero)
+               String integ = (String)tabla.getValueAt(i, t);
+               if(Integer.parseInt(integ) == pNumero)
                {
-                   String format = "<html><font color=red><b>"+ String.valueOf(pNumero) +"</b></font></html>";
+                   String format = "<html><font color=red><b>"+ integ +"</b></font></html>";
                    tabla.setValueAt(format, i, t);
                    return;
                }
