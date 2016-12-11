@@ -379,7 +379,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     {
         for(int i =0;i<Tablass.length;i++)//recorren las tablas en busca del numero
         {
-            ColorearCeldas c = new ColorearCeldas(ControlDeBusqueda[i],pNumero);
+            MiRender c = new MiRender(ControlDeBusqueda[i],pNumero);
             Tablass[i].setDefaultRenderer(Object.class, c);
             ControlDeBusqueda[i] = c.getList();
             
