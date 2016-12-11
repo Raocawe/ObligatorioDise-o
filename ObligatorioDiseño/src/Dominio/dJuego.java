@@ -7,6 +7,7 @@ package Dominio;
 
 import Common.cException;
 import Common.cJuego;
+import Common.cUsuario;
 import Interfase.PatronObserver;
 import Interfase.vJuego;
 import Persistencia.pJuego;
@@ -32,12 +33,8 @@ public class dJuego {
         pJuego u = new pJuego();
         return u.buscarTodo();
     }
-    
-    public void ComenzarPartida()
-    {
-    }
-    
-    public void ComenzarPartida(PatronObserver pPObserver,Bingo pB) throws InterruptedException
+        
+    public void ComenzarPartida(PatronObserver pPObserver,Bingo pB) throws InterruptedException, cException
     {
         b = pB;
         PObserver = pPObserver;
@@ -55,22 +52,24 @@ public class dJuego {
         TerminarJuego();
     }
     
-    public void TirarBolla(int pNumero) throws InterruptedException
+    private void TirarBolla(int pNumero) throws InterruptedException
     {
         PObserver.setBolillaSorteada(pNumero);
         Thread.sleep(1000);
     }
     
-    private void TerminarJuego()
+    private void TerminarJuego() throws cException
     {
-        PObserver.getGanador().setSaldo(PObserver.getPozo());
+        cUsuario u = PObserver.getGanador();
+        u.setSaldo(PObserver.getPozo()+u.getSaldo());
+        b.ModificarUsuario(u);
     }
     
     private ArrayList<Integer> CargarLista()
     {
         ArrayList<Integer> ListaNumeros = new ArrayList<Integer>();
         ListaNumeros.add(00);
-        for(int i=1;i<20;i++)
+        for(int i=1;i<100;i++)
         {
             ListaNumeros.add(i);
         }

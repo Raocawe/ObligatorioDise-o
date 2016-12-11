@@ -47,12 +47,12 @@ public class pUsuario extends pPersistencia{
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
                     String updateSql="UPDATE usuario SET " +
-                    "Nombre='" + pCliente.getNombre() + "'" +
-                    "Apellido='" + pCliente.getApellido() + "'" +
-                    "Usuario='" + pCliente.getUsuario() + "'" +
-                    "Contraseña='" + pCliente.getContraseña() + "'" +
+                    "Nombre='" + pCliente.getNombre() + "', " +
+                    "Apellido='" + pCliente.getApellido() + "', " +
+                    "Usuario='" + pCliente.getUsuario() + "', " +
+                    "Contraseña='" + pCliente.getContraseña() + "', " +
                     "Saldo=" + pCliente.getSaldo() +
-                    "Tipo='" + pCliente.getTipo().toString() + "'" +
+                    ", Tipo='" + pCliente.getTipo().toString() + "'" +
                     " WHERE IdUsuario=" +  pCliente.getIdUsuario();
                     System.out.println(updateSql);
                     st.executeUpdate(updateSql);

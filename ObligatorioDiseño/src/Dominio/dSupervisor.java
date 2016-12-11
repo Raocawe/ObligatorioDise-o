@@ -34,8 +34,17 @@ public class dSupervisor implements Runnable{
         {
             while(x.isAlive())
             {
-                int r = 0;
-                //Esperado A Que Loguee
+                try {//ESPERA
+                Thread.sleep(500);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(dHilo.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            try {//ESPERA
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(dHilo.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         

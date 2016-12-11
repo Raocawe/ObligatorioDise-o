@@ -180,8 +180,8 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     private ArrayList<Integer> CargarLista()
     {
         ArrayList<Integer> ListaNumeros = new ArrayList<Integer>();
-        ListaNumeros.add(00);
-        for(int i=1;i<20;i++)
+        ListaNumeros.add(0);
+        for(int i=1;i<100;i++)
         {
             ListaNumeros.add(i);
         }
@@ -361,12 +361,12 @@ public class vJugador extends javax.swing.JFrame implements Observer{
             else
             {
                PObserver.setGanador(PObserver.getVentanasJugando().get(0).usu);
-               JOptionPane.showMessageDialog(this, "El Juego A Finalizado\nEl Usuario " +PObserver.getGanador().getNombre()+ "A Ganado");
+               JOptionPane.showMessageDialog(this, "El usuario " +PObserver.getGanador().getNombre()+ " a ganado");
             }
         }
         else
         {
-            JOptionPane.showMessageDialog(this, "El Juego A Finalizado\nEl Usuario " +PObserver.getGanador().getNombre()+ "A Ganado");
+            JOptionPane.showMessageDialog(this, "El usuario " +PObserver.getGanador().getNombre()+ " a ganado");
         }
     }
     
@@ -390,7 +390,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         }
     }
     
-    private void BuscarEnTabla(JTable tabla,int pNumero)
+    private void BuscarEnTabla(JTable tabla,int pNumero)//MAGIA 
     {
         for(int i=-1;i<tabla.getRowCount();i++)
         {
@@ -402,7 +402,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
                          int intr = Integer.parseInt(integ);
                          if(intr == pNumero)
                          {
-                             String format = "<html><font color=red><b>"+ integ +"</b></font></html>";
+                             String format = "<html><font color=red><b>-- "+ integ +" --</b></font></html>";
                              tabla.setValueAt(format, i, t);
                              return;
                          }
@@ -416,7 +416,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
                          if(intr == pNumero)
                          {
                              JTableHeader th = tabla.getTableHeader();
-                             String format = "<html><font color=red><b>"+ integ +"</b></font></html>";
+                             String format = "<html><font color=red><b>-- "+ integ +" --</b></font></html>";
                              tabla.getColumn(integ).setHeaderValue(format);
                              th.repaint();
                              return;

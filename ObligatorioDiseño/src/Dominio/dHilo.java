@@ -6,6 +6,8 @@
 package Dominio;
 
 import Interfase.vLogin;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,9 +28,12 @@ public class dHilo implements Runnable{
         
         while(pantalla.Estado == true)
         {
-            
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(dHilo.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        int r = 0;
     }
     
 }
