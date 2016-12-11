@@ -3,16 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/ColorearCeldas.java</file>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vAdmin.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vLogin.java</file>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vJuego.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/Proxy.java</file>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/PatronObserver.java</file>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Dominio/dJuego.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Imagenes/Bingo.png</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Persistencia/pUsuario.java</file>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Interfase/vJugador.java</file>
-            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Dominio/dUsuario.java</file>
+            <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Dominio/dSupervisor.java</file>
             <file>file:/C:/ObligatorioMati/ObligatorioDiseño/src/Dominio/Bingo.java</file>
         </group>
     </open-files>

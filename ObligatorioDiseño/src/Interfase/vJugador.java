@@ -71,17 +71,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         
         VentanasLogueadas++;
         PObserver.setCartonesEnJuego(CantidadCartones);
-        
-        if(VentanasAbiertas==VentanasLogueadas)
-        {
-            b.ComenzarPartida(PObserver,b);
-            int Pozo = PObserver.getCartonesEnJuego() * j.getValorCarton();
-            PObserver.setPozo(Pozo);
-            
-
-        }
         PObserver.setVentanasJugando(this);
-        Tablass = null;
     }
     
     private EnumeradosVentana Validar(String pResultado) throws cException
@@ -140,17 +130,8 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         //</editor-fold>
         
         CantXCarton = CantFi * CantC;
-        int CantNumAleatorio = CantXCarton* CantidadCartones;
         
-        //<editor-fold defaultstate="collapsed"  desc="CargandoArrayNumeros">
-        ArrayList<Integer> ListaNumeros = new ArrayList<Integer>();
-        for(int i=0;i<CantNumAleatorio;i++)
-        {
-            ListaNumeros.add(i);
-        }
-        //</editor-fold>
-        
-        //<editor-fold defaultstate="collapsed"  desc="CargarTabla">
+        ArrayList<Integer>  ListaNumeros = CargarLista();
         
         DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
         tcr.setHorizontalAlignment(SwingConstants.CENTER);
@@ -192,6 +173,16 @@ public class vJugador extends javax.swing.JFrame implements Observer{
             
         }
                 //</editor-fold>
+    }
+    
+    private ArrayList<Integer> CargarLista()
+    {
+        ArrayList<Integer> ListaNumeros = new ArrayList<Integer>();
+        for(int i=0;i<100;i++)
+        {
+            ListaNumeros.add(i);
+        }
+        return ListaNumeros;
     }
     
     /**
@@ -297,7 +288,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.png"))); // NOI18N
         jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

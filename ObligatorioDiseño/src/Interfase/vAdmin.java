@@ -12,6 +12,8 @@ import Common.Utilidades.tipoRet;
 import Common.cException;
 import Common.cJuego;
 import Dominio.Bingo;
+import Dominio.dHilo;
+import Dominio.dSupervisor;
 import Interfase.vLogin;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -162,7 +164,13 @@ public class vAdmin extends javax.swing.JFrame{
         { 
            p = new vLogin(Prox);
            p.setVisible(true);
+           
+           Thread y = new Thread(new dHilo(p));
+           Threads[i] = y;
+           y.start();
         }
+        Thread y = new Thread(new dSupervisor(Threads,Prox.getOPatron()));
+        y.start();
         // </editor-fold>
 
         this.setVisible(false);

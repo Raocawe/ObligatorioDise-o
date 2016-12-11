@@ -43,7 +43,7 @@ public class Bingo {
         return u.buscarTodo();
     }
     
-    public void ComenzarPartida(PatronObserver PObserver,Bingo pB)
+    public void ComenzarPartida(PatronObserver PObserver,Bingo pB) throws InterruptedException
     {
         dJuego u = new dJuego();
         u.ComenzarPartida(PObserver,pB);

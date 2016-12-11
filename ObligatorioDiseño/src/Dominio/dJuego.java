@@ -10,6 +10,7 @@ import Common.cJuego;
 import Interfase.PatronObserver;
 import Interfase.vJuego;
 import Persistencia.pJuego;
+import java.util.ArrayList;
 
 /**
  *
@@ -43,10 +44,10 @@ public class dJuego {
         vJuego Vistaj = new vJuego(PObserver);
         PObserver.addObserver(Vistaj);
         
-        int Bolillas = PObserver.getCartonesEnJuego() + PObserver.getVentanasJugando().size();
+        ArrayList<Integer> Bolillas = CargarLista();
         while(PObserver.getGanador()==null)
         {
-            PObserver.setBolillaSorteada((int)Math.random()*Bolillas);
+            PObserver.setBolillaSorteada((int) (Math.random() * Bolillas.size()));
             Thread.sleep(1000);
         }
         TerminarJuego();
@@ -55,6 +56,16 @@ public class dJuego {
     private void TerminarJuego()
     {
         PObserver.getGanador().setSaldo(PObserver.getPozo());
+    }
+    
+    private ArrayList<Integer> CargarLista()
+    {
+        ArrayList<Integer> ListaNumeros = new ArrayList<Integer>();
+        for(int i=0;i<100;i++)
+        {
+            ListaNumeros.add(i);
+        }
+        return ListaNumeros;
     }
     
 }

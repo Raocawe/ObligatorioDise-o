@@ -6,8 +6,13 @@
 package Interfase;
 
 import Common.Utilidades;
+import Common.Utilidades.EnumeradoEstadoJuego;
+import static Common.Utilidades.EstadoJuego;
+import static Common.Utilidades.VentanasAbiertas;
+import static Common.Utilidades.VentanasLogueadas;
 import Common.Utilidades.tipoRet;
 import Common.cException;
+import Common.cJuego;
 import Common.cUsuario;
 import Dominio.Bingo;
 import java.util.logging.Level;
@@ -21,8 +26,9 @@ import javax.swing.*;
 public class vLogin extends javax.swing.JFrame {
 
     public Bingo bin = new Bingo();
-    private boolean Estado = false;
+    public boolean Estado = true;
     Proxy Prox;
+    cJuego j;
 
     public vLogin(){}
     
@@ -105,14 +111,14 @@ public class vLogin extends javax.swing.JFrame {
                JOptionPane.showMessageDialog(this, "ERROR USUARIO NO ENCONTRADO O El JUEGO NO A INICIADO", "Login", JOptionPane.INFORMATION_MESSAGE);
                LimpiarCampos();
             }
-            else
+            else{
                this.setVisible(false); 
+               Estado = false;
+            }  
         } catch (cException ex) {
             
             Logger.getLogger(vLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void LimpiarCampos()
