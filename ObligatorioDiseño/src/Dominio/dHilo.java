@@ -28,6 +28,7 @@ public class dHilo implements Runnable{
         {
             
         }
+        int r = 0;
     }
     
 }

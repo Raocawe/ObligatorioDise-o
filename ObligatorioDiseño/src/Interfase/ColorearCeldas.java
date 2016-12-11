@@ -19,23 +19,27 @@ import javax.swing.table.DefaultTableCellRenderer;
 public class ColorearCeldas extends DefaultTableCellRenderer{
     
     private ArrayList<Integer> List;
-    private int numero;
+    private Integer numero;
     
-    public ColorearCeldas(ArrayList<Integer> numeros,int pnumero){List = numeros;numero =  pnumero;}
+    public ColorearCeldas(ArrayList<Integer> numeros,Integer pnumero){List = numeros;numero =  pnumero;}
     
     @Override
     public Component getTableCellRendererComponent(JTable table,Object value,boolean isSelected,boolean hasFocus,int row, int column){
-    
-        JLabel cell = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-        int valor = (int)value;
+        super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+        Integer valor = (Integer)value;
         if(numero==valor)
         {
-            cell.setForeground(Color.red);
-            cell.setBackground(Color.green);
+            this.setForeground(Color.red);
+            this.setBackground(Color.green);
             List.remove(valor);
-            return cell;
+            return this;
         }
-        return cell;
+        else
+        {
+           this.setForeground(Color.BLACK);
+           this.setBackground(Color.WHITE); 
+        }
+        return this;
     }
     
     public ArrayList<Integer> getList() {

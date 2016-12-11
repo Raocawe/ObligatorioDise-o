@@ -178,7 +178,8 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     private ArrayList<Integer> CargarLista()
     {
         ArrayList<Integer> ListaNumeros = new ArrayList<Integer>();
-        for(int i=0;i<100;i++)
+        ListaNumeros.add(00);
+        for(int i=1;i<100;i++)
         {
             ListaNumeros.add(i);
         }

@@ -34,6 +34,7 @@ public class dSupervisor implements Runnable{
         {
             while(x.isAlive())
             {
+                int r = 0;
                 //Esperado A Que Loguee
             }
         }
