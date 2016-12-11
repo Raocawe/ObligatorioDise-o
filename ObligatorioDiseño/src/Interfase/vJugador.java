@@ -30,7 +30,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     int CantXCarton;
     DefaultTableModel[] Tablas;
     JTable[] Tablass;
-    ArrayList[] ControlDeBusqueda;
+    ArrayList<Integer>[] ControlDeBusqueda;
     ArrayList<Integer> numerosTabla;
     PatronObserver PObserver;
             
@@ -364,7 +364,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         {
             if(PObserver.getVentanasJugando().size()>1) // se fija si alguien esta jugando solo
             {
-                if(PObserver.getPozo() != (Integer.parseInt(this.txtPozo.getText())))
+                if(PObserver.getPozo() != Integer.parseInt(this.txtPozo.getText()))
                 {
                     txtPozo.setText(String.valueOf(PObserver.getPozo()));
                     BuscarNumero(PObserver.getBolillaSorteada()); // si todo sigue normal, se busca si saco esa bolilla
@@ -386,15 +386,36 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     {
         for(int i =0;i<Tablass.length;i++)//recorren las tablas en busca del numero
         {
-            MiRender c = new MiRender(ControlDeBusqueda[i],pNumero);
-            Tablass[i].setDefaultRenderer(Object.class, c);
-            ControlDeBusqueda[i] = c.getList();
-            
+            for(int t=0;t<ControlDeBusqueda[i].size();t++)
+            {
+                if(ControlDeBusqueda[i].get(t)==pNumero)
+                {
+                   ControlDeBusqueda[i].remove(t);
+                   BuscarEnTabla(Tablass[i],pNumero);
+                   break;
+                }
+            }
             if(ControlDeBusqueda[i].isEmpty())// Comprobamos si gano
             {
                 PObserver.setGanador(usu);
             }           
         }
-        
+    }
+    
+    private void BuscarEnTabla(JTable tabla,int pNumero)
+    {
+        for(int i=0;i<tabla.getRowCount();i++)
+        {
+            for(int t=0;t<tabla.getColumnCount();t++)
+            {
+               int integ = (int)tabla.getValueAt(i, t);
+               if(integ == pNumero)
+               {
+                   String format = "<html><font color=red><b>"+ String.valueOf(pNumero) +"</b></font></html>";
+                   tabla.setValueAt(format, i, t);
+                   return;
+               }
+            }
+        }
     }
 }
