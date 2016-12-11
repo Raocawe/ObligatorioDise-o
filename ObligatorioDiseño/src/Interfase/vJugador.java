@@ -181,7 +181,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     {
         ArrayList<Integer> ListaNumeros = new ArrayList<Integer>();
         ListaNumeros.add(00);
-        for(int i=1;i<100;i++)
+        for(int i=1;i<20;i++)
         {
             ListaNumeros.add(i);
         }
@@ -352,6 +352,9 @@ public class vJugador extends javax.swing.JFrame implements Observer{
                 if(lblPozo.getText().toString().equals(".")||PObserver.getPozo()!=(Integer.parseInt(lblPozo.getText().toString())))
                 {
                     lblPozo.setText(String.valueOf(PObserver.getPozo()));
+                }
+                else
+                {
                     BuscarNumero(PObserver.getBolillaSorteada()); // si todo sigue normal, se busca si saco esa bolilla
                 }
             }
@@ -389,18 +392,39 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     
     private void BuscarEnTabla(JTable tabla,int pNumero)
     {
-        for(int i=0;i<tabla.getRowCount();i++)
+        for(int i=-1;i<tabla.getRowCount();i++)
         {
             for(int t=0;t<tabla.getColumnCount();t++)
             {
+               if(i>-1){
                String integ = (String)tabla.getValueAt(i, t);
-               if(Integer.parseInt(integ) == pNumero)
+                    if(integ.split("").length<3){
+                         int intr = Integer.parseInt(integ);
+                         if(intr == pNumero)
+                         {
+                             String format = "<html><font color=red><b>"+ integ +"</b></font></html>";
+                             tabla.setValueAt(format, i, t);
+                             return;
+                         }
+                    }
+               }
+               else
                {
-                   String format = "<html><font color=red><b>"+ integ +"</b></font></html>";
-                   tabla.setValueAt(format, i, t);
-                   return;
+                   String integ = tabla.getColumnName(t);
+                    if(integ.split("").length<3){
+                         int intr = Integer.parseInt(integ);
+                         if(intr == pNumero)
+                         {
+                             JTableHeader th = tabla.getTableHeader();
+                             String format = "<html><font color=red><b>"+ integ +"</b></font></html>";
+                             tabla.getColumn(integ).setHeaderValue(format);
+                             th.repaint();
+                             return;
+                         }
+                    }
                }
             }
-        }
-    }
-}
+         }
+     }
+ }
+

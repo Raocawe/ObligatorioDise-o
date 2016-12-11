@@ -47,10 +47,18 @@ public class dJuego {
         ArrayList<Integer> Bolillas = CargarLista();
         while(PObserver.getGanador()==null)
         {
-            PObserver.setBolillaSorteada((int) (Math.random() * Bolillas.size()));
-            Thread.sleep(1000);
+            int indice = (int) (Math.random() * Bolillas.size());
+            int Enviar = Bolillas.get(indice);
+            Bolillas.remove(indice);
+            TirarBolla(Enviar);
         }
         TerminarJuego();
+    }
+    
+    public void TirarBolla(int pNumero) throws InterruptedException
+    {
+        PObserver.setBolillaSorteada(pNumero);
+        Thread.sleep(1000);
     }
     
     private void TerminarJuego()
@@ -62,7 +70,7 @@ public class dJuego {
     {
         ArrayList<Integer> ListaNumeros = new ArrayList<Integer>();
         ListaNumeros.add(00);
-        for(int i=1;i<100;i++)
+        for(int i=1;i<20;i++)
         {
             ListaNumeros.add(i);
         }
