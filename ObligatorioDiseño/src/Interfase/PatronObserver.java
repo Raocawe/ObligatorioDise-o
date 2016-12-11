@@ -22,6 +22,7 @@ public class PatronObserver extends Observable{
     private int Pozo = 0;
     private int CartonesEnJuego = 0;
     private ArrayList<vJugador> VentanasJugando = new ArrayList<vJugador>();
+    private int CantidadCartones = 0;
 
     public int getBolillaSorteada() {
         return BolillaSorteada;
@@ -39,6 +40,9 @@ public class PatronObserver extends Observable{
 
     public void setPozo(int Pozo) {
         this.Pozo = Pozo;
+          setChanged();
+        notifyObservers();
+        
     }
 
     public int getCartonesEnJuego() {
@@ -65,6 +69,20 @@ public class PatronObserver extends Observable{
         this.Ganador = Ganador;
         setChanged();
         notifyObservers();
+    }
+
+    /**
+     * @return the CantidadCartones
+     */
+    public int getCantidadCartones() {
+        return CantidadCartones;
+    }
+
+    /**
+     * @param CantidadCartones the CantidadCartones to set
+     */
+    public void setCantidadCartones(int CantidadCartones) {
+        this.CantidadCartones = CantidadCartones;
     }
    
     
