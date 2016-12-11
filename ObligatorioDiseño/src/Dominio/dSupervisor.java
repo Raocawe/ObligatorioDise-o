@@ -45,8 +45,9 @@ public class dSupervisor implements Runnable{
         } catch (cException ex) {
             Logger.getLogger(dSupervisor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        int Pozo = OPatron.getCartonesEnJuego() * j.getValorCarton();
+        int Pozo = ((OPatron.getCantidadCartones() * j.getValorCarton()) +(OPatron.getCartonesEnJuego() * j.getValorCarton()));
         OPatron.setPozo(Pozo);
+        
         try {
             b.ComenzarPartida(OPatron,b);
         } catch (InterruptedException ex) {

@@ -71,7 +71,10 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         
         VentanasLogueadas++;
         PObserver.setCartonesEnJuego(CantidadCartones);
+        PObserver.setCantidadCartones(CantidadCartones);
         PObserver.setVentanasJugando(this);
+        txtMonto.setText(String.valueOf(usu.getSaldo()));
+        
     }
     
     private EnumeradosVentana Validar(String pResultado) throws cException
@@ -295,7 +298,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPozoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPozoActionPerformed
-        //
+      //Hola
     }//GEN-LAST:event_txtPozoActionPerformed
 
     private void txtMontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoActionPerformed
@@ -361,7 +364,11 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         {
             if(PObserver.getVentanasJugando().size()>1) // se fija si alguien esta jugando solo
             {
-            BuscarNumero(PObserver.getBolillaSorteada()); // si todo sigue normal, se busca si saco esa bolilla
+                if(PObserver.getPozo() != (Integer.parseInt(this.txtPozo.getText())))
+                {
+                    txtPozo.setText(String.valueOf(PObserver.getPozo()));
+                    BuscarNumero(PObserver.getBolillaSorteada()); // si todo sigue normal, se busca si saco esa bolilla
+                }
             }
             else
             {
