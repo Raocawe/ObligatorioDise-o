@@ -73,7 +73,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         PObserver.setCartonesEnJuego(CantidadCartones);
         PObserver.setCantidadCartones(CantidadCartones);
         PObserver.setVentanasJugando(this);
-        txtMonto.setText(String.valueOf(usu.getSaldo()));
+        lblMonto.setText(String.valueOf(usu.getSaldo()));
         
     }
     
@@ -207,10 +207,10 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         jScrollPane4 = new javax.swing.JScrollPane();
         tblCarton2 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        txtPozo = new javax.swing.JTextField();
-        txtMonto = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        lblPozo = new javax.swing.JLabel();
+        lblMonto = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -269,20 +269,6 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         jLabel1.setText("Pozo");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, -1, -1));
 
-        txtPozo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPozoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtPozo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 70, 30));
-
-        txtMonto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMontoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 390, 70, 30));
-
         jLabel2.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
         jLabel2.setText("Monto");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, -1, -1));
@@ -290,20 +276,20 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Rectangulo.png"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
+        lblPozo.setFont(new java.awt.Font("Century Gothic", 2, 14)); // NOI18N
+        lblPozo.setText(".");
+        getContentPane().add(lblPozo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, -1, -1));
+
+        lblMonto.setFont(new java.awt.Font("Century Gothic", 2, 14)); // NOI18N
+        lblMonto.setText(".");
+        getContentPane().add(lblMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 390, -1, -1));
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtPozoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPozoActionPerformed
-      //Hola
-    }//GEN-LAST:event_txtPozoActionPerformed
-
-    private void txtMontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMontoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -350,12 +336,12 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel lblMonto;
+    private javax.swing.JLabel lblPozo;
     private javax.swing.JTable tblCarton1;
     private javax.swing.JTable tblCarton2;
     private javax.swing.JTable tblCarton3;
     private javax.swing.JTable tblCarton4;
-    private javax.swing.JTextField txtMonto;
-    private javax.swing.JTextField txtPozo;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -364,9 +350,13 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         {
             if(PObserver.getVentanasJugando().size()>1) // se fija si alguien esta jugando solo
             {
+<<<<<<< HEAD
                 if(PObserver.getPozo() != Integer.parseInt(this.txtPozo.getText()))
+=======
+                if(PObserver.getPozo() != (Integer.parseInt(lblPozo.getText().toString())))
+>>>>>>> a2a204dc00a2e420d33ed934aeb1f2ab2e5b6fcc
                 {
-                    txtPozo.setText(String.valueOf(PObserver.getPozo()));
+                    lblPozo.setText(String.valueOf(PObserver.getPozo()));
                     BuscarNumero(PObserver.getBolillaSorteada()); // si todo sigue normal, se busca si saco esa bolilla
                 }
             }
