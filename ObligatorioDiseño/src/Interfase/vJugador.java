@@ -386,8 +386,8 @@ public class vJugador extends javax.swing.JFrame implements Observer{
             if(ControlDeBusqueda[i].isEmpty())// Comprobamos si gano
             {
                 PObserver.setGanador(usu);
-            }
-            
+            }           
         }
+        
     }
 }

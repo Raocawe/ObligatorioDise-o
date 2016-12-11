@@ -32,18 +32,17 @@ public class MiRender extends DefaultTableCellRenderer{
       int column)
    {
     super.getTableCellRendererComponent (table, value, isSelected, hasFocus, row, column);
-    if(value!=null){
+    if(value instanceof Integer){
         Integer valor = (Integer)value;
         if(valor==numero){
-        this.setForeground(Color.red);
-        this.setBackground(Color.green);
-        List.remove(valor);
-        return this;
+            this.setForeground(Color.red);
+            this.setBackground(Color.green);
+            List.remove(valor);
+            return this;
         }
-        else
-        {
-        this.setBackground(Color.WHITE);
-        this.setForeground(Color.BLACK);
+        else{
+            this.setBackground(Color.WHITE);
+            this.setForeground(Color.BLACK);
         }
     }
       return this;
