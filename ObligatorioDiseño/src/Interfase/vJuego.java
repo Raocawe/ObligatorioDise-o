@@ -12,6 +12,7 @@ import javafx.beans.Observable;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -40,7 +41,13 @@ public class vJuego extends javax.swing.JFrame implements Observer{
         ImageIcon Imagen = new ImageIcon(Bola);  
   
        lblImagen.setIcon(Imagen);  
+    }
     
+    public void  CargarHistorial()
+    {
+        DefaultTableModel TablaHistorial =(DefaultTableModel) tblHistorialNum.getModel(); 
+        
+        TablaHistorial.addColumn(NumS);
     }
 
     /**
@@ -54,9 +61,8 @@ public class vJuego extends javax.swing.JFrame implements Observer{
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnSortearNumero = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblHistorialNum = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         Pozo = new javax.swing.JLabel();
         lblPozo = new javax.swing.JLabel();
@@ -73,17 +79,8 @@ public class vJuego extends javax.swing.JFrame implements Observer{
         jLabel2.setText("Numero Sorteado");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
-        btnSortearNumero.setFont(new java.awt.Font("Yu Mincho", 2, 24)); // NOI18N
-        btnSortearNumero.setText("Empezar Juego");
-        btnSortearNumero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSortearNumeroActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnSortearNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
-
-        jTable2.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblHistorialNum.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
+        tblHistorialNum.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null}
             },
@@ -91,9 +88,9 @@ public class vJuego extends javax.swing.JFrame implements Observer{
                 "Numeros Sorteados"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tblHistorialNum);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 250, 50));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 520, 60));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/TituloBingo.png"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -101,12 +98,12 @@ public class vJuego extends javax.swing.JFrame implements Observer{
 
         Pozo.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
         Pozo.setText("Pozo");
-        getContentPane().add(Pozo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, -1));
+        getContentPane().add(Pozo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
 
         lblPozo.setFont(new java.awt.Font("Century Gothic", 2, 14)); // NOI18N
         lblPozo.setText(".");
-        getContentPane().add(lblPozo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, -1, -1));
-        getContentPane().add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, -1, -1));
+        getContentPane().add(lblPozo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
+        getContentPane().add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 230, 160));
 
         asd.setFont(new java.awt.Font("Century Gothic", 2, 14)); // NOI18N
         asd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.png"))); // NOI18N
@@ -115,10 +112,6 @@ public class vJuego extends javax.swing.JFrame implements Observer{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSortearNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSortearNumeroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSortearNumeroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,14 +151,13 @@ public class vJuego extends javax.swing.JFrame implements Observer{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Pozo;
     private javax.swing.JLabel asd;
-    private javax.swing.JButton btnSortearNumero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lblPozo;
+    private javax.swing.JTable tblHistorialNum;
     // End of variables declaration//GEN-END:variables
 
     
@@ -184,6 +176,7 @@ public class vJuego extends javax.swing.JFrame implements Observer{
                 {
                     PObserver.getBolillaSorteada(); // si todo sigue normal, se busca si saco esa bolilla
                     CargarImagenSorteada();
+                    CargarHistorial();
                 }
             }
             
