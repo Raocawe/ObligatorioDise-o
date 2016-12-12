@@ -19,14 +19,11 @@ import Interfase.vLogin;
  */
 public class Bingo {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) throws cException {
         PatronObserver patronO = new PatronObserver();
         Proxy proxy = new Proxy(patronO);
         vLogin Login = new vLogin(proxy);        
         Login.setVisible(true);
     }
-    
+   
 }

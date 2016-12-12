@@ -14,6 +14,8 @@ import Interfase.vJuego;
 import Interfase.vJugador;
 import Persistencia.pJuego;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -55,6 +57,14 @@ public class dJuego {
             TirarBolla(Enviar);
         }
         TerminarJuego();
+        
+        // <editor-fold defaultstate="collapsed" desc=" Consulta Por Cierre ">
+        int Decision = JOptionPane.showConfirmDialog(Vistaj,"¿Quiere Cerrar El Programa?","Cierre",JOptionPane.YES_NO_OPTION);
+        if(Decision == JOptionPane.YES_OPTION)
+        {
+            System.exit(0);
+        }
+        // </editor-fold>
     }
     
     private void TirarBolla(int pNumero) throws InterruptedException
@@ -80,6 +90,7 @@ public class dJuego {
             }
         }
         // </editor-fold>
+        
     }
     
 }
