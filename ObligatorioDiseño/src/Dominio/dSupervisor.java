@@ -35,7 +35,7 @@ public class dSupervisor implements Runnable{
             while(x.isAlive())
             {
                 try {//ESPERA
-                Thread.sleep(500);
+                Thread.sleep(1000);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(dHilo.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -48,7 +48,7 @@ public class dSupervisor implements Runnable{
             }
         }
         
-        // <editor-fold defaultstate="collapsed" desc=" PrandoVariablesParaComenzar ">  
+        // <editor-fold defaultstate="collapsed" desc=" PreparandoVariablesParaComenzar ">  
         Bingo b = new Bingo();
         try {
             j = b.buscarTodo();

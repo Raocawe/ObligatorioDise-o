@@ -392,7 +392,6 @@ public class vJugador extends javax.swing.JFrame implements Observer{
             else
             {
                PObserver.setGanador(PObserver.getVentanasJugando().get(0).usu);
-               JOptionPane.showMessageDialog(this, "El usuario " +PObserver.getGanador().getNombre()+ " a ganado");
             }
         }
         else

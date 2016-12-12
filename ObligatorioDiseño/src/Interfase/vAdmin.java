@@ -9,6 +9,7 @@ import Common.Utilidades;
 import Common.Utilidades.EnumeradoEstadoJuego;
 import static Common.Utilidades.EstadoJuego;
 import static Common.Utilidades.VentanasAbiertas;
+import static Common.Utilidades.isNumeric;
 import Common.Utilidades.tipoRet;
 import Common.cException;
 import Common.cJuego;
@@ -68,7 +69,10 @@ public class vAdmin extends javax.swing.JFrame{
         txtCantCarJug = new javax.swing.JTextField();
         txtPrecio = new javax.swing.JTextField();
         btnGuardarConfig = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -112,19 +116,19 @@ public class vAdmin extends javax.swing.JFrame{
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
         jLabel3.setText("Columnas Carton");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
         jLabel4.setText("Cantidad Cartones");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
         jLabel5.setText("Precio");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, -1));
-        jPanel2.add(txtCantFilas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 30, 30));
-        jPanel2.add(txtCantColumn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 30, 30));
-        jPanel2.add(txtCantCarJug, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 30, 30));
-        jPanel2.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 30, 30));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, -1, -1));
+        jPanel2.add(txtCantFilas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 60, 30));
+        jPanel2.add(txtCantColumn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 60, 30));
+        jPanel2.add(txtCantCarJug, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 60, 30));
+        jPanel2.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 60, 30));
 
         btnGuardarConfig.setFont(new java.awt.Font("Yu Mincho", 2, 24)); // NOI18N
         btnGuardarConfig.setText("Guardar Configuraciones");
@@ -135,13 +139,21 @@ public class vAdmin extends javax.swing.JFrame{
         });
         jPanel2.add(btnGuardarConfig, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
-        jLabel6.setText("por Jugadores");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
+        jLabel9.setText("Max 5.");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, -1, -1));
+
+        jLabel10.setText("Max 5.");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, -1));
+
+        jLabel12.setText("Max 5.");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, -1, -1));
+
+        jLabel11.setText("Max 5.");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.png"))); // NOI18N
         jLabel7.setText("jLabel7");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, -90, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, -90, 570, 520));
 
         jTabbedPane1.addTab("Configuraciones", jPanel2);
 
@@ -184,61 +196,91 @@ public class vAdmin extends javax.swing.JFrame{
 
 
     private void btnGuardarConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarConfigActionPerformed
+        String a = this.txtCantCarJug.getText().toString();
+        String be = this.txtCantColumn.getText().toString();
+        String c = this.txtPrecio.getText().toString();
+        String d = this.txtCantFilas.getText().toString();
         
-        CantCarMax = Integer.parseInt(this.txtCantCarJug.getText().toString());
-        CantColumn = Integer.parseInt(this.txtCantColumn.getText().toString());
-        Precio = Integer.parseInt(this.txtPrecio.getText().toString());
-        CantFilas = Integer.parseInt(this.txtCantFilas.getText().toString());
+        ArrayList<String> ListaAValidar = new ArrayList<>();
         
-        if(EstadoJuego == EnumeradoEstadoJuego.Activado)
+        ListaAValidar.add(a);
+        ListaAValidar.add(be);
+        ListaAValidar.add(c);
+        ListaAValidar.add(d);
+        
+        if(ValidarNumericos(ListaAValidar))
         {
-             JOptionPane.showMessageDialog(this, "Hay un juego activo,No se puede modificar la configuracion", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+            CantCarMax = Integer.parseInt(a);
+            CantColumn = Integer.parseInt(be);
+            Precio = Integer.parseInt(c);
+            CantFilas = Integer.parseInt(d);
+
+            if(EstadoJuego == EnumeradoEstadoJuego.Activado)
+            {
+                 JOptionPane.showMessageDialog(this, "Hay un juego activo,No se puede modificar la configuracion", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else
+            {
+                tipoRet resultado = Validar();
+                if(resultado == tipoRet.OK)
+                {
+                    Bingo b = Bingo.getInstancia();
+                    cJuego j = (cJuego)b.CrearObjeto(Utilidades.EnumeradosFabrica.Juego);
+                    j.setCantidadColumnas(CantColumn);
+                    j.setCantidadFilas(CantFilas);
+                    j.setCantidadMaximaCartonesXJuegadores(CantCarMax);
+                    j.setValorCarton(Precio);
+
+                    try {
+                        b.ModificarConfiguracion(j);
+                        JOptionPane.showMessageDialog(this, "Configuraciones Modificadas", "Login", JOptionPane.INFORMATION_MESSAGE);
+                    } catch (cException ex) {
+                        Logger.getLogger(vAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                else if(resultado == tipoRet.CantColumE)
+                {
+                    JOptionPane.showMessageDialog(this, " 'CantidadColumnas' No Cumple Con Las Reglas\n"
+                            + "Valor(1-5)", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else if(resultado == tipoRet.CantFilaE)
+                {
+                    JOptionPane.showMessageDialog(this, " 'CantidadFilas' No Cumple Con Las Reglas\n"
+                            + "Valor(1-5)", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else if(resultado == tipoRet.CartonesE)
+                {
+                    JOptionPane.showMessageDialog(this, " 'CantidadDeCartonesPorJugador' \nNo Cumple Con Las Reglas"
+                            + "Valor(1-4)", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else if(resultado == tipoRet.Precio)
+                {
+                    JOptionPane.showMessageDialog(this, "'Precio' No Cumple Con Las Reglas\n"
+                            + "Ingrese un valor mayor a cero", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
         }
         else
         {
-            tipoRet resultado = Validar();
-            if(resultado == tipoRet.OK)
-            {
-                Bingo b = Bingo.getInstancia();
-                cJuego j = (cJuego)b.CrearObjeto(Utilidades.EnumeradosFabrica.Juego);
-                j.setCantidadColumnas(CantColumn);
-                j.setCantidadFilas(CantFilas);
-                j.setCantidadMaximaCartonesXJuegadores(CantCarMax);
-                j.setValorCarton(Precio);
-
-                try {
-                    b.ModificarConfiguracion(j);
-                    JOptionPane.showMessageDialog(this, "Configuraciones Modificadas", "Login", JOptionPane.INFORMATION_MESSAGE);
-                } catch (cException ex) {
-                    Logger.getLogger(vAdmin.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            else if(resultado == tipoRet.CantColumE)
-            {
-                JOptionPane.showMessageDialog(this, "ERROR 'CantidadColumnas' No Cumple Con Las Reglas\n"
-                        + "Valor(1-5)", "Login", JOptionPane.INFORMATION_MESSAGE);
-            }
-            else if(resultado == tipoRet.CantFilaE)
-            {
-                JOptionPane.showMessageDialog(this, "ERROR 'CantidadFilas' No Cumple Con Las Reglas\n"
-                        + "Valor(1-5)", "Login", JOptionPane.INFORMATION_MESSAGE);
-            }
-            else if(resultado == tipoRet.CartonesE)
-            {
-                JOptionPane.showMessageDialog(this, "ERROR 'CantidadDeCartonesPorJugador' \nNo Cumple Con Las Reglas"
-                        + "Valor(1-4)", "Login", JOptionPane.INFORMATION_MESSAGE);
-            }
-            else if(resultado == tipoRet.Precio)
-            {
-                JOptionPane.showMessageDialog(this, "ERROR 'Precio' No Cumple Con Las Reglas\n"
-                        + "Ingrese un valor mayor a cero", "Login", JOptionPane.INFORMATION_MESSAGE);
-            }
+            JOptionPane.showMessageDialog(this, "Todos los valores deben ser numericos", "ERROR", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnGuardarConfigActionPerformed
 
     private void ComboxJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboxJActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboxJActionPerformed
+    
+    public boolean ValidarNumericos(ArrayList<String> pLista)
+    {
+        for(String x : pLista)
+        {
+            if(!isNumeric(x))
+            {
+                return false;
+            }
+        }
+        return true;
+    }        
     
     public tipoRet Validar()
     {
@@ -301,13 +343,16 @@ public class vAdmin extends javax.swing.JFrame{
     private javax.swing.JButton btnAgregarJug;
     private javax.swing.JButton btnGuardarConfig;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;

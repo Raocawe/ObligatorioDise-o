@@ -69,12 +69,6 @@ public class Bingo {
         u.Eliminar(pUsuario);
     }
     
-    public cUsuario buscarAdministrador(cUsuario pUsuario) throws cException
-    {
-        dUsuario u = new dUsuario();
-        return u.buscarAdministrador(pUsuario);
-    }
-    
     public cUsuario buscarUsuario(cUsuario pUsuario) throws cException
     {
         dUsuario u = new dUsuario();

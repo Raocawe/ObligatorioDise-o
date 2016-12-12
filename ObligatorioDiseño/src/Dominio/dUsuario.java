@@ -33,12 +33,6 @@ public class dUsuario {
         u.eliminar(pUsuario);
     }
     
-    public cUsuario buscarAdministrador(cUsuario pUsuario) throws cException
-    {
-        pUsuario u = new pUsuario();
-        return u.buscarAdministrador(pUsuario);
-    }
-    
     public cUsuario buscarUsuario(cUsuario pUsuario) throws cException
     {
         pUsuario u = new pUsuario();
