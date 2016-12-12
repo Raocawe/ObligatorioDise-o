@@ -14,6 +14,7 @@ import Interfase.vJuego;
 import Interfase.vJugador;
 import Persistencia.pJuego;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,6 +44,7 @@ public class dJuego {
         PObserver = pPObserver;
         vJuego Vistaj = new vJuego(PObserver);
         PObserver.addObserver(Vistaj);
+        Vistaj.setVisible(true);
         
         ArrayList<Integer> Bolillas = PObserver.getListaDeNumeros();
         while(PObserver.getGanador()==null)

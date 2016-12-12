@@ -98,7 +98,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         {
             return EnumeradosVentana.NoValido;
         }
-        descuento = Integer.parseInt(pResultado)*2;
+        descuento = Integer.parseInt(pResultado);
         if(!b.CompraDeCarton(descuento, usu))
         {
             return EnumeradosVentana.NoSaldo;
@@ -474,7 +474,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
                     } catch (cException ex) {
                         Logger.getLogger(vJugador.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    usu.setSaldo(usu.getSaldo()+(descuento/2));
+                    usu.setSaldo(usu.getSaldo()+descuento);
                     try {
                         b.ModificarUsuario(usu);
                     } catch (cException ex) {

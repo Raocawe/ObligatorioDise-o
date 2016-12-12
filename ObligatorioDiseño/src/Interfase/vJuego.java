@@ -25,6 +25,7 @@ public class vJuego extends javax.swing.JFrame implements Observer{
     public vJuego(PatronObserver pPObserver) {
         PObserver = pPObserver;
         initComponents();
+        JOptionPane.showMessageDialog(this, "<b>El Juego A Comenzado</b>", "¡Atender!", JOptionPane.INFORMATION_MESSAGE);
     }
     
 
