@@ -11,11 +11,16 @@ import Common.cJuego;
 import Common.cUsuario;
 import Dominio.Bingo;
 import static Dominio.Bingo.getInstancia;
+import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -23,10 +28,12 @@ import javax.swing.table.JTableHeader;
 
 public class vJugador extends javax.swing.JFrame implements Observer{
 
+    JFrame Esta;
     Bingo b = getInstancia();;
-    cUsuario usu ;
+    public cUsuario usu ;
     cJuego j;
-    int CantidadCartones;
+    int descuento;
+    int CantidadCartones = 0;
     int CantXCarton;
     DefaultTableModel[] Tablas;
     JTable[] Tablass;
@@ -43,23 +50,29 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         
         initComponents();
         
+        Esta = this;
+        this.setTitle(usu.getNombre());
+        cerrar();
+                
         // <editor-fold defaultstate="collapsed" desc=" Compra De Cartones ">
         String Resultado = "Testeando";
         while(Validar(Resultado) != EnumeradosVentana.Ok)
         {
-            Resultado = (JOptionPane.showInputDialog(this, "¿Con Cuantos Cartones Jugara?", "1 -"+j.getCantidadMaximaCartonesXJuegadores()));
+            Resultado = (JOptionPane.showInputDialog(this, "¿Indique con cuantos catones desea jugar?", "1 -"+j.getCantidadMaximaCartonesXJuegadores()));
             if(Validar(Resultado) == EnumeradosVentana.Ok)
             {
                 break;
             }
                 
-            if(Validar(Resultado) == EnumeradosVentana.NoNumero || Validar(Resultado) == EnumeradosVentana.NoValido){ 
-               JOptionPane.showMessageDialog(this, "Ingrese Un Numero Entre"
-                    + "\n 1 - "+ Integer.toString(VentanasAbiertas)); 
+            if(Validar(Resultado) == EnumeradosVentana.NoNumero){ 
+               JOptionPane.showMessageDialog(this, "Ingrese un valor numerico entre 1 - "+j.getCantidadMaximaCartonesXJuegadores(),"Advertencia",JOptionPane.INFORMATION_MESSAGE); 
+            }
+            else if(Validar(Resultado) == EnumeradosVentana.NoValido){ 
+               JOptionPane.showMessageDialog(this, "No puede participar con mas de "+j.getCantidadMaximaCartonesXJuegadores()+" cartones","Advertencia",JOptionPane.INFORMATION_MESSAGE); 
             }
             else
             {
-                JOptionPane.showMessageDialog(this, "Su Saldo No Es Suficiente");
+                JOptionPane.showMessageDialog(this, "Saldo","Advertencia",JOptionPane.INFORMATION_MESSAGE);
                 Resultado = "Testeando";
             }
         }
@@ -69,7 +82,6 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         
         ManejoTablas();
         
-        VentanasLogueadas++;
         PObserver.setCartonesEnJuego(CantidadCartones);
         PObserver.setCantidadCartones(CantidadCartones);
         PObserver.setVentanasJugando(this);
@@ -86,7 +98,8 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         {
             return EnumeradosVentana.NoValido;
         }
-        if(!b.CompraDeCarton(VentanasAbiertas, usu))
+        descuento = Integer.parseInt(pResultado)*2;
+        if(!b.CompraDeCarton(descuento, usu))
         {
             return EnumeradosVentana.NoSaldo;
         }
@@ -147,21 +160,23 @@ public class vJugador extends javax.swing.JFrame implements Observer{
                 if(x==0){
                     
                     for(int t = 0; t<colum.length;t++){//carga los valores de la fila
-                    int entero = (int) (Math.random()*ListaNumeros.size());  
-                    Tablas[tab].addColumn(ListaNumeros.get(entero));
-                    numerosTabla.add(ListaNumeros.get(entero));
-                    
-                    ListaNumeros.remove(entero);
-                    
+                    int indice = (int) (Math.random()*ListaNumeros.size()); 
+                    int entero = ListaNumeros.get(indice);
+                    Tablas[tab].addColumn(entero);
+                    numerosTabla.add(entero);
+                    CargarListaSorteados(entero);
+                    ListaNumeros.remove(indice);
                     }
                 }
                 else
                 {  
                     for(int t = 0; t<colum.length;t++){//carga los valores de la fila
-                        int entero = (int) (Math.random()*ListaNumeros.size());
-                        colum[t] = String.valueOf(ListaNumeros.get(entero)); 
-                        numerosTabla.add(ListaNumeros.get(entero));
-                        ListaNumeros.remove(entero);
+                        int indice = (int) (Math.random()*ListaNumeros.size()); 
+                        int entero = ListaNumeros.get(indice);
+                        colum[t] = String.valueOf(entero); 
+                        numerosTabla.add(entero);
+                        CargarListaSorteados(entero);
+                        ListaNumeros.remove(indice);
                     }
                     Tablas[tab].addRow(colum);    
                 } 
@@ -180,12 +195,28 @@ public class vJugador extends javax.swing.JFrame implements Observer{
     private ArrayList<Integer> CargarLista()
     {
         ArrayList<Integer> ListaNumeros = new ArrayList<Integer>();
-        ListaNumeros.add(0);
-        for(int i=1;i<100;i++)
+        for(int i=1;i<=100;i++)
         {
             ListaNumeros.add(i);
         }
         return ListaNumeros;
+    }
+    
+    private void CargarListaSorteados(int pNumero)
+    {
+        ArrayList<Integer> lista = PObserver.getListaDeNumeros();
+        boolean encontrado = false;
+        for(Integer x : lista)
+        {
+            if(x==pNumero)
+            {
+                encontrado = true;
+            }
+        }
+        if(encontrado==false)
+        {
+            lista.add(pNumero);
+        }
     }
     
     /**
@@ -426,5 +457,32 @@ public class vJugador extends javax.swing.JFrame implements Observer{
             }
          }
      }
+    
+    public void cerrar()
+    {
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e)
+            {
+                int Decision = JOptionPane.showConfirmDialog(Esta,"¿Esta seguro de abandonar la partida\nPerdera su saldo y resivira una amoretacion?","Advertencia",JOptionPane.YES_NO_OPTION);
+                if(Decision == JOptionPane.YES_OPTION)
+                {
+                    dispose();
+                    PObserver.getVentanasJugando().remove(Esta);
+                    try {
+                        PObserver.calcularPozo();
+                    } catch (cException ex) {
+                        Logger.getLogger(vJugador.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    usu.setSaldo(usu.getSaldo()+(descuento/2));
+                    try {
+                        b.ModificarUsuario(usu);
+                    } catch (cException ex) {
+                        Logger.getLogger(vJugador.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        });
+    }
  }
 

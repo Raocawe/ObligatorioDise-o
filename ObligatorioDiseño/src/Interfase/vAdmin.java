@@ -7,6 +7,7 @@ package Interfase;
 
 import Common.Utilidades;
 import Common.Utilidades.EnumeradoEstadoJuego;
+import static Common.Utilidades.EstadoJuego;
 import static Common.Utilidades.VentanasAbiertas;
 import Common.Utilidades.tipoRet;
 import Common.cException;
@@ -153,7 +154,11 @@ public class vAdmin extends javax.swing.JFrame{
     
     
     private void btnAgregarJugActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarJugActionPerformed
-        Utilidades.EstadoJuego = EnumeradoEstadoJuego.Activado;
+        if(EstadoJuego == EnumeradoEstadoJuego.Activado)
+        {
+             JOptionPane.showMessageDialog(this, "Hay un juego de bingo activo", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
         vLogin p;
         // <editor-fold defaultstate="collapsed" desc=" AberturaDePantallas ">     
         String CantJ = (String) ComboxJ.getSelectedItem();
@@ -174,6 +179,7 @@ public class vAdmin extends javax.swing.JFrame{
         // </editor-fold>
 
         this.setVisible(false);
+        }
     }//GEN-LAST:event_btnAgregarJugActionPerformed
 
 
@@ -184,42 +190,49 @@ public class vAdmin extends javax.swing.JFrame{
         Precio = Integer.parseInt(this.txtPrecio.getText().toString());
         CantFilas = Integer.parseInt(this.txtCantFilas.getText().toString());
         
-        tipoRet resultado = Validar();
-        if(resultado == tipoRet.OK)
+        if(EstadoJuego == EnumeradoEstadoJuego.Activado)
         {
-            Bingo b = Bingo.getInstancia();
-            cJuego j = (cJuego)b.CrearObjeto(Utilidades.EnumeradosFabrica.Juego);
-            j.setCantidadColumnas(CantColumn);
-            j.setCantidadFilas(CantFilas);
-            j.setCantidadMaximaCartonesXJuegadores(CantCarMax);
-            j.setValorCarton(Precio);
-            
-            try {
-                b.ModificarConfiguracion(j);
-                JOptionPane.showMessageDialog(this, "Configuraciones Modificadas", "Login", JOptionPane.INFORMATION_MESSAGE);
-            } catch (cException ex) {
-                Logger.getLogger(vAdmin.class.getName()).log(Level.SEVERE, null, ex);
+             JOptionPane.showMessageDialog(this, "Hay un juego activo,No se puede modificar la configuracion", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else
+        {
+            tipoRet resultado = Validar();
+            if(resultado == tipoRet.OK)
+            {
+                Bingo b = Bingo.getInstancia();
+                cJuego j = (cJuego)b.CrearObjeto(Utilidades.EnumeradosFabrica.Juego);
+                j.setCantidadColumnas(CantColumn);
+                j.setCantidadFilas(CantFilas);
+                j.setCantidadMaximaCartonesXJuegadores(CantCarMax);
+                j.setValorCarton(Precio);
+
+                try {
+                    b.ModificarConfiguracion(j);
+                    JOptionPane.showMessageDialog(this, "Configuraciones Modificadas", "Login", JOptionPane.INFORMATION_MESSAGE);
+                } catch (cException ex) {
+                    Logger.getLogger(vAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        }
-        else if(resultado == tipoRet.CantColumE)
-        {
-            JOptionPane.showMessageDialog(this, "ERROR 'CantidadColumnas' No Cumple Con Las Reglas\n"
-                    + "Valor(1-5)", "Login", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else if(resultado == tipoRet.CantFilaE)
-        {
-            JOptionPane.showMessageDialog(this, "ERROR 'CantidadFilas' No Cumple Con Las Reglas\n"
-                    + "Valor(1-5)", "Login", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else if(resultado == tipoRet.CartonesE)
-        {
-            JOptionPane.showMessageDialog(this, "ERROR 'CantidadDeCartonesPorJugador' \nNo Cumple Con Las Reglas"
-                    + "Valor(1-4)", "Login", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else if(resultado == tipoRet.Precio)
-        {
-            JOptionPane.showMessageDialog(this, "ERROR 'Precio' No Cumple Con Las Reglas\n"
-                    + "Ingrese un valor mayor a cero", "Login", JOptionPane.INFORMATION_MESSAGE);
+            else if(resultado == tipoRet.CantColumE)
+            {
+                JOptionPane.showMessageDialog(this, "ERROR 'CantidadColumnas' No Cumple Con Las Reglas\n"
+                        + "Valor(1-5)", "Login", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else if(resultado == tipoRet.CantFilaE)
+            {
+                JOptionPane.showMessageDialog(this, "ERROR 'CantidadFilas' No Cumple Con Las Reglas\n"
+                        + "Valor(1-5)", "Login", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else if(resultado == tipoRet.CartonesE)
+            {
+                JOptionPane.showMessageDialog(this, "ERROR 'CantidadDeCartonesPorJugador' \nNo Cumple Con Las Reglas"
+                        + "Valor(1-4)", "Login", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else if(resultado == tipoRet.Precio)
+            {
+                JOptionPane.showMessageDialog(this, "ERROR 'Precio' No Cumple Con Las Reglas\n"
+                        + "Ingrese un valor mayor a cero", "Login", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }//GEN-LAST:event_btnGuardarConfigActionPerformed
 

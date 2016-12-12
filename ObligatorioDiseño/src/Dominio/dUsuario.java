@@ -54,7 +54,6 @@ public class dUsuario {
         if(Saldo >= Costo)
         {
             pUsu.setSaldo(Saldo-Costo);
-            Modificar(pUsu);
             return true;
         }
         return false;

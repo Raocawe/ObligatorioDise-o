@@ -5,11 +5,13 @@
  */
 package Dominio;
 
+import Common.Utilidades;
 import Common.cException;
 import Common.cJuego;
 import Common.cUsuario;
 import Interfase.PatronObserver;
 import Interfase.vJuego;
+import Interfase.vJugador;
 import Persistencia.pJuego;
 import java.util.ArrayList;
 
@@ -36,12 +38,13 @@ public class dJuego {
         
     public void ComenzarPartida(PatronObserver pPObserver,Bingo pB) throws InterruptedException, cException
     {
+        Utilidades.EstadoJuego = Utilidades.EnumeradoEstadoJuego.Activado;
         b = pB;
         PObserver = pPObserver;
         vJuego Vistaj = new vJuego(PObserver);
         PObserver.addObserver(Vistaj);
         
-        ArrayList<Integer> Bolillas = CargarLista();
+        ArrayList<Integer> Bolillas = PObserver.getListaDeNumeros();
         while(PObserver.getGanador()==null)
         {
             int indice = (int) (Math.random() * Bolillas.size());
@@ -63,17 +66,18 @@ public class dJuego {
         cUsuario u = PObserver.getGanador();
         u.setSaldo(PObserver.getPozo()+u.getSaldo());
         b.ModificarUsuario(u);
-    }
-    
-    private ArrayList<Integer> CargarLista()
-    {
-        ArrayList<Integer> ListaNumeros = new ArrayList<Integer>();
-        ListaNumeros.add(00);
-        for(int i=1;i<100;i++)
+        
+        // <editor-fold defaultstate="collapsed" desc=" Descuento A Perdedores ">
+        ArrayList<vJugador> ventanas = PObserver.getVentanasJugando();
+        for(int i = 0; i< ventanas.size();i++)
         {
-            ListaNumeros.add(i);
+            cUsuario ur = ventanas.get(i).usu;
+            if(ur != u)
+            {
+                b.ModificarUsuario(ur);
+            }
         }
-        return ListaNumeros;
+        // </editor-fold>
     }
     
 }

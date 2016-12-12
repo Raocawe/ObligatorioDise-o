@@ -7,9 +7,9 @@ package Interfase;
 
 import Common.Utilidades;
 import Common.Utilidades.EnumeradoEstadoJuego;
+import Common.Utilidades.EnumeradoResultadoFuncion;
 import static Common.Utilidades.EstadoJuego;
 import static Common.Utilidades.VentanasAbiertas;
-import static Common.Utilidades.VentanasLogueadas;
 import Common.Utilidades.tipoRet;
 import Common.cException;
 import Common.cJuego;
@@ -106,15 +106,21 @@ public class vLogin extends javax.swing.JFrame {
         usu.setContraseña(c);
              
         try {
-            if(!Prox.logear(usu))
+            EnumeradoResultadoFuncion Resultado = Prox.logear(usu);
+            if(Resultado==EnumeradoResultadoFuncion.ElJuegoYaComenzo)
             {
-               JOptionPane.showMessageDialog(this, "ERROR USUARIO NO ENCONTRADO O El JUEGO NO A INICIADO", "Login", JOptionPane.INFORMATION_MESSAGE);
+               JOptionPane.showMessageDialog(this, "El JUEGO NO SE A COMENZADO A GESTIONAR", "Login", JOptionPane.INFORMATION_MESSAGE);
                LimpiarCampos();
             }
-            else{
+            else if(Resultado == EnumeradoResultadoFuncion.NoExiste){
+               JOptionPane.showMessageDialog(this, "ERROR USUARIO NO ENCONTRADO", "Login", JOptionPane.INFORMATION_MESSAGE);
+               LimpiarCampos();
+            }  
+            else
+            {
                this.setVisible(false); 
                Estado = false;
-            }  
+            }
         } catch (cException ex) {
             
             Logger.getLogger(vLogin.class.getName()).log(Level.SEVERE, null, ex);

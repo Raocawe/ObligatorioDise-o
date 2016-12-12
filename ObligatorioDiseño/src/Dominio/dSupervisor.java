@@ -48,27 +48,32 @@ public class dSupervisor implements Runnable{
             }
         }
         
+        // <editor-fold defaultstate="collapsed" desc=" PrandoVariablesParaComenzar ">  
         Bingo b = new Bingo();
         try {
             j = b.buscarTodo();
         } catch (cException ex) {
             Logger.getLogger(dSupervisor.class.getName()).log(Level.SEVERE, null, ex);
+        }      
+        OPatron.setVentanasIniciales(OPatron.getVentanasJugando().size());
+        OPatron.setCartonesIniciles(OPatron.getCartonesEnJuego());
+        
+        try {
+            OPatron.calcularPozo();
+        } catch (cException ex) {
+            Logger.getLogger(dSupervisor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        int Pozo = ((OPatron.getCantidadCartones() * j.getValorCarton()) +(OPatron.getCartonesEnJuego() * j.getValorCarton()));
-        OPatron.setPozo(Pozo);
-        
-        
-        
-        
-        
-        
-        
+ 
+        // </editor-fold>
         
         try {
             b.ComenzarPartida(OPatron,b);
         } catch (InterruptedException ex) {
             Logger.getLogger(dSupervisor.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (cException ex) {
+            Logger.getLogger(dSupervisor.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
     
 }

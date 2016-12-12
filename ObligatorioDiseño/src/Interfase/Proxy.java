@@ -7,6 +7,7 @@ package Interfase;
 
 import Common.Utilidades;
 import Common.Utilidades.EnumeradoEstadoJuego;
+import Common.Utilidades.EnumeradoResultadoFuncion;
 import static Common.Utilidades.VentanasAbiertas;
 import Common.Utilidades.tipoRet;
 import Common.cException;
@@ -28,22 +29,22 @@ public class Proxy {
         OPatron=pOPatron;
     }
    
-    public boolean logear(cUsuario us) throws cException
+    public EnumeradoResultadoFuncion logear(cUsuario us) throws cException
     {       
         us = b.buscarUsuario(us);
             if(us != null){     
                 if(us.getTipo() == Utilidades.EnumeradosTipo.Usuario )
                 {
-                    if(Utilidades.EstadoJuego == EnumeradoEstadoJuego.Activado){
+                    if(Utilidades.EstadoJuego != EnumeradoEstadoJuego.Activado){
                         vJugador Juego = new vJugador(us,OPatron);
                         OPatron.addObserver(Juego);
                         Juego.setVisible(true);
                         
-                        return true;
+                        return EnumeradoResultadoFuncion.OK;
                         }
                     else
                     {
-                        return false;
+                        return EnumeradoResultadoFuncion.ElJuegoYaComenzo;
                     }
                 }
                 else
@@ -51,11 +52,11 @@ public class Proxy {
                     vAdmin A = new vAdmin(this);
                     A.setLocationRelativeTo(null);
                     A.setVisible(true);
-                    return true;
+                    return EnumeradoResultadoFuncion.OK;
                 }
             }
             else 
-                return false;
+                return EnumeradoResultadoFuncion.NoExiste;
     }
 
     public PatronObserver getOPatron() {
