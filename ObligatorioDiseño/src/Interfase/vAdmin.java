@@ -74,6 +74,12 @@ public class vAdmin extends javax.swing.JFrame{
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -139,13 +145,13 @@ public class vAdmin extends javax.swing.JFrame{
         });
         jPanel2.add(btnGuardarConfig, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, -1, -1));
 
-        jLabel9.setText("Max 5.");
+        jLabel9.setText("Min 0.");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, -1, -1));
 
         jLabel10.setText("Max 5.");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, -1));
 
-        jLabel12.setText("Max 5.");
+        jLabel12.setText("Max 4.");
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, -1, -1));
 
         jLabel11.setText("Max 5.");
@@ -156,6 +162,30 @@ public class vAdmin extends javax.swing.JFrame{
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, -90, 570, 520));
 
         jTabbedPane1.addTab("Configuraciones", jPanel2);
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel14.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
+        jLabel14.setText("Nombre :");
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
+        jLabel15.setText("Apellido :");
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
+        jLabel16.setText("Usuario :");
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
+        jLabel17.setText("Contraseña :");
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
+
+        jLabel18.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
+        jLabel18.setText("Monto :");
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, -1));
+
+        jTabbedPane1.addTab("Agregar Usuario", jPanel3);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 450));
 
@@ -190,7 +220,7 @@ public class vAdmin extends javax.swing.JFrame{
         y.start();
         // </editor-fold>
 
-        this.setVisible(false);
+        //this.setVisible(false);
         }
     }//GEN-LAST:event_btnAgregarJugActionPerformed
 
@@ -346,6 +376,11 @@ public class vAdmin extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -355,6 +390,7 @@ public class vAdmin extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField txtCantCarJug;
     private javax.swing.JTextField txtCantColumn;

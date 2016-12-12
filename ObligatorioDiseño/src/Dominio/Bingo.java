@@ -88,9 +88,9 @@ public class Bingo {
     {
         switch (o) {
             case Usuario:
-                return cUsuario.ObtenerInstancia(); 
+                return new cUsuario(); 
             case Juego:
-                return cJuego.ObtenerInstancia();
+                return new cJuego();
             default:
                 return null;
         }

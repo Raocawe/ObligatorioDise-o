@@ -28,7 +28,6 @@ public class PatronObserver extends Observable{
     private int CartonesIniciles;
     private int VentanasIniciales;
     private ArrayList<vJugador> VentanasJugando = new ArrayList<vJugador>();
-    private int CantidadCartones = 0;
 
     // <editor-fold defaultstate="collapsed" desc=" FuncionesQueNotifican ">
     public void setBolillaSorteada(int BolillaSorteada) {
@@ -78,13 +77,6 @@ public class PatronObserver extends Observable{
         return Ganador;
     }
 
-    public int getCantidadCartones() {
-        return CantidadCartones;
-    }
-
-    public void setCantidadCartones(int CantidadCartones) {
-        this.CantidadCartones = CantidadCartones;
-    }
 
     public int getVentanasIniciales() {
         return VentanasIniciales;

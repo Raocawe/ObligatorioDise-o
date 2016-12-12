@@ -36,11 +36,20 @@ public class Proxy {
                 if(us.getTipo() == Utilidades.EnumeradosTipo.Usuario )
                 {
                     if(Utilidades.EstadoJuego != EnumeradoEstadoJuego.Activado){
+                        
+                        for(int i=0; i<OPatron.getVentanasJugando().size();i++)//Busca si ese usuario ya esta logueado
+                        {
+                            if(OPatron.getVentanasJugando().get(i).usu.getIdUsuario() == us.getIdUsuario())
+                            {
+                                return EnumeradoResultadoFuncion.UsuarioLogeado;
+                            }
+                        }
+                        
                         vJugador Juego = new vJugador(us,OPatron);
                         OPatron.addObserver(Juego);
                         Juego.setVisible(true);
-                        return EnumeradoResultadoFuncion.OK;
-                        }
+                        return EnumeradoResultadoFuncion.OK; 
+                    }    
                     else
                     {
                         return EnumeradoResultadoFuncion.ElJuegoYaComenzo;
@@ -48,10 +57,15 @@ public class Proxy {
                 }
                 else
                 {
+                    if(!Utilidades.AdministradorLogueado){
                     vAdmin A = new vAdmin(this);
                     A.setLocationRelativeTo(null);
                     A.setVisible(true);
+                    Utilidades.AdministradorLogueado = true;
                     return EnumeradoResultadoFuncion.OK;
+                    }
+                    else
+                        return EnumeradoResultadoFuncion.UsuarioLogeado;
                 }
             }
             else 

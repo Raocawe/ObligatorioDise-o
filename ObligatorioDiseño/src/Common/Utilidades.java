@@ -15,6 +15,8 @@ public class Utilidades {
        
     public static int VentanasAbiertas = 0;
     
+    public static boolean AdministradorLogueado = false;
+    
     public static EnumeradoEstadoJuego EstadoJuego = EnumeradoEstadoJuego.Desactivado;
             
     public static enum EnumeradoEstadoJuego
@@ -41,7 +43,7 @@ public class Utilidades {
     
     public static enum EnumeradoResultadoFuncion
     {
-        OK,NoExiste,ElJuegoYaComenzo
+        OK,NoExiste,ElJuegoYaComenzo,UsuarioLogeado
     }
     public static enum tipoRet{
     CantFilaE,CantColumE,Precio,CartonesE,OK

@@ -47,6 +47,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         usu = pusu;
         j = b.buscarTodo();
         PObserver = pPObserver;
+        PObserver.setVentanasJugando(this);
         
         initComponents();
         
@@ -83,8 +84,6 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         ManejoTablas();
         
         PObserver.setCartonesEnJuego(CantidadCartones);
-        PObserver.setCantidadCartones(CantidadCartones);
-        PObserver.setVentanasJugando(this);
         lblMonto.setText(String.valueOf(usu.getSaldo()));        
     }
     
@@ -268,7 +267,7 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         ));
         jScrollPane2.setViewportView(tblCarton4);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 300, 120));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 300, 120));
 
         tblCarton1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -293,30 +292,30 @@ public class vJugador extends javax.swing.JFrame implements Observer{
         ));
         jScrollPane4.setViewportView(tblCarton2);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 300, 120));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 300, 120));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
         jLabel1.setText("Pozo");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 460, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
         jLabel2.setText("Monto");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Rectangulo.png"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
         lblPozo.setFont(new java.awt.Font("Century Gothic", 2, 14)); // NOI18N
         lblPozo.setText(".");
-        getContentPane().add(lblPozo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, -1, -1));
+        getContentPane().add(lblPozo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 460, -1, -1));
 
         lblMonto.setFont(new java.awt.Font("Century Gothic", 2, 14)); // NOI18N
         lblMonto.setText(".");
-        getContentPane().add(lblMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 390, -1, -1));
+        getContentPane().add(lblMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 460, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.png"))); // NOI18N
         jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 430));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

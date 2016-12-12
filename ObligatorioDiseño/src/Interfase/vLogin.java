@@ -107,19 +107,24 @@ public class vLogin extends javax.swing.JFrame {
              
         try {
             EnumeradoResultadoFuncion Resultado = Prox.logear(usu);
-            if(Resultado==EnumeradoResultadoFuncion.ElJuegoYaComenzo)
-            {
-               JOptionPane.showMessageDialog(this, "El JUEGO NO SE A COMENZADO A GESTIONAR", "Login", JOptionPane.INFORMATION_MESSAGE);
-               LimpiarCampos();
-            }
-            else if(Resultado == EnumeradoResultadoFuncion.NoExiste){
-               JOptionPane.showMessageDialog(this, "ERROR USUARIO NO ENCONTRADO", "Login", JOptionPane.INFORMATION_MESSAGE);
-               LimpiarCampos();
-            }  
-            else
-            {
-               this.setVisible(false); 
-               Estado = false;
+            if(null!=Resultado)
+            switch (Resultado) {
+                case ElJuegoYaComenzo:
+                    JOptionPane.showMessageDialog(this, "El JUEGO NO SE A COMENZADO A GESTIONAR", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+                    LimpiarCampos();
+                    break;
+                case NoExiste:
+                    JOptionPane.showMessageDialog(this, "USUARIO NO ENCONTRADO", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+                    LimpiarCampos();
+                    break;
+                case UsuarioLogeado:
+                    JOptionPane.showMessageDialog(this, "EL USUARIO YA SE ENCUENTRA EN EL JUEGO", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+                    LimpiarCampos();
+                    break;
+                default:
+                    this.setVisible(false);
+                    Estado = false;
+                    break;
             }
         } catch (cException ex) {
             
