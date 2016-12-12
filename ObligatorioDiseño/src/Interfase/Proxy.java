@@ -39,7 +39,6 @@ public class Proxy {
                         vJugador Juego = new vJugador(us,OPatron);
                         OPatron.addObserver(Juego);
                         Juego.setVisible(true);
-                        
                         return EnumeradoResultadoFuncion.OK;
                         }
                     else
