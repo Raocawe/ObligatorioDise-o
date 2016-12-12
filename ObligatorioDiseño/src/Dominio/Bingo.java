@@ -63,12 +63,6 @@ public class Bingo {
         u.Modificar(pUsuario);
     }
     
-    public void Eliminar(cUsuario pUsuario) throws cException
-    {
-        dUsuario u = new dUsuario();
-        u.Eliminar(pUsuario);
-    }
-    
     public cUsuario buscarUsuario(cUsuario pUsuario) throws cException
     {
         dUsuario u = new dUsuario();

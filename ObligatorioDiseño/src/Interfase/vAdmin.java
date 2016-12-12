@@ -13,6 +13,7 @@ import static Common.Utilidades.isNumeric;
 import Common.Utilidades.tipoRet;
 import Common.cException;
 import Common.cJuego;
+import Common.cUsuario;
 import Dominio.Bingo;
 import Dominio.dHilo;
 import Dominio.dSupervisor;
@@ -57,6 +58,8 @@ public class vAdmin extends javax.swing.JFrame{
         jPanel1 = new javax.swing.JPanel();
         ComboxJ = new javax.swing.JComboBox();
         btnAgregarJug = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -80,6 +83,13 @@ public class vAdmin extends javax.swing.JFrame{
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        txtNombreU = new javax.swing.JTextField();
+        txtApellidoU = new javax.swing.JTextField();
+        txtUsuraioU = new javax.swing.JTextField();
+        txtContraseñaU = new javax.swing.JPasswordField();
+        txtMontoU = new javax.swing.JTextField();
+        btnAgregarU = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -93,7 +103,7 @@ public class vAdmin extends javax.swing.JFrame{
                 ComboxJActionPerformed(evt);
             }
         });
-        jPanel1.add(ComboxJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 80, 50));
+        jPanel1.add(ComboxJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 80, 50));
 
         btnAgregarJug.setFont(new java.awt.Font("Yu Mincho", 2, 24)); // NOI18N
         btnAgregarJug.setText("Comenzar Partida");
@@ -102,7 +112,15 @@ public class vAdmin extends javax.swing.JFrame{
                 btnAgregarJugActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAgregarJug, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
+        jPanel1.add(btnAgregarJug, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Century Gothic", 2, 24)); // NOI18N
+        jLabel13.setText("Participantes");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
+
+        jLabel20.setFont(new java.awt.Font("Century Gothic", 2, 24)); // NOI18N
+        jLabel20.setText("Cantidad De ");
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.png"))); // NOI18N
         jLabel8.setText("jLabel8");
@@ -112,9 +130,9 @@ public class vAdmin extends javax.swing.JFrame{
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Monospaced", 2, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Monospaced", 2, 36)); // NOI18N
         jLabel1.setText("Configuraciones");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
         jLabel2.setText("Filas Carton");
@@ -171,19 +189,49 @@ public class vAdmin extends javax.swing.JFrame{
 
         jLabel15.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
         jLabel15.setText("Apellido :");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
         jLabel16.setText("Usuario :");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
         jLabel17.setText("Contraseña :");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
         jLabel18.setText("Monto :");
-        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, -1));
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
+        jPanel3.add(txtNombreU, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 160, 30));
+        jPanel3.add(txtApellidoU, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 160, 30));
+        jPanel3.add(txtUsuraioU, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 160, 30));
+
+        txtContraseñaU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContraseñaUActionPerformed(evt);
+            }
+        });
+        jPanel3.add(txtContraseñaU, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 160, 30));
+
+        txtMontoU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMontoUActionPerformed(evt);
+            }
+        });
+        jPanel3.add(txtMontoU, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 160, 30));
+
+        btnAgregarU.setFont(new java.awt.Font("Yu Mincho", 2, 24)); // NOI18N
+        btnAgregarU.setText("Agregar");
+        btnAgregarU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarUActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnAgregarU, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, -1, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.png"))); // NOI18N
+        jLabel6.setText("jLabel6");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -210, 1320, 1190));
 
         jTabbedPane1.addTab("Agregar Usuario", jPanel3);
 
@@ -299,6 +347,63 @@ public class vAdmin extends javax.swing.JFrame{
     private void ComboxJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboxJActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboxJActionPerformed
+
+    private void txtContraseñaUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaUActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraseñaUActionPerformed
+
+    private void txtMontoUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoUActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMontoUActionPerformed
+
+    private void btnAgregarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarUActionPerformed
+        String a = this.txtContraseñaU.getText().toString();
+        String b = this.txtMontoU.getText().toString();
+        String c = this.txtNombreU.getText().toString();
+        String d = this.txtApellidoU.getText().toString();
+        String e = this.txtUsuraioU.getText().toString();
+        
+        ArrayList<String> lista = new ArrayList<>();
+        lista.add(b);
+        
+        if(ValidarNumericos(lista))
+        {
+            Bingo bin = new Bingo();
+            cUsuario us = (cUsuario)bin.CrearObjeto(Utilidades.EnumeradosFabrica.Usuario);
+            us.setContraseña(a);
+            us.setUsuario(e);
+           
+            try {
+                us = bin.buscarUsuario(us);
+            } catch (cException ex) {
+                Logger.getLogger(vAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if(us == null)
+            {
+                us = (cUsuario)bin.CrearObjeto(Utilidades.EnumeradosFabrica.Usuario);
+                us.setApellido(d);
+                us.setContraseña(a);
+                us.setNombre(c);
+                us.setSaldo(Integer.parseInt(b));
+                us.setUsuario(e);
+                us.setTipo(Utilidades.EnumeradosTipo.Usuario);
+                
+                try {
+                    bin.AgregarUsuario(us);
+                } catch (cException ex) {
+                    Logger.getLogger(vAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "El Usuario Ya Esta Registrado", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "El Campo Monto Debe Ser Numerico", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btnAgregarUActionPerformed
     
     public boolean ValidarNumericos(ArrayList<String> pLista)
     {
@@ -371,20 +476,24 @@ public class vAdmin extends javax.swing.JFrame{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox ComboxJ;
     private javax.swing.JButton btnAgregarJug;
+    private javax.swing.JButton btnAgregarU;
     private javax.swing.JButton btnGuardarConfig;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -392,9 +501,14 @@ public class vAdmin extends javax.swing.JFrame{
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField txtApellidoU;
     private javax.swing.JTextField txtCantCarJug;
     private javax.swing.JTextField txtCantColumn;
     private javax.swing.JTextField txtCantFilas;
+    private javax.swing.JPasswordField txtContraseñaU;
+    private javax.swing.JTextField txtMontoU;
+    private javax.swing.JTextField txtNombreU;
     private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtUsuraioU;
     // End of variables declaration//GEN-END:variables
 }
