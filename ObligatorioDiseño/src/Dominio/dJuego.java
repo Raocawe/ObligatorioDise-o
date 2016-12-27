@@ -4,16 +4,29 @@
  * and open the template in the editor.
  */
 package Dominio;
+
+import Common.Utilidades;
 import Common.cException;
 import Common.cJuego;
+import Common.cUsuario;
+import Interfase.PatronObserver;
+import Interfase.vJuego;
+import Interfase.vJugador;
 import Persistencia.pJuego;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author cristian castro
  */
 public class dJuego {
-        
+    
+    PatronObserver PObserver;
+    Bingo b;
+    
     public void Modificar(cJuego pJuego) throws cException
     {
         pJuego u = new pJuego();
@@ -25,13 +38,59 @@ public class dJuego {
         pJuego u = new pJuego();
         return u.buscarTodo();
     }
-    
-    public void ComenzarPartida()
+        
+    public void ComenzarPartida(PatronObserver pPObserver,Bingo pB) throws InterruptedException, cException
     {
-        int i = 0;
-        //Metodo
-        //trolololololol
+        Utilidades.EstadoJuego = Utilidades.EnumeradoEstadoJuego.Activado;
+        b = pB;
+        PObserver = pPObserver;
+        vJuego Vistaj = new vJuego(PObserver);
+        PObserver.addObserver(Vistaj);
+        Vistaj.setVisible(true);
+        
+        ArrayList<Integer> Bolillas = PObserver.getListaDeNumeros();
+        while(PObserver.getGanador()==null)
+        {
+            int indice = (int) (Math.random() * Bolillas.size());
+            int Enviar = Bolillas.get(indice);
+            Bolillas.remove(indice);
+            TirarBolla(Enviar);
+        }
+        TerminarJuego();
+        
+        // <editor-fold defaultstate="collapsed" desc=" Consulta Por Cierre ">
+        int Decision = JOptionPane.showConfirmDialog(Vistaj,"¿Quiere Cerrar El Programa?","Cierre",JOptionPane.YES_NO_OPTION);
+        if(Decision == JOptionPane.YES_OPTION)
+        {
+            System.exit(0);
+        }
+        // </editor-fold>
     }
     
+    private void TirarBolla(int pNumero) throws InterruptedException
+    {
+        PObserver.setBolillaSorteada(pNumero);
+        Thread.sleep(1000);
+    }
+    
+    private void TerminarJuego() throws cException
+    {
+        cUsuario u = PObserver.getGanador();
+        u.setSaldo(PObserver.getPozo()+u.getSaldo());
+        b.ModificarUsuario(u);
+        
+        // <editor-fold defaultstate="collapsed" desc=" Descuento A Perdedores ">
+        ArrayList<vJugador> ventanas = PObserver.getVentanasJugando();
+        for(int i = 0; i< ventanas.size();i++)
+        {
+            cUsuario ur = ventanas.get(i).usu;
+            if(ur != u)
+            {
+                b.ModificarUsuario(ur);
+            }
+        }
+        // </editor-fold>
+        
+    }
     
 }

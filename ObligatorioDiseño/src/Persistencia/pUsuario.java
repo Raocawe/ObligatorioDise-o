@@ -47,12 +47,12 @@ public class pUsuario extends pPersistencia{
             super.abrirConexion();
             Statement st= super.getDistribuidora().createStatement();
                     String updateSql="UPDATE usuario SET " +
-                    "Nombre='" + pCliente.getNombre() + "'" +
-                    "Apellido='" + pCliente.getApellido() + "'" +
-                    "Usuario='" + pCliente.getUsuario() + "'" +
-                    "Contraseña='" + pCliente.getContraseña() + "'" +
+                    "Nombre='" + pCliente.getNombre() + "', " +
+                    "Apellido='" + pCliente.getApellido() + "', " +
+                    "Usuario='" + pCliente.getUsuario() + "', " +
+                    "Contraseña='" + pCliente.getContraseña() + "', " +
                     "Saldo=" + pCliente.getSaldo() +
-                    "Tipo='" + pCliente.getTipo().toString() + "'" +
+                    ", Tipo='" + pCliente.getTipo().toString() + "'" +
                     " WHERE IdUsuario=" +  pCliente.getIdUsuario();
                     System.out.println(updateSql);
                     st.executeUpdate(updateSql);
@@ -61,7 +61,7 @@ public class pUsuario extends pPersistencia{
             throw new cException("ERROR AL INTENTAR MODIFICAR CLIENTE:" + e.getMessage());
         }
     }
-
+    
     public void eliminar(Object o) throws cException {
         try{
             cUsuario pCliente =(cUsuario) o;
@@ -130,39 +130,6 @@ public class pUsuario extends pPersistencia{
                     return null;
                 }
                     
-                pCliente.setSaldo(rs.getInt("Saldo"));
-            }
-            super.cerrarConexion();
-            if (pCliente != null){
-                return pCliente;
-            }else{
-                return null;
-            }
-        }catch(SQLException e){throw new cException("Error al buscar accion:" + e.getMessage());}
-    }
-    
-    public cUsuario buscarAdministrador(Object o)throws cException{
-        try{
-             cUsuario pCliente = (cUsuario)o;
-            super.abrirConexion();
-            Statement st= super.getDistribuidora().createStatement();
-            String selectSql="SELECT * FROM usuario ";
-            if (pCliente.getIdUsuario() !=0){
-                selectSql=selectSql + " WHERE IdUsuario=" + pCliente.getIdUsuario() + "and Tipo ='"+ EnumeradosTipo.Admin.toString()+"'";
-            }
-            System.out.println(selectSql);
-            ResultSet rs=st.executeQuery(selectSql);
-            pCliente = null;
-            while(rs.next()){
-                pCliente = new cUsuario();
-                int num;
-                num = rs.getInt("IdUsuario");
-                pCliente.setIdUsuario(num);
-                pCliente.setNombre(rs.getString("Nombre"));
-                pCliente.setApellido(rs.getString("Apellido"));
-                pCliente.setUsuario(rs.getString("Usuario"));
-                pCliente.setContraseña(rs.getString("Contraseña"));
-                pCliente.setTipo(EnumeradosTipo.Admin);
                 pCliente.setSaldo(rs.getInt("Saldo"));
             }
             super.cerrarConexion();

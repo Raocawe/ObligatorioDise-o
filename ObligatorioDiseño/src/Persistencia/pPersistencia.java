@@ -66,5 +66,4 @@ public class pPersistencia {
 
     public void eliminar(Object o) throws cException {
     }
-
 }

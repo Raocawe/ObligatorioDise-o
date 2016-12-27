@@ -10,6 +10,7 @@ import Common.Utilidades.EnumeradosFabrica;
 import Common.cException;
 import Common.cJuego;
 import Common.cUsuario;
+import Interfase.PatronObserver;
 import Persistencia.pUsuario;
 
 /**
@@ -28,9 +29,6 @@ public class Bingo {
         return bin;
     }
    //</editor-fold>
-
-    public Bingo() {
-    }
     
     // <editor-fold defaultstate="collapsed" desc=" Juego ">  
     public void ModificarConfiguracion(cJuego pJuego) throws cException
@@ -45,10 +43,10 @@ public class Bingo {
         return u.buscarTodo();
     }
     
-    public void ComenzarPartida()
+    public void ComenzarPartida(PatronObserver PObserver,Bingo pB) throws InterruptedException, cException
     {
         dJuego u = new dJuego();
-        u.ComenzarPartida();
+        u.ComenzarPartida(PObserver,pB);
     }
     //</editor-fold>
     
@@ -63,18 +61,6 @@ public class Bingo {
     {
         dUsuario u = new dUsuario();
         u.Modificar(pUsuario);
-    }
-    
-    public void Eliminar(cUsuario pUsuario) throws cException
-    {
-        dUsuario u = new dUsuario();
-        u.Eliminar(pUsuario);
-    }
-    
-    public cUsuario buscarAdministrador(cUsuario pUsuario) throws cException
-    {
-        dUsuario u = new dUsuario();
-        return u.buscarAdministrador(pUsuario);
     }
     
     public cUsuario buscarUsuario(cUsuario pUsuario) throws cException
@@ -96,9 +82,9 @@ public class Bingo {
     {
         switch (o) {
             case Usuario:
-                return cUsuario.ObtenerInstancia(); 
+                return new cUsuario(); 
             case Juego:
-                return cJuego.ObtenerInstancia();
+                return new cJuego();
             default:
                 return null;
         }
